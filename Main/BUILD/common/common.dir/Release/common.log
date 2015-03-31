@@ -1,0 +1,23 @@
+﻿Build started 31/03/2015 15:55:26.
+     1>Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\common\common.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         AutoBindShader
+         G:/Documents/GitHub/Mortal_Kitchen/Main/src-2015/common/drawimage_sh.fp
+          [AutoBindShader] - v0.2 - 2015-03-31 15:55 <drawimage_sh>  
+          [AutoBindShader] including 'G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\common\drawimage_sh.vp'
+          [AutoBindShader] parsing   'G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\common\drawimage_sh.vp'
+          [AutoBindShader] including 'G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\common\drawimage_sh.fp'
+          [AutoBindShader] parsing   'G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\common\drawimage_sh.fp'
+          [AutoBindShader] success, generated <drawimage_sh.h>
+       ClCompile:
+         G:\Programmes Files\Visual Studio\VC\bin\CL.exe /c /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\LibSL" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\png" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\zlib" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\newmat" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src" /I\include /I\lib\x86 /I\Samples\C++\DXUT\Core /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\common" /IG:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\common /nologo /W3 /WX- /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D USE_GLUX /D UNICODE /D _UNICODE /D TW_STATIC /D TW_NO_LIB_PRAGMA /D "DATA_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/Main/src-2015\"" /D "CMAKE_INTDIR=\"Release\"" /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"common.dir\Release\\" /Fd"common.dir\Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\common\drawimage.cpp"
+         drawimage.cpp
+       Lib:
+         G:\Programmes Files\Visual Studio\VC\bin\Lib.exe /OUT:"G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\common\Release\common.lib" /NOLOGO common.dir\Release\base.obj
+         common.dir\Release\drawimage.obj
+         common.vcxproj -> G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\common\Release\common.lib
+     1>Done Building Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\common\common.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.14

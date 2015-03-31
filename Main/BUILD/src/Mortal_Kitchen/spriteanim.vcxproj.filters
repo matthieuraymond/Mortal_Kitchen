@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\src\Mortal_Kitchen\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\src\Mortal_Kitchen\script.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\src\Mortal_Kitchen\tilemap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\src\Mortal_Kitchen\entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\src\Mortal_Kitchen\script.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\src\Mortal_Kitchen\tilemap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\src\Mortal_Kitchen\entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\src\Mortal_Kitchen\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\data\scripts\coin.lua" />
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\data\scripts\player.lua" />
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\data\scripts\ennemy.lua" />
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\data\scripts\level.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4AC877F7-3701-46D9-A2CF-398CF802C6AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3302AF3C-2028-47DE-8756-25403A07F2B5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

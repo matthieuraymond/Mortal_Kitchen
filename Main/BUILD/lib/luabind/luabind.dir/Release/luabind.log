@@ -1,0 +1,9 @@
+﻿Build started 31/03/2015 15:55:27.
+     1>Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\luabind\luabind.vcxproj" on node 4 (Build target(s)).
+     1>Lib:
+         luabind.vcxproj -> G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\luabind\Release\luabind.lib
+     1>Done Building Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\luabind\luabind.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.62

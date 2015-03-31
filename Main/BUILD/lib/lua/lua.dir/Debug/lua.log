@@ -1,0 +1,77 @@
+﻿Build started 31/03/2015 15:07:11.
+     1>Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\lua\lua.vcxproj" on node 3 (Rebuild target(s)).
+     1>CustomBuild:
+         Building Custom Rule G:/Documents/GitHub/Mortal_Kitchen/Main/src-2015/lib/lua/CMakeLists.txt
+         CMake does not need to re-run because G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\lua\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         G:\Programmes Files\Visual Studio\VC\bin\CL.exe /c /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\LibSL" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\png" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\zlib" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\newmat" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src" /I\include /I\lib\x86 /I\Samples\C++\DXUT\Core /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\common" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D USE_GLUX /D UNICODE /D _UNICODE /D TW_STATIC /D TW_NO_LIB_PRAGMA /D "DATA_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/Main/src-2015/data/\"" /D "SRC_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/Main/src-2015/\"" /D LUA_COMPAT_ALL /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _UNICODE /D UNICODE /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"lua.dir\Debug\\" /Fd"lua.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lapi.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lauxlib.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lbaselib.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lcode.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldblib.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldebug.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldo.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldump.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lfunc.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lgc.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\linit.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\liolib.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\llex.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lmathlib.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lmem.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\loadlib.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lobject.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lopcodes.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\loslib.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lparser.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lstate.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lstring.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lstrlib.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ltable.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ltablib.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ltm.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lundump.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lvm.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lzio.c" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\print.c"
+         lapi.c
+         lauxlib.c
+         lbaselib.c
+         lcode.c
+         ldblib.c
+         ldebug.c
+         ldo.c
+         ldump.c
+         lfunc.c
+         lgc.c
+         linit.c
+         liolib.c
+         llex.c
+         lmathlib.c
+         lmem.c
+         loadlib.c
+         lobject.c
+         lopcodes.c
+         loslib.c
+         lparser.c
+         Generating Code...
+         Compiling...
+         lstate.c
+         lstring.c
+         lstrlib.c
+         ltable.c
+         ltablib.c
+         ltm.c
+         lundump.c
+         lvm.c
+         lzio.c
+         print.c
+         Generating Code...
+       Lib:
+         G:\Programmes Files\Visual Studio\VC\bin\Lib.exe /OUT:"G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\lua\Debug\lua-d.lib" /NOLOGO lua.dir\Debug\lapi.obj
+         lua.dir\Debug\lauxlib.obj
+         lua.dir\Debug\lbaselib.obj
+         lua.dir\Debug\lcode.obj
+         lua.dir\Debug\ldblib.obj
+         lua.dir\Debug\ldebug.obj
+         lua.dir\Debug\ldo.obj
+         lua.dir\Debug\ldump.obj
+         lua.dir\Debug\lfunc.obj
+         lua.dir\Debug\lgc.obj
+         lua.dir\Debug\linit.obj
+         lua.dir\Debug\liolib.obj
+         lua.dir\Debug\llex.obj
+         lua.dir\Debug\lmathlib.obj
+         lua.dir\Debug\lmem.obj
+         lua.dir\Debug\loadlib.obj
+         lua.dir\Debug\lobject.obj
+         lua.dir\Debug\lopcodes.obj
+         lua.dir\Debug\loslib.obj
+         lua.dir\Debug\lparser.obj
+         lua.dir\Debug\lstate.obj
+         lua.dir\Debug\lstring.obj
+         lua.dir\Debug\lstrlib.obj
+         lua.dir\Debug\ltable.obj
+         lua.dir\Debug\ltablib.obj
+         lua.dir\Debug\ltm.obj
+         lua.dir\Debug\lundump.obj
+         lua.dir\Debug\lvm.obj
+         lua.dir\Debug\lzio.obj
+         lua.dir\Debug\print.obj
+         lua.vcxproj -> G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\lua\Debug\lua-d.lib
+     1>Done Building Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\lua\lua.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.83

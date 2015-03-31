@@ -1,0 +1,9 @@
+﻿Build started 31/03/2015 15:55:27.
+     1>Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\Box2D\Box2D\Box2D\Box2D.vcxproj" on node 5 (Build target(s)).
+     1>Lib:
+         Box2D.vcxproj -> G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\Box2D\Box2D\Box2D\Release\Box2D.lib
+     1>Done Building Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\Box2D\Box2D\Box2D\Box2D.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.60

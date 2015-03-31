@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lapi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lauxlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lbaselib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lcode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldblib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldebug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldump.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lfunc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lgc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\linit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\liolib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\llex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lmathlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lmem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\loadlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lobject.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lopcodes.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\loslib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lparser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lstate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lstring.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lstrlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ltable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ltablib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ltm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lundump.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lvm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lzio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\print.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lapi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lauxlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lcode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ldo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lfunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lgc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\llex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\llimits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lmem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lobject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lopcodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lstate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lstring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ltable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\ltm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lua.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\luaconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lualib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lundump.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lvm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src\lzio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D15CD9F6-634A-4C0B-8C7D-D6C045D5E2B9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{C6A91044-2193-42FA-90F7-65A3D47A54C5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

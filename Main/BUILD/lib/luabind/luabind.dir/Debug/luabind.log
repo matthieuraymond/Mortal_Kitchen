@@ -1,0 +1,66 @@
+﻿Build started 31/03/2015 15:07:11.
+     1>Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\luabind\luabind.vcxproj" on node 4 (Rebuild target(s)).
+     1>CustomBuild:
+         Building Custom Rule G:/Documents/GitHub/Mortal_Kitchen/Main/src-2015/lib/luabind/CMakeLists.txt
+         CMake does not need to re-run because G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\luabind\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         G:\Programmes Files\Visual Studio\VC\bin\CL.exe /c /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\LibSL" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\png" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\zlib" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\newmat" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src" /I\include /I\lib\x86 /I\Samples\C++\DXUT\Core /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\common" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\boost" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind" /I"G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\lua\src" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D USE_GLUX /D UNICODE /D _UNICODE /D TW_STATIC /D TW_NO_LIB_PRAGMA /D "DATA_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/Main/src-2015/data/\"" /D "SRC_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/Main/src-2015/\"" /D "CMAKE_INTDIR=\"Debug\"" /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"luabind.dir\Debug\\" /Fd"luabind.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\class.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\class_info.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\class_registry.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\class_rep.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\create_class.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\error.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\exception_handler.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\function.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\inheritance.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\link_compatibility.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\object_rep.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\open.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\pcall.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\scope.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\stack_content_by_name.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\weak_ref.cpp" "G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\luabind\src\wrapper_base.cpp"
+         class.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         class_info.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         class_registry.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         class_rep.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         create_class.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         error.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         exception_handler.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         function.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         inheritance.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         link_compatibility.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         object_rep.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         open.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         pcall.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         scope.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         stack_content_by_name.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         weak_ref.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         wrapper_base.cpp
+         Unknown compiler version - please run the configure tests and report the results
+         Generating Code...
+       Lib:
+         G:\Programmes Files\Visual Studio\VC\bin\Lib.exe /OUT:"G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\luabind\Debug\luabind-d.lib" /NOLOGO luabind.dir\Debug\class.obj
+         luabind.dir\Debug\class_info.obj
+         luabind.dir\Debug\class_registry.obj
+         luabind.dir\Debug\class_rep.obj
+         luabind.dir\Debug\create_class.obj
+         luabind.dir\Debug\error.obj
+         luabind.dir\Debug\exception_handler.obj
+         luabind.dir\Debug\function.obj
+         luabind.dir\Debug\inheritance.obj
+         luabind.dir\Debug\link_compatibility.obj
+         luabind.dir\Debug\object_rep.obj
+         luabind.dir\Debug\open.obj
+         luabind.dir\Debug\pcall.obj
+         luabind.dir\Debug\scope.obj
+         luabind.dir\Debug\stack_content_by_name.obj
+         luabind.dir\Debug\weak_ref.obj
+         luabind.dir\Debug\wrapper_base.obj
+         luabind.vcxproj -> G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\luabind\Debug\luabind-d.lib
+     1>Done Building Project "G:\Documents\GitHub\Mortal_Kitchen\Main\BUILD\lib\luabind\luabind.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:32.08

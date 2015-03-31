@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2DistanceJoint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2FrictionJoint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2GearJoint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2Joint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2LineJoint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2MouseJoint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2PulleyJoint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2WeldJoint.cpp">
+      <Filter>Dynamics\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2CircleContact.cpp">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2Contact.cpp">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2ContactSolver.cpp">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2PolygonContact.cpp">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2TOISolver.cpp">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2Body.cpp">
+      <Filter>Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2ContactManager.cpp">
+      <Filter>Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2Fixture.cpp">
+      <Filter>Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2Island.cpp">
+      <Filter>Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2World.cpp">
+      <Filter>Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2WorldCallbacks.cpp">
+      <Filter>Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Common\b2BlockAllocator.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Common\b2Math.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Common\b2Settings.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Common\b2StackAllocator.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\Shapes\b2CircleShape.cpp">
+      <Filter>Collision\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\Shapes\b2PolygonShape.cpp">
+      <Filter>Collision\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2BroadPhase.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2CollideCircle.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2CollidePolygon.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2Collision.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2Distance.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2DynamicTree.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2TimeOfImpact.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Box2D.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2DistanceJoint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2FrictionJoint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2GearJoint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2Joint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2LineJoint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2MouseJoint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2PrismaticJoint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2PulleyJoint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2RevoluteJoint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Joints\b2WeldJoint.h">
+      <Filter>Dynamics\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2CircleContact.h">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2Contact.h">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2ContactSolver.h">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.h">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2PolygonContact.h">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\Contacts\b2TOISolver.h">
+      <Filter>Dynamics\Contacts</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2Body.h">
+      <Filter>Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2ContactManager.h">
+      <Filter>Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2Fixture.h">
+      <Filter>Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2Island.h">
+      <Filter>Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2TimeStep.h">
+      <Filter>Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2World.h">
+      <Filter>Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Dynamics\b2WorldCallbacks.h">
+      <Filter>Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Common\b2BlockAllocator.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Common\b2Math.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Common\b2Settings.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Common\b2StackAllocator.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\Shapes\b2CircleShape.h">
+      <Filter>Collision\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\Shapes\b2PolygonShape.h">
+      <Filter>Collision\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\Shapes\b2Shape.h">
+      <Filter>Collision\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2BroadPhase.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2Collision.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2Distance.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2DynamicTree.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\Collision\b2TimeOfImpact.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Documents\GitHub\Mortal_Kitchen\Main\src-2015\lib\Box2D\Box2D\Box2D\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{B505AFF3-D27C-4573-8915-92EC2F256821}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{CFD5E6F3-5731-4E84-8EF4-4F4551C8AC66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dynamics">
+      <UniqueIdentifier>{3523FA25-A61F-4826-BC57-EC7ABBA68659}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{7392B6E4-24CA-41E3-95CE-D9195775D644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dynamics\Contacts">
+      <UniqueIdentifier>{FCA86A52-FF49-41FF-BEA5-FFB464CE50C1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dynamics\Joints">
+      <UniqueIdentifier>{12FAAE3C-7A62-42F4-8997-CF3D347E8B52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision\Shapes">
+      <UniqueIdentifier>{08E33D70-E0E5-44C8-8B6A-A24BAB552DD4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
