@@ -171,12 +171,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FB049B13E3F24E668D31B850F9CF55E9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_FD12C746A918489ABFEB78F42205BBA2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -238,6 +232,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Visual.C++.12.0.x86"
+                    {
+                    "Name" = "8:Visual C++ 2013 Runtime Libraries (x86)"
+                    "ProductCode" = "8:Microsoft.Visual.C++.12.0.x86"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.4.5"
+                    {
+                    "Name" = "8:Windows Installer 4.5"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.4.5"
+                    }
+                }
             }
         }
     }
@@ -881,7 +888,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Mortal Kitchen"
         "ProductCode" = "8:{E25A5844-8840-4946-975E-01F4741570F3}"
-        "PackageCode" = "8:{C609493E-C84E-4FCC-8207-DDDD8554D624}"
+        "PackageCode" = "8:{F3E22043-8ADB-4FC1-8162-DC79DFD9CA68}"
         "UpgradeCode" = "8:{DA34B0C9-84B5-4C53-AC5A-7651A7CC6007}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1425,26 +1432,12 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_FB049B13E3F24E668D31B850F9CF55E9"
-            {
-            "UseDynamicProperties" = "11:TRUE"
-            "IsDependency" = "11:FALSE"
-            "SourcePath" = "8:C:\\Program Files (x86)\\Common Files\\Merge Modules\\Microsoft_VC120_CRT_x86.msm"
-                "Properties"
-                {
-                }
-            "LanguageId" = "3:0"
-            "Exclude" = "11:FALSE"
-            "Folder" = "8:"
-            "Feature" = "8:"
-            "IsolateTo" = "8:"
-            }
         }
         "ProjectOutput"
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_4DC470DBC5FC4D45A70406B594A28D2E"
             {
-            "SourcePath" = "8:..\\Mortal_Kitchen-d.exe"
+            "SourcePath" = "8:..\\Mortal_Kitchen.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_929F2E2CA1754193B38FC09E0E2034D2"
