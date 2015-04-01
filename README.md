@@ -28,16 +28,16 @@ Code Monkeyz :
  
  # ** Getting Started **
  
- TO get started you need to install : 
+To get started you need to install : 
   * CMake
   * Python 3 or above
   * Visual Studio 2013 or above
  
- Then, launch CMake and configure :
+Then, launch CMake and configure :
   * The sources to src-2015 folder
   * The build path to a folder named BUILD (exactly) at the root of the repo (next to src-2015)
  
- You should now have a fully functional version of Mortal Kitchen, the gameprog.sln might be in the newly created BUILD folder.
+You should now have a fully functional version of Mortal Kitchen, the gameprog.sln might be in the newly created BUILD folder.
 
 Any added file to the project should be mentioned in the corresponding CMakeLists.txt so other can generate solution including this new file. 
  
