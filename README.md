@@ -1,47 +1,56 @@
+### UPDATES :
+
+0.1 : git is now fully functionnal, to get started, read below. The game is in an early early early stage of devlopment.
+
+
 # ** What's Mortal Kitchen ? ** 
 
-Mortal Kitchen is a funny WTF game, developed by twelve students from Nancy.
+Mortal Kitchen is a funny WTF game, developed by twelve amazing students from Nancy.
 
 These twelve awesome guys are from an engineering school (Mines Nancy) and an art schol (ENSA Nancy).
 
 Dreamerz :
- * Mila (Memé)
- * Emilien
- * Louison
- * Albéric
- * Anne
- * Clara
+  * Mila (Memé)
+  * Emilien
+  * Louison
+  * Albéric
+  * Anne
+  * Clara
 
 Code Monkeyz :
- * Bastien (BastouBG)
- * Pierre (PowerPipou)
- * Jules (DaPrez)
- * Nicolas (Hontas)
- * Matthieu (Matteo)
- * Emmanuel (Elesin)
+  * Bastien (BastouBG)
+  * Pierre (PowerPipou)
+  * Jules (DaPrez)
+  * Nicolas (Hontas)
+  * Matthieu (Matteo)
+  * Emmanuel (Elesin)
 
  
  # ** Getting Started **
  
  TO get started you need to install : 
- - CMake
- - Python 3 or above
- - Visual Studio 2013 or above
+  * CMake
+  * Python 3 or above
+  * Visual Studio 2013 or above
  
  Then, launch CMake and configure :
- - The sources to src-2015 folder
- - The build path to the BUILD folder (if it doesn't exist, create it)
+  * The sources to src-2015 folder
+  * The build path to a folder named BUILD (exactly) at the root of the repo (next to src-2015)
  
- You should now have a fully functional version of Mortal Kitchen.
+ You should now have a fully functional version of Mortal Kitchen, the gameprog.sln might be in the newly created BUILD folder.
+
+Any added file to the project should be mentioned in the corresponding CMakeLists.txt so other can generate solution including this new file. 
  
+ # ** Testing sprites, tiles, etc with this projects **
  
- # ** Testing sprites with this projects **
+ 1 - All content should be added to src-2015\data (in tilemap for map, sprites for sprites, etc)
+ 2 - Sprite may then be referenced in the scripts src-2015\data\scripts
+ 3 - To launch the game, click on Mortal_Kitchen.exe in src-2015
+ 4 - Any added file may be (or will be) added to the installer project so they're packed in the installer
  
- 1 - All content should be added to src-2015\data
- 2 - Sprite may then be references in src-2015\data\scripts
- 3 - To launch the game, go to BUILD\src\spriteanim\Debug
+ N.B : Push the space bar to reload your scripts/sprites
  
- Push the space bar to reload your scripts/sprites
+ Have fun on this awesome project ! =)
  
  
 
