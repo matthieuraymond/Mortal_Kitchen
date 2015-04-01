@@ -22,11 +22,11 @@ Code Monkeyz :
   * Pierre (PowerPipou)
   * Jules (DaPrez)
   * Nicolas (Hontas)
-  * Matthieu (Matteo)
   * Emmanuel (Elesin)
+  * Matthieu (Matteo)
 
  
- # ** Getting Started **
+# ** Getting Started **
  
 To get started you need to install : 
   * CMake
@@ -41,16 +41,16 @@ You should now have a fully functional version of Mortal Kitchen, the gameprog.s
 
 Any added file to the project should be mentioned in the corresponding CMakeLists.txt so other can generate solution including this new file. 
  
- # ** Testing sprites, tiles, etc with this projects **
+# ** Testing sprites, tiles, etc with this projects **
  
- 1 - All content should be added to src-2015\data (in tilemap for map, sprites for sprites, etc)
- 2 - Sprite may then be referenced in the scripts src-2015\data\scripts
- 3 - To launch the game, click on Mortal_Kitchen.exe in src-2015
- 4 - Any added file may be (or will be) added to the installer project so they're packed in the installer
+  * All content should be added to src-2015\data (in tilemap for map, sprites for sprites, etc)
+  * Sprite may then be referenced in the scripts src-2015\data\scripts
+  * To launch the game, click on Mortal_Kitchen.exe in src-2015
+  * Any added file may be (or will be) added to the installer project so they're packed in the installer
  
- N.B : Push the space bar to reload your scripts/sprites
+N.B : Push the space bar to reload your scripts/sprites
  
- Have fun on this awesome project ! =)
+Have fun on this awesome project ! =)
  
  
 
