@@ -136,10 +136,8 @@ int main(int argc,const char **argv)
 	g_Tilemap = tilemap_load("level.lua");
 
 	// load a simple entity
-	createCoin(32, 32, "coin");
-	createCoin(64, 32, "coin");
-	createCoin(96, 32, "coin");
-	createCoin(128, 32, "coin");
+	createCoin(256, 128, "coin");
+	createCoin(512, 128, "coin");
 
 	Entity *player = entity_create("player", "player.lua");
 	player->pos = v2f(16, 16);

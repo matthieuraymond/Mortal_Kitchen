@@ -53,6 +53,11 @@ void lua_current(string filename)
 	g_Current->currentAnim = filename;
 }
 
+string lua_get_current()
+{
+    return g_Current->currentAnim;
+}
+
 // ------------------------------------------------------------------
 
 void lua_initanim(string filename, bool looping)
@@ -109,7 +114,8 @@ Entity *entity_create(string name,string script)
         def("print", &lua_print),
 		def("playanim", &lua_playanim),
 		def("stopanim", &lua_stopanim),
-		def("current", &lua_current)
+		def("current", &lua_current),
+        def("get_current", &lua_get_current)
       ];
   }
   // load the script (global space gets executed)
@@ -136,7 +142,7 @@ void    entity_draw(Entity *e)
   int frame = min(e->currentFrame, e->anims[e->currentAnim]->numframes - 1);
   e->anims[e->currentAnim]->animframes->drawSub(
     v2i(e->pos), sz,
-    v2i(frame * fspc, fspc), sz
+    v2i(frame * fspc, sz[1]), sz
     );
   // next frame
   if (e->animIsPlaying) {
