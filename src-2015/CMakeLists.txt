@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 2.6)
 project(gameprog)
 
-OPTION(_GAMEPROG_BUILD_BOX2D   "Build Box2D" OFF)
+OPTION(_GAMEPROG_BUILD_BOX2D   "Build Box2D" ON)
 # OPTION(_GAMEPROG_BUILD_BULLET  "Build Bullet" OFF)
-OPTION(_GAMEPROG_BUILD_LUA     "Build LUA" OFF)
+OPTION(_GAMEPROG_BUILD_LUA     "Build LUA" ON)
 
 OPTION(USE_LIBSL_BINARIES  "Use LibSL binaries from this package" ON)
 

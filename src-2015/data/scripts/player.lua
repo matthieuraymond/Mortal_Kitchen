@@ -25,6 +25,9 @@ function step()
 		pos_x = pos_x - 32 * elapsed/1000
 	elseif Key_e then
 		if (get_current() == left) or (get_current() == fight_left) then
+			if(get_current() == left) then
+				pos_x = pos_x - 32
+			end
 			current(fight_left)
 		else
 			current(fight_right)
