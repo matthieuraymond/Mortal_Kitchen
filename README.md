@@ -36,7 +36,7 @@ To get started you need to install :
 Then, launch CMake and configure :
   * The sources to src-2015 folder
   * The build path to a folder named BUILD (exactly) at the root of the repo (next to src-2015)
-  * Pick visual studio 2013 compiler (n°12) 
+  * Pick Visual Studio 12 2013 compiler
   * You're done !
  
 You should now have a fully functional version of Mortal Kitchen, the gameprog.sln might be in the newly created BUILD folder.
