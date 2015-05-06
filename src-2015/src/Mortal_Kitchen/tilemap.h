@@ -26,7 +26,6 @@ typedef struct
   map<string, DrawImage*> images;
   map<v3b, Tile*>         tiles;
 
-  DrawImage             *background;
   ImageRGBA              *tilemap;
   int                     tilew;
   int                     tileh;
@@ -35,6 +34,7 @@ typedef struct
 // ------------------------------------------------------------------
 
 Tilemap *tilemap_load(string fname);
-void     tilemap_draw(Tilemap*);
+void     tilemap_draw(Tilemap *tmap);
+void     tilemap_bind_to_physics(Tilemap *tmap);
 
 // ------------------------------------------------------------------

@@ -8,6 +8,12 @@
 
 // ------------------------------------------------------------------
 
+#include "physics.h"
+// The World (in physics.cpp)
+extern b2World *g_World;
+
+// ------------------------------------------------------------------
+
 Tilemap         *g_Current = NULL;
 
 // ------------------------------------------------------------------
@@ -18,7 +24,7 @@ void lua_tile(int color,string filename, int x, int y, int w, int h)
     // load image if needed
     if (g_Current->images.find(filename) == g_Current->images.end()) {
       // load!
-      DrawImage *image = new DrawImage((executablePath() + "/data/tilemap/" + filename).c_str(),v3b(255,0,255));
+      DrawImage *image = new DrawImage((sourcePath() + "/data/tilemap/" + filename).c_str(),v3b(255,0,255));
       // insert
       g_Current->images[filename] = image;
     }
@@ -40,7 +46,7 @@ void lua_tile(int color,string filename, int x, int y, int w, int h)
 void lua_tilemap(string filename,int tw,int th)
 {
   try {
-  g_Current->tilemap = loadImageRGBA(executablePath() + "/data/tilemap/" + filename);
+  g_Current->tilemap = loadImageRGBA(sourcePath() + "/data/map/" + filename);
   g_Current->tilemap->flipH();
   g_Current->tilew = tw;
   g_Current->tileh = th;
@@ -98,17 +104,6 @@ int lua_num_tiles_y()
 
 // ------------------------------------------------------------------
 
-void lua_background(string filename) {
-    try {
-        g_Current->background = new DrawImage(executablePath() + "/data/tilemap/" + filename);
-    }
-    catch (Fatal& f) { // error handling
-        std::cerr << Console::red << f.message() << Console::gray << std::endl;
-    }
-}
-
-// ------------------------------------------------------------------
-
 Tilemap *tilemap_load(string fname)
 {
   Tilemap *tilemap = new Tilemap;
@@ -121,7 +116,6 @@ Tilemap *tilemap_load(string fname)
       [
         def("tile", &lua_tile),
         def("tilemap", &lua_tilemap),
-        def("background", &lua_background),
         def("color", &lua_color),
         def("tileat", &lua_tileat),
         def("set_tileat", &lua_set_tileat),
@@ -131,13 +125,51 @@ Tilemap *tilemap_load(string fname)
   }
   // load the script (global space gets executed)
   g_Current = tilemap;
-  script_load(script, executablePath() + "/data/scripts/" + fname);
+  script_load(script, sourcePath() + "/data/scripts/" + fname);
   g_Current = NULL;
   // kill the script (no longer needed)
   script_kill(script);
   delete (script);
 
   return tilemap;
+}
+
+// ------------------------------------------------------------------
+
+void tilemap_bind_to_physics(Tilemap *tmap)
+{
+  // define the dynamic body for the entire tilemap
+  b2BodyDef bodyDef;
+  bodyDef.type = b2_staticBody;
+  bodyDef.position.Set(0.0f, 0.0f);
+  b2Body *body = g_World->CreateBody(&bodyDef);
+
+  ForImage(tmap->tilemap, i, j) {
+    v3b pix = v3b(tmap->tilemap->pixel(i, j));
+    Tile *tile = tmap->tiles[pix];
+    if (tile) {
+      // define a box shape.
+      b2PolygonShape box;
+      box.SetAsBox(
+        tile->w / 2, tile->h / 2,  // size
+        b2Vec2(i*tmap->tilew + tile->w / 2, j*tmap->tileh + tile->h / 2), // center
+        0.0f);
+      // define the dynamic body fixture.
+      b2FixtureDef fixtureDef;
+      fixtureDef.shape = &box;
+      // set the box density to be zero, so it will be static.
+      fixtureDef.density = 0.0f;
+      // override the default friction.
+      fixtureDef.friction = 0.5f;
+      // how bouncy?
+      fixtureDef.restitution = 0.3f;
+      // user data; set to NULL to distinguish from entities
+      fixtureDef.userData = (void*)NULL;
+      // add the shape to the body.
+      body->CreateFixture(&fixtureDef);
+    }
+  }
+
 }
 
 // ------------------------------------------------------------------

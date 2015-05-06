@@ -1,9 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 project(gameprog)
 
-OPTION(_GAMEPROG_BUILD_BOX2D   "Build Box2D" ON)
-# OPTION(_GAMEPROG_BUILD_BULLET  "Build Bullet" OFF)
-OPTION(_GAMEPROG_BUILD_LUA     "Build LUA" ON)
+OPTION(_GAMEPROG_BUILD_BOX2D   "Build Box2D" OFF)
+OPTION(_GAMEPROG_BUILD_LUA     "Build LUA" OFF)
 
 OPTION(USE_LIBSL_BINARIES  "Use LibSL binaries from this package" ON)
 
@@ -32,34 +31,10 @@ include_directories (
 	${CMAKE_SOURCE_DIR}/lib/luabind
 	${CMAKE_SOURCE_DIR}/lib/lua/src
 	${CMAKE_SOURCE_DIR}/lib/boost
-	# ${CMAKE_SOURCE_DIR}/lib/bullet/src
 	${CMAKE_SOURCE_DIR}/lib
 )
 link_directories    ( ${CMAKE_SOURCE_DIR}/lib )
 
-# ADD_SUBDIRECTORY(src/anim)
-# ADD_SUBDIRECTORY(src/basic)
-# ADD_SUBDIRECTORY(src/defend)
-# ADD_SUBDIRECTORY(src/helloworld)
-# ADD_SUBDIRECTORY(src/lighting)
-# ADD_SUBDIRECTORY(src/pong)
-
-IF (_GAMEPROG_BUILD_LUA)
-# ADD_SUBDIRECTORY(src/scripting)
-# ADD_SUBDIRECTORY(src/tilemap)
-ADD_SUBDIRECTORY(src/Mortal_Kitchen)
-ENDIF (_GAMEPROG_BUILD_LUA)
-
-ADD_SUBDIRECTORY(installer)
-
-IF(_GAMEPROG_BUILD_BOX2D)
 INCLUDE_DIRECTORIES( lib/Box2D/Box2D/ )
-ENDIF(_GAMEPROG_BUILD_BOX2D)
+ADD_SUBDIRECTORY(src/Mortal_Kitchen)
 
-# IF (_GAMEPROG_BUILD_BULLET)
-# ADD_SUBDIRECTORY(src/bullet)
-# ENDIF (_GAMEPROG_BUILD_BULLET)
-
-# ADD_SUBDIRECTORY(src/sprite101)
-# ADD_SUBDIRECTORY(src/test_setup)
-# ADD_SUBDIRECTORY(src/transforms)

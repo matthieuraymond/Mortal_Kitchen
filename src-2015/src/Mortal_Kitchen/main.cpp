@@ -10,12 +10,14 @@ LIBSL_WIN32_FIX;
 
 #include "tilemap.h"
 #include "entity.h"
+#include "background.h"
+#include "physics.h"
 
 // ------------------------------------------------------------------
 
 // Constants
-const int    c_ScreenW      = 1280;
-const int    c_ScreenH      = 760;
+int    c_ScreenW      = 800;
+int    c_ScreenH      = 600;
 
 // ------------------------------------------------------------------
 
@@ -24,8 +26,10 @@ time_t          g_LastFrame    = 0;
 bool            g_Keys[256];
 
 Tilemap        *g_Tilemap      = NULL;
+Background     *g_Bkg          = NULL;
 
 vector<Entity*> g_Entities;
+Entity*         g_Player       = NULL;
 
 // ------------------------------------------------------------------
 
@@ -33,6 +37,12 @@ vector<Entity*> g_Entities;
 void mainKeyPressed(uchar key)
 {
   g_Keys[key] = true;
+
+  if (key == ' ') {
+    Entity *c = entity_create("coin0", "coin.lua");
+    entity_set_pos(c, v2f(256 + ((rand() % 128) - 64), 350));
+    g_Entities.push_back(c);
+  }
 }
 
 // ------------------------------------------------------------------
@@ -45,70 +55,42 @@ void mainKeyUnpressed(uchar key)
 
 // ------------------------------------------------------------------
 
-void physics(int now, int el) {
-    if (el > 50) {
-        g_LastFrame = now;
-    }
-    // -> check for contact between entities
-    for (int a = 0; a < (int)g_Entities.size(); a++) {
-        for (int b = a + 1; b < (int)g_Entities.size(); b++) {
-            if (!g_Entities[a]->killed && !g_Entities[b]->killed) {
-                if (entity_bbox(g_Entities[a]).intersect(entity_bbox(g_Entities[b]))) {
-                    entity_contact(g_Entities[a], g_Entities[b]);
-                    entity_contact(g_Entities[b], g_Entities[a]);
-                }
-            }
-        }
-    }
-}
-
-void logic(int now, int el) {
-    // -> step all entities
-    for (int a = 0; a < (int)g_Entities.size(); a++) {
-        entity_step(g_Entities[a], el);
-    }
-}
-
-void display() {
-
-    ////UPDATE Map - WILL BE REMOVED IN RELEASE
-    if (g_Keys[' ']) {
-        g_Tilemap = tilemap_load("level.lua");
-    }
-
-    clearScreen();
-    // -> draw background
-    g_Tilemap->background->draw(0,0);
-    // -> draw tilemap
-    tilemap_draw(g_Tilemap);
-    // -> draw all entities
-    for (int a = 0; a < (int)g_Entities.size(); a++) {
-        entity_draw(g_Entities[a]);
-    }
-}
-
-
 // 'mainRender' is called everytime the screen is drawn
 void mainRender()
 {
-  // -> compute elapsed time
+  //// Compute elapsed time
   time_t now = milliseconds();
   time_t el = now - g_LastFrame;
+  if (el > 50) {
+    g_LastFrame = now;
+  }
 
-  physics(now, el);
+  //// Physics
+  phy_step();
+  
+  //// Logic
 
-  logic(now, el);
+  // -> step all entities
+  for (int a = 0; a < (int)g_Entities.size(); a++) {
+    entity_step(g_Entities[a],el);
+  }
 
-  display();
+  //// Display
+
+  clearScreen();
+  // -> draw background
+  background_draw(g_Bkg);
+  // -> draw tilemap
+  tilemap_draw(g_Tilemap);
+  // -> draw all entities
+  for (int a = 0; a < (int)g_Entities.size(); a++) {
+    entity_draw(g_Entities[a]);
+  }
+  // -> draw physics debug layer
+   //phy_debug_draw();
 }
 
 // ------------------------------------------------------------------
-void createCoin(int x, int y, string name) {
-	Entity *c = entity_create(name, "coin.lua");
-	c->pos = v2f(x, y);
-	g_Entities.push_back(c);
-}
-
 
 // 'main' is the starting point of the application
 int main(int argc,const char **argv)
@@ -116,7 +98,7 @@ int main(int argc,const char **argv)
   try { // error handling
 
     // opens a window
-    SimpleUI::init(c_ScreenW,c_ScreenH,"Mortal Kitchen");
+    SimpleUI::init(c_ScreenW,c_ScreenH,"Tilemap");
     // set the render function to be 'mainRender' defined above
     SimpleUI::onRender       = mainRender;
     // set the keyboard function
@@ -125,6 +107,7 @@ int main(int argc,const char **argv)
 
     // init drawimage library
     drawimage_init( c_ScreenW,c_ScreenH );
+
     // keys
     for (int i = 0; i < 256; i++) {
       g_Keys[i] = false;
@@ -132,23 +115,46 @@ int main(int argc,const char **argv)
 
     ///// Level creation
 
+    // create background
+    g_Bkg = background_init(c_ScreenW, c_ScreenH);
+
     // load a tilemap
-	g_Tilemap = tilemap_load("level.lua");
+    g_Tilemap = tilemap_load("level.lua");
 
-	// load a simple entity
-	createCoin(256, 128, "coin");
-	createCoin(512, 128, "coin");
+    // init physics
+    phy_init();
 
-	Entity *player = entity_create("player", "player.lua");
-	player->pos = v2f(16, 16);
-	g_Entities.push_back(player);
+    // bind tilemap to physics
+    tilemap_bind_to_physics(g_Tilemap);
 
+    // load a simple entity
+    {
+      Entity *c = entity_create("coin0", "coin.lua");
+      entity_set_pos(c, v2f(32, 32));
+      g_Entities.push_back(c);
+    } {
+      Entity *c = entity_create("coin1", "coin.lua");
+      entity_set_pos(c, v2f(96, 32));
+      g_Entities.push_back(c);
+    } {
+      Entity *c = entity_create("coin2", "coin.lua");
+      entity_set_pos(c, v2f(128, 32));
+      g_Entities.push_back(c);
+    } {
+      Entity *c = entity_create("player", "player.lua");
+      entity_set_pos(c, v2f(196,64));
+      g_Player = c;
+      g_Entities.push_back(c);
+    }
 
-	g_LastFrame = milliseconds();
+    g_LastFrame = milliseconds();
 
     // enter the main loop
     SimpleUI::loop();
-
+    
+    // terminate physics
+    phy_terminate();
+    // terminate drawimage
     drawimage_terminate();
 
     // close the window
@@ -160,4 +166,5 @@ int main(int argc,const char **argv)
 
   return 0;
 }
+
 // ------------------------------------------------------------------
