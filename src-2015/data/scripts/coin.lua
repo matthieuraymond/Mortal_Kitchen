@@ -22,3 +22,7 @@ end
 function onAnimEnd()
   playanim('spinning_coin_gold.png',false)
 end
+
+function onFloor()
+
+end

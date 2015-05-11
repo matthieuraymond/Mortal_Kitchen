@@ -16,8 +16,8 @@ LIBSL_WIN32_FIX;
 // ------------------------------------------------------------------
 
 // Constants
-int    c_ScreenW      = 800;
-int    c_ScreenH      = 600;
+int    c_ScreenW      = 1280;
+int    c_ScreenH      = 760;
 
 // ------------------------------------------------------------------
 
@@ -87,7 +87,7 @@ void mainRender()
     entity_draw(g_Entities[a]);
   }
   // -> draw physics debug layer
-   //phy_debug_draw();
+  phy_debug_draw();
 }
 
 // ------------------------------------------------------------------

@@ -49,6 +49,7 @@ Entity *entity_create(string fname, string script);
 void    entity_draw(Entity *e);
 void    entity_step(Entity *e, time_t elapsed);
 void    entity_contact(Entity *e,Entity *with);
+void    entity_onfloor(Entity *e);
 AAB<2>  entity_bbox(Entity *e);
 
 v2f     entity_get_pos(Entity *e);

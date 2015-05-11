@@ -198,11 +198,11 @@ Entity *entity_create(string name,string script)
   b2FixtureDef fixtureDef;
   fixtureDef.shape = &box;
   // set the box density to be non-zero, so it will be dynamic.
-  fixtureDef.density = 0.01f;
+  fixtureDef.density = 2.0f;
   // override the default friction.
   fixtureDef.friction = 0.5f;
   // how bouncy?
-  fixtureDef.restitution = 0.3f;
+  fixtureDef.restitution = 0.01f;
   // user data (pointer to entity being created)
   fixtureDef.userData = (void*)(e);
   // add the shape to the body.
@@ -314,6 +314,21 @@ void    entity_contact(Entity *e, Entity *with)
   try {
     call_function<void>(e->script->lua, "contact",with->name);
   } catch (luabind::error& e) {
+    cerr << Console::red << e.what() << ' ' << Console::gray << endl;
+  }
+  end_script_call(e);
+}
+
+// ------------------------------------------------------------------
+
+void    entity_onfloor(Entity *e)
+{
+  // call stepping function from script
+  begin_script_call(e);
+  try {
+    call_function<void>(e->script->lua, "onFloor");
+  }
+  catch (luabind::error& e) {
     cerr << Console::red << e.what() << ' ' << Console::gray << endl;
   }
   end_script_call(e);

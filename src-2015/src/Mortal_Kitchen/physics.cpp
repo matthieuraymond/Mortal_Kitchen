@@ -31,6 +31,12 @@ public:
       entity_contact((Entity*)dA, (Entity*)dB);
       entity_contact((Entity*)dB, (Entity*)dA);
     }
+    else if (dA != NULL) {
+      entity_onfloor((Entity*)dA);
+    }
+    else {
+      entity_onfloor((Entity*)dB);
+    }
     // To disable contact: contact->SetEnabled(false);
   }
   void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) { }
@@ -94,7 +100,7 @@ DebugDraw g_DebugDraw;
 void phy_init()
 {
   // gravity
-  b2Vec2 gravity(0.0f, -2.0f);
+  b2Vec2 gravity(0.0f, -9.8f);
 
   // let non-moving bodies sleep
   bool doSleep = true;
