@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\script.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\tilemap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\background.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\physics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\script.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\tilemap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\background.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\physics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Mortal_Kitchen\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\data\scripts\coin.lua" />
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\data\scripts\player.lua" />
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\data\scripts\ennemy.lua" />
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\data\scripts\level.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{656829FF-4FFC-4651-8148-BEE1B3A4F655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{91FEEB0E-F3C3-48E9-800D-047238DC3D96}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

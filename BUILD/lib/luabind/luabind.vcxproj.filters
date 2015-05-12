@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\class.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\class_info.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\class_registry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\class_rep.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\create_class.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\exception_handler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\function.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\inheritance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\link_compatibility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\object_rep.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\open.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\pcall.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\scope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\stack_content_by_name.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\weak_ref.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\src\wrapper_base.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\luabind\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{656829FF-4FFC-4651-8148-BEE1B3A4F655}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

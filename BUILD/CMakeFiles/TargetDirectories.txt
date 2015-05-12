@@ -1,0 +1,7 @@
+G:/Documents/GitHub/Mortal_Kitchen/BUILD/src/Mortal_Kitchen/CMakeFiles/Mortal_Kitchen.dir
+G:/Documents/GitHub/Mortal_Kitchen/BUILD/lib/luabind/CMakeFiles/ALL_BUILD.dir
+G:/Documents/GitHub/Mortal_Kitchen/BUILD/lib/luabind/CMakeFiles/luabind.dir
+G:/Documents/GitHub/Mortal_Kitchen/BUILD/lib/lua/CMakeFiles/lua.dir
+G:/Documents/GitHub/Mortal_Kitchen/BUILD/common/CMakeFiles/common.dir
+G:/Documents/GitHub/Mortal_Kitchen/BUILD/CMakeFiles/ZERO_CHECK.dir
+G:/Documents/GitHub/Mortal_Kitchen/BUILD/lib/Box2D/Box2D/Box2D/CMakeFiles/Box2D.dir

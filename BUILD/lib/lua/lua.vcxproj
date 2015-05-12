@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{54669F50-DFE9-4A51-91E5-B2D0BCE3C308}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>lua</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">lua.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">lua-d</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">lua.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">lua</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">lua.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">lua</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">lua.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">lua</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;USE_GLUX;UNICODE;_UNICODE;TW_STATIC;TW_NO_LIB_PRAGMA;DATA_PATH="G:/Documents/GitHub/Mortal_Kitchen/src-2015/data/";SRC_PATH="G:/Documents/GitHub/Mortal_Kitchen/src-2015/";LUA_COMPAT_ALL;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;USE_GLUX;UNICODE;_UNICODE;TW_STATIC;TW_NO_LIB_PRAGMA;DATA_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/src-2015/data/\";SRC_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/src-2015/\";LUA_COMPAT_ALL;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;USE_GLUX;UNICODE;_UNICODE;TW_STATIC;TW_NO_LIB_PRAGMA;DATA_PATH="G:/Documents/GitHub/Mortal_Kitchen/src-2015/data/";SRC_PATH="G:/Documents/GitHub/Mortal_Kitchen/src-2015/";LUA_COMPAT_ALL;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;USE_GLUX;UNICODE;_UNICODE;TW_STATIC;TW_NO_LIB_PRAGMA;DATA_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/src-2015/data/\";SRC_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/src-2015/\";LUA_COMPAT_ALL;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;USE_GLUX;UNICODE;_UNICODE;TW_STATIC;TW_NO_LIB_PRAGMA;DATA_PATH="G:/Documents/GitHub/Mortal_Kitchen/src-2015/data/";SRC_PATH="G:/Documents/GitHub/Mortal_Kitchen/src-2015/";LUA_COMPAT_ALL;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;USE_GLUX;UNICODE;_UNICODE;TW_STATIC;TW_NO_LIB_PRAGMA;DATA_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/src-2015/data/\";SRC_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/src-2015/\";LUA_COMPAT_ALL;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;USE_GLUX;UNICODE;_UNICODE;TW_STATIC;TW_NO_LIB_PRAGMA;DATA_PATH="G:/Documents/GitHub/Mortal_Kitchen/src-2015/data/";SRC_PATH="G:/Documents/GitHub/Mortal_Kitchen/src-2015/";LUA_COMPAT_ALL;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;USE_GLUX;UNICODE;_UNICODE;TW_STATIC;TW_NO_LIB_PRAGMA;DATA_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/src-2015/data/\";SRC_PATH=\"G:/Documents/GitHub/Mortal_Kitchen/src-2015/\";LUA_COMPAT_ALL;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\LibSL;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\loki\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tclap\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\glux\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\png;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\jpeg;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\zlib;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\newmat;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\tinyxml;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\anttweakbar\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\OpenNL\src;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\bin\win32\TAUCS\include;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\SQLite;G:\Documents\GitHub\Mortal_Kitchen\src-2015\..\LibSL-bin-win32\src\libs\src\hashlibpp\src;\include;\lib\x86;\Samples\C++\DXUT\Core;G:\Documents\GitHub\Mortal_Kitchen\src-2015\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/Documents/GitHub/Mortal_Kitchen/src-2015/lib/lua/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HG:/Documents/GitHub/Mortal_Kitchen/src-2015 -BG:/Documents/GitHub/Mortal_Kitchen/BUILD --check-stamp-file G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:/Documents/GitHub/Mortal_Kitchen/src-2015/lib/lua/CMakeLists.txt;G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\CMakeLists.txt;G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/Documents/GitHub/Mortal_Kitchen/src-2015/lib/lua/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HG:/Documents/GitHub/Mortal_Kitchen/src-2015 -BG:/Documents/GitHub/Mortal_Kitchen/BUILD --check-stamp-file G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:/Documents/GitHub/Mortal_Kitchen/src-2015/lib/lua/CMakeLists.txt;G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\CMakeLists.txt;G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule G:/Documents/GitHub/Mortal_Kitchen/src-2015/lib/lua/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HG:/Documents/GitHub/Mortal_Kitchen/src-2015 -BG:/Documents/GitHub/Mortal_Kitchen/BUILD --check-stamp-file G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:/Documents/GitHub/Mortal_Kitchen/src-2015/lib/lua/CMakeLists.txt;G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\CMakeLists.txt;G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule G:/Documents/GitHub/Mortal_Kitchen/src-2015/lib/lua/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HG:/Documents/GitHub/Mortal_Kitchen/src-2015 -BG:/Documents/GitHub/Mortal_Kitchen/BUILD --check-stamp-file G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:/Documents/GitHub/Mortal_Kitchen/src-2015/lib/lua/CMakeLists.txt;G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\CMakeLists.txt;G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\Documents\GitHub\Mortal_Kitchen\BUILD\lib\lua\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lapi.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lauxlib.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lcode.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ldebug.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ldo.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lfunc.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lgc.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\llex.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\llimits.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lmem.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lobject.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lopcodes.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lparser.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lstate.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lstring.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ltable.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ltm.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lua.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\luaconf.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lualib.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lundump.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lvm.h" />
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lzio.h" />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lapi.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lauxlib.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lbaselib.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lcode.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ldblib.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ldebug.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ldo.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ldump.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lfunc.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lgc.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\linit.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\liolib.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\llex.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lmathlib.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lmem.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\loadlib.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lobject.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lopcodes.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\loslib.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lparser.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lstate.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lstring.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lstrlib.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ltable.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ltablib.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\ltm.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lundump.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lvm.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\lzio.c"  />
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\lib\lua\src\print.c"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="G:/Documents/GitHub/Mortal_Kitchen/BUILD/ZERO_CHECK.vcxproj">
+      <Project>38C58CD0-6AF9-4A4C-B7AB-E7978A1722C4</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

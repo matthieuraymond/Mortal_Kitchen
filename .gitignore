@@ -33,6 +33,3 @@
 *.opensdf
 *.sdf
 *.log
-
-# Build directory
-BUILD

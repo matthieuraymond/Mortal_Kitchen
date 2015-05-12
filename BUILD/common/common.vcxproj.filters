@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\common\base.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\common\drawimage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\common\drawimage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Documents\GitHub\Mortal_Kitchen\BUILD\common\drawimage_sh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\common\CMakeLists.txt" />
+    <CustomBuild Include="G:\Documents\GitHub\Mortal_Kitchen\BUILD\CMakeFiles\964e55eaad058ab8c8e2c17018733067\drawimage_sh.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\common\drawimage_sh.fp" />
+    <None Include="G:\Documents\GitHub\Mortal_Kitchen\src-2015\common\drawimage_sh.vp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{656829FF-4FFC-4651-8148-BEE1B3A4F655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{91FEEB0E-F3C3-48E9-800D-047238DC3D96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{9FD991DF-B677-48F7-8B22-59F4BD832E9C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
