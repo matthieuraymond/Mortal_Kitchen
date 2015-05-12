@@ -100,7 +100,7 @@ DebugDraw g_DebugDraw;
 void phy_init()
 {
   // gravity
-  b2Vec2 gravity(0.0f, -3.0f);
+  b2Vec2 gravity(0.0f, -2.0f);
 
   // let non-moving bodies sleep
   bool doSleep = true;

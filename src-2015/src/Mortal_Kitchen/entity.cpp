@@ -200,7 +200,7 @@ Entity *entity_create(string name,string script)
   // set the box density to be non-zero, so it will be dynamic.
   fixtureDef.density = 1.0f;
   // override the default friction.
-  fixtureDef.friction = 0.8f;
+  fixtureDef.friction = 1.5f;
   // how bouncy?
   fixtureDef.restitution = 0.2f;
   // user data (pointer to entity being created)
