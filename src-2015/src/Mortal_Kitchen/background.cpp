@@ -54,7 +54,7 @@ void        background_draw(Background *bkg)
     // already known?
     if (bkg->screens.find(*R) == bkg->screens.end()) {
       // no: load
-      string name = sourcePath() + "/data/screens/" + to_string((*R)[0]) + "_" + to_string((*R)[1]) + ".jpg";
+      string name = sourcePath() + "/data/screens/" + to_string((*R)[0]) + "_" + to_string((*R)[1]) + ".png";
       // cerr << "attemtping to load " << name << endl;
       if (LibSL::System::File::exists(name.c_str())) {
         DrawImage *image = new DrawImage(name.c_str());

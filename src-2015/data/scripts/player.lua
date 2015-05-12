@@ -37,10 +37,12 @@ function step()
 		end
 		if Key_e and on_floor == 1 then
 			state = 'fight'
-			playanim(player .. state .. side .. '.png',false)
+			playanim(player .. state .. side .. '.png',true)
 		end 
 	end
 	
+	
+	-- reset states
 	if state == 'walk' and not Key_q and not Key_d then
 		state = 'wait'
 		stopanim()
@@ -48,10 +50,11 @@ function step()
 	
 	if state == 'fight' and not Key_e then
 		state = 'wait'
+		stopanim()
 	end
 
 	if Key_z and on_floor == 1 then
-		set_impulse(0.0,600.0)
+		set_velocity_y(10.0)
 		on_floor = 0
 	end
 

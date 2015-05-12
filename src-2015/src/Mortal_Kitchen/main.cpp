@@ -87,7 +87,7 @@ void mainRender()
     entity_draw(g_Entities[a]);
   }
   // -> draw physics debug layer
-  phy_debug_draw();
+  //phy_debug_draw();
 }
 
 // ------------------------------------------------------------------
@@ -142,7 +142,7 @@ int main(int argc,const char **argv)
       g_Entities.push_back(c);
     } {
       Entity *c = entity_create("player", "player.lua");
-      entity_set_pos(c, v2f(196,64));
+      entity_set_pos(c, v2f(196,128));
       g_Player = c;
       g_Entities.push_back(c);
     }

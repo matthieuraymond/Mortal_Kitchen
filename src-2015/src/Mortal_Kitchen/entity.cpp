@@ -103,12 +103,12 @@ void lua_set_velocity_y(float v)
 
 // ------------------------------------------------------------------
 
-void lua_set_impulse(float ix, float iy)
+void lua_set_impulse(float v)
 {
-  sl_assert(g_Current != NULL);
+  /*
   g_Current->body->ApplyLinearImpulse(
-    g_Current->body->GetMass()*b2Vec2(ix, iy),
-    g_Current->body->GetWorldCenter());
+    g_Current->body->GetMass() * b2Vec2(ix, iy),
+    g_Current->body->GetLocalCenter());*/
 }
 
 // ------------------------------------------------------------------
@@ -198,11 +198,11 @@ Entity *entity_create(string name,string script)
   b2FixtureDef fixtureDef;
   fixtureDef.shape = &box;
   // set the box density to be non-zero, so it will be dynamic.
-  fixtureDef.density = 2.0f;
+  fixtureDef.density = 1.0f;
   // override the default friction.
-  fixtureDef.friction = 0.5f;
+  fixtureDef.friction = 0.8f;
   // how bouncy?
-  fixtureDef.restitution = 0.01f;
+  fixtureDef.restitution = 0.2f;
   // user data (pointer to entity being created)
   fixtureDef.userData = (void*)(e);
   // add the shape to the body.
