@@ -37,7 +37,7 @@ function step()
 		end
 		if Key_e and on_floor == 1 then
 			state = 'fight'
-			playanim(player .. state .. side .. '.png',true)
+			playanim(player .. state .. side .. '.png',false)
 		end 
 	end
 	
@@ -48,10 +48,11 @@ function step()
 		stopanim()
 	end
 	
-	if state == 'fight' and not Key_e then
-		state = 'wait'
-		stopanim()
-	end
+	--if state == 'fight' and not Key_e then
+	--	state = 'wait'
+
+	--	stopanim()
+	--end
 
 	if Key_z and on_floor == 1 then
 		set_velocity_y(10.0)
@@ -84,5 +85,8 @@ function onAnimEnd()
   if state == 'turn_right' then
     -- state = 'walk_right'
 	-- playanim('gripe.run_right.png',true)
+  end
+  if state == 'fight' then
+    state = 'wait'
   end
 end
