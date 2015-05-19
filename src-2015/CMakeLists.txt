@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 2.6)
 project(gameprog)
 
-OPTION(_GAMEPROG_BUILD_BOX2D   "Build Box2D" OFF)
-OPTION(_GAMEPROG_BUILD_LUA     "Build LUA" OFF)
+OPTION(_GAMEPROG_BUILD_BOX2D   "Build Box2D" ON)
+OPTION(_GAMEPROG_BUILD_LUA     "Build LUA" ON)
 
 OPTION(USE_LIBSL_BINARIES  "Use LibSL binaries from this package" ON)
+
+OPTION(USE_SOUND "Use OpenAL and Libsndfile" ON)
 
 IF (USE_LIBSL_BINARIES)
 SET(LibSL_DIR        ${CMAKE_SOURCE_DIR}/../LibSL-bin-win32)
@@ -31,7 +33,10 @@ include_directories (
 	${CMAKE_SOURCE_DIR}/lib/luabind
 	${CMAKE_SOURCE_DIR}/lib/lua/src
 	${CMAKE_SOURCE_DIR}/lib/boost
+	${CMAKE_SOURCE_DIR}/lib/libsndfile
+	${CMAKE_SOURCE_DIR}/lib/OpenAL
 	${CMAKE_SOURCE_DIR}/lib
+
 )
 link_directories    ( ${CMAKE_SOURCE_DIR}/lib )
 

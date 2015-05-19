@@ -198,11 +198,11 @@ Entity *entity_create(string name,string script)
   b2FixtureDef fixtureDef;
   fixtureDef.shape = &box;
   // set the box density to be non-zero, so it will be dynamic.
-  fixtureDef.density = 20.0f;
+  fixtureDef.density = 1.0f;
   // override the default friction.
-  fixtureDef.friction = 0.8f;
+  fixtureDef.friction = 0.99f;
   // how bouncy?
-  fixtureDef.restitution = 0.2f;
+  fixtureDef.restitution = 0.1f;
   // user data (pointer to entity being created)
   fixtureDef.userData = (void*)(e);
   // add the shape to the body.
