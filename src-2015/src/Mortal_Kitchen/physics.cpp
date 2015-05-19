@@ -100,7 +100,7 @@ DebugDraw g_DebugDraw;
 void phy_init()
 {
   // gravity
-  b2Vec2 gravity(0.0f, -1.0f);
+  b2Vec2 gravity(0.0f, -9.8f);
 
   // let non-moving bodies sleep
   bool doSleep = true;
@@ -127,9 +127,9 @@ void phy_step()
   if (now - g_tmLast > 10) {
     // step the engine
     // NOTE: here we use a fixed step
-    float timeStep = 0.25f;
-    int velocityIterations = 10; // number of internal velocity iters.
-    int positionIterations = 10; // number of internal position iters.
+    float timeStep = 1/20.0;
+    int velocityIterations = 8; // number of internal velocity iters.
+    int positionIterations = 3; // number of internal position iters.
     g_World->Step(timeStep, velocityIterations, positionIterations);
     g_tmLast = now;
   }

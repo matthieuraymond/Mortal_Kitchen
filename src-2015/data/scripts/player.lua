@@ -55,7 +55,7 @@ function step()
 	-- end
 
 	if Key_z and on_floor == 1 then
-		set_velocity_y(10.0)
+		set_velocity_y(25.0)
 		on_floor = 0
 	end
 
@@ -65,7 +65,7 @@ function step()
 		if side == '_left' then
 			factor = -1
 		end
-		set_velocity_x(factor * 12.0)
+		set_velocity_x(factor * 30.0)
 	end
 end
 

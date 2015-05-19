@@ -198,7 +198,7 @@ Entity *entity_create(string name,string script)
   b2FixtureDef fixtureDef;
   fixtureDef.shape = &box;
   // set the box density to be non-zero, so it will be dynamic.
-  fixtureDef.density = 1.0f;
+  fixtureDef.density = 20.0f;
   // override the default friction.
   fixtureDef.friction = 0.8f;
   // how bouncy?
