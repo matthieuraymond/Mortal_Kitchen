@@ -39,6 +39,8 @@ include_directories (
 
 )
 link_directories    ( ${CMAKE_SOURCE_DIR}/lib )
+link_directories    ( ${CMAKE_SOURCE_DIR}/lib/OpenAL/libs/Win32)
+link_directories    ( ${CMAKE_SOURCE_DIR}/lib/libsndfile/lib)
 
 INCLUDE_DIRECTORIES( lib/Box2D/Box2D/ )
 ADD_SUBDIRECTORY(src/Mortal_Kitchen)
