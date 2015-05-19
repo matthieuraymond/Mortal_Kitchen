@@ -12,6 +12,7 @@ LIBSL_WIN32_FIX;
 #include "entity.h"
 #include "background.h"
 #include "physics.h"
+#include "sound.h"
 
 // ------------------------------------------------------------------
 
@@ -43,6 +44,9 @@ void mainKeyPressed(uchar key)
     entity_set_pos(c, v2f(256 + ((rand() % 128) - 64), 350));
     g_Entities.push_back(c);
   }
+  if (key == 'z') {
+     play_sound();
+  }
 }
 
 // ------------------------------------------------------------------
@@ -51,6 +55,9 @@ void mainKeyPressed(uchar key)
 void mainKeyUnpressed(uchar key)
 {
   g_Keys[key] = false;
+  if (key == 'z') {
+    rewind_sound();
+  }
 }
 
 // ------------------------------------------------------------------
@@ -98,7 +105,7 @@ int main(int argc,const char **argv)
   try { // error handling
 
     // opens a window
-    SimpleUI::init(c_ScreenW,c_ScreenH,"Tilemap");
+    SimpleUI::init(c_ScreenW,c_ScreenH,"Mortal Kitchen");
     // set the render function to be 'mainRender' defined above
     SimpleUI::onRender       = mainRender;
     // set the keyboard function
@@ -148,6 +155,9 @@ int main(int argc,const char **argv)
     }
 
     g_LastFrame = milliseconds();
+
+    //init sound 
+    init_sound();
 
     // enter the main loop
     SimpleUI::loop();

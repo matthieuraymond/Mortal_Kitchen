@@ -27,7 +27,7 @@ DrawImage *loadAnimation(string filename)
 {
   try {
     if (g_Animations.find(filename) == g_Animations.end()) {
-      DrawImage *img = new DrawImage((executablePath() + "/data/sprites/" + filename).c_str(), v3b(255, 0, 255));
+      DrawImage *img = new DrawImage((sourcePath() + "/data/sprites/" + filename).c_str(), v3b(255, 0, 255));
       g_Animations[filename] = img;
       return img;
     } else {
@@ -169,7 +169,7 @@ Entity *entity_create(string name,string script)
   }
   // load the script (global space gets executed)
   g_Current = e;
-  script_load(e->script, executablePath() + "/data/scripts/" + script);
+  script_load(e->script, sourcePath() + "/data/scripts/" + script);
   g_Current = NULL;
 
   // read physics properties
@@ -200,9 +200,9 @@ Entity *entity_create(string name,string script)
   // set the box density to be non-zero, so it will be dynamic.
   fixtureDef.density = 1.0f;
   // override the default friction.
-  fixtureDef.friction = 0.99f;
+  fixtureDef.friction = 1.5f;
   // how bouncy?
-  fixtureDef.restitution = 0.1f;
+  fixtureDef.restitution = 0.2f;
   // user data (pointer to entity being created)
   fixtureDef.userData = (void*)(e);
   // add the shape to the body.

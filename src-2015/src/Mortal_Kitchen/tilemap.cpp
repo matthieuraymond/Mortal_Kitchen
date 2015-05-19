@@ -24,7 +24,7 @@ void lua_tile(int color,string filename, int x, int y, int w, int h)
     // load image if needed
     if (g_Current->images.find(filename) == g_Current->images.end()) {
       // load!
-      DrawImage *image = new DrawImage((executablePath() + "/data/tilemap/" + filename).c_str(),v3b(255,0,255));
+      DrawImage *image = new DrawImage((sourcePath() + "/data/tilemap/" + filename).c_str(),v3b(255,0,255));
       // insert
       g_Current->images[filename] = image;
     }
@@ -46,7 +46,7 @@ void lua_tile(int color,string filename, int x, int y, int w, int h)
 void lua_tilemap(string filename,int tw,int th)
 {
   try {
-  g_Current->tilemap = loadImageRGBA(executablePath() + "/data/map/" + filename);
+  g_Current->tilemap = loadImageRGBA(sourcePath() + "/data/map/" + filename);
   g_Current->tilemap->flipH();
   g_Current->tilew = tw;
   g_Current->tileh = th;
@@ -125,7 +125,7 @@ Tilemap *tilemap_load(string fname)
   }
   // load the script (global space gets executed)
   g_Current = tilemap;
-  script_load(script, executablePath() + "/data/scripts/" + fname);
+  script_load(script, sourcePath() + "/data/scripts/" + fname);
   g_Current = NULL;
   // kill the script (no longer needed)
   script_kill(script);
