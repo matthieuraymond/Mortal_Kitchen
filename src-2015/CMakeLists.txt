@@ -33,8 +33,8 @@ include_directories (
 	${CMAKE_SOURCE_DIR}/lib/luabind
 	${CMAKE_SOURCE_DIR}/lib/lua/src
 	${CMAKE_SOURCE_DIR}/lib/boost
-	${CMAKE_SOURCE_DIR}/lib/libsndfile
-	${CMAKE_SOURCE_DIR}/lib/OpenAL
+	${CMAKE_SOURCE_DIR}/lib/libsndfile/include
+	${CMAKE_SOURCE_DIR}/lib/OpenAL/include
 	${CMAKE_SOURCE_DIR}/lib
 
 )
