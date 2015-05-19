@@ -27,7 +27,7 @@ DrawImage *loadAnimation(string filename)
 {
   try {
     if (g_Animations.find(filename) == g_Animations.end()) {
-      DrawImage *img = new DrawImage((sourcePath() + "/data/sprites/" + filename).c_str(), v3b(255, 0, 255));
+      DrawImage *img = new DrawImage((executablePath() + "/data/sprites/" + filename).c_str(), v3b(255, 0, 255));
       g_Animations[filename] = img;
       return img;
     } else {
@@ -169,7 +169,7 @@ Entity *entity_create(string name,string script)
   }
   // load the script (global space gets executed)
   g_Current = e;
-  script_load(e->script, sourcePath() + "/data/scripts/" + script);
+  script_load(e->script, executablePath() + "/data/scripts/" + script);
   g_Current = NULL;
 
   // read physics properties
