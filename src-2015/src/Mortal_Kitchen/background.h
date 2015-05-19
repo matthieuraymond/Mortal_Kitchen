@@ -23,7 +23,7 @@ typedef struct
 {
   map<v2i, DrawImage*>    screens;
 
-  v2i                     viewpos;
+//  v2i                     viewpos;
   
   int                     screenw;
   int                     screenh;
@@ -32,6 +32,6 @@ typedef struct
 // ------------------------------------------------------------------
 
 Background *background_init(int w, int h);
-void        background_draw(Background*);
+void        background_draw(Background*, v2i viewpos);
 
 // ------------------------------------------------------------------

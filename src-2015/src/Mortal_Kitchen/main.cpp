@@ -30,7 +30,8 @@ Tilemap        *g_Tilemap      = NULL;
 Background     *g_Bkg          = NULL;
 
 vector<Entity*> g_Entities;
-Entity*         g_Player       = NULL;
+Entity*         g_Player =			NULL;
+v2i				g_viewpos       = NULL;
 
 // ------------------------------------------------------------------
 
@@ -81,14 +82,16 @@ void mainRender()
   for (int a = 0; a < (int)g_Entities.size(); a++) {
     entity_step(g_Entities[a],el);
   }
+  // -> update viewpos (x coord only in this 'game')
+  g_viewpos[0] = (int)entity_get_pos(g_Player)[0];
 
   //// Display
 
   clearScreen();
   // -> draw background
-  background_draw(g_Bkg);
+  background_draw(g_Bkg, g_viewpos);
   // -> draw tilemap
-  tilemap_draw(g_Tilemap);
+  tilemap_draw(g_Tilemap, g_viewpos);
   // -> draw all entities
   for (int a = 0; a < (int)g_Entities.size(); a++) {
     entity_draw(g_Entities[a]);

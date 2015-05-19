@@ -174,7 +174,7 @@ void tilemap_bind_to_physics(Tilemap *tmap)
 
 // ------------------------------------------------------------------
 
-void tilemap_draw(Tilemap *tmap)
+void tilemap_draw(Tilemap *tmap, v2i viewpos)
 {
 
   ForImage(tmap->tilemap,i,j) {
@@ -182,7 +182,7 @@ void tilemap_draw(Tilemap *tmap)
     Tile *tile = tmap->tiles[pix];
     if (tile) {
       tile->image->drawSub(
-        v2i(i*tmap->tilew, j*tmap->tileh), v2i(tile->w, tile->h),  // to
+        v2i(i*tmap->tilew, j*tmap->tileh) - viewpos, v2i(tile->w, tile->h),  // to
         v2i(tile->x, tile->y), v2i(tile->w, tile->h)); // from
     }
   }

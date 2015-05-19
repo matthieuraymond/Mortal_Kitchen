@@ -34,7 +34,7 @@ typedef struct
 // ------------------------------------------------------------------
 
 Tilemap *tilemap_load(string fname);
-void     tilemap_draw(Tilemap *tmap);
+void     tilemap_draw(Tilemap *tmap, v2i viewpos);
 void     tilemap_bind_to_physics(Tilemap *tmap);
 
 // ------------------------------------------------------------------
