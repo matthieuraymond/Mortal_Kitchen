@@ -14,6 +14,16 @@ b2World *g_World = NULL;
 
 // ------------------------------------------------------------------------
 
+// converters
+
+float in_meters(int px) {
+  return (float)px / 100.0;
+}
+
+int in_px(float m) {
+  return (int)(100 * m);
+}
+
 class ContactListener : public b2ContactListener
 {
 public:
@@ -54,9 +64,9 @@ public:
     glColor3f(color.r, color.b, color.b);
     glBegin(GL_LINE_STRIP);
     for (int i = 0; i < vertexCount; i++) {
-      glVertex2f(vertices[i].x, vertices[i].y);
+      glVertex2f(in_px(vertices[i].x), in_px(vertices[i].y));
     }
-    glVertex2f(vertices[0].x, vertices[0].y);
+    glVertex2f(in_px(vertices[0].x), in_px(vertices[0].y));
     glEnd();
   }
   void DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
@@ -64,9 +74,9 @@ public:
     glColor3f(color.r, color.b, color.b);
     glBegin(GL_LINE_STRIP);
     for (int i = 0; i < vertexCount; i++) {
-      glVertex2f(vertices[i].x, vertices[i].y);
+      glVertex2f(in_px(vertices[i].x), in_px(vertices[i].y));
     }
-    glVertex2f(vertices[0].x, vertices[0].y);
+    glVertex2f(in_px(vertices[0].x), in_px(vertices[0].y));
     glEnd();
   }
   void DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color)
@@ -75,7 +85,7 @@ public:
     glBegin(GL_LINE_STRIP);
     for (int i = 0; i < 32; i++) {
       float a = i * 6.28 / 31.0f;
-      glVertex2f(radius*cos(a) + center.x, radius*sin(a) + center.y);
+      glVertex2f(in_px(radius*cos(a) + center.x), in_px(radius*sin(a) + center.y));
     }
     glEnd();
   }
@@ -85,7 +95,7 @@ public:
     glBegin(GL_LINE_STRIP);
     for (int i = 0; i < 32; i++) {
       float a = i * 6.28 / 31.0f;
-      glVertex2f(radius*cos(a) + center.x, radius*sin(a) + center.y);
+      glVertex2f(in_px(radius*cos(a) + center.x), in_px(radius*sin(a) + center.y));
     }
     glEnd();
   }
@@ -100,7 +110,7 @@ DebugDraw g_DebugDraw;
 void phy_init()
 {
   // gravity
-  b2Vec2 gravity(0.0f, -2.0f);
+  b2Vec2 gravity(0.0f, -10.0f);
 
   // let non-moving bodies sleep
   bool doSleep = true;
@@ -123,16 +133,12 @@ t_time g_tmLast = milliseconds();
 
 void phy_step()
 {
-  t_time now = milliseconds();
-  if (now - g_tmLast > 10) {
     // step the engine
     // NOTE: here we use a fixed step
-    float timeStep = 0.25f;
-    int velocityIterations = 10; // number of internal velocity iters.
-    int positionIterations = 10; // number of internal position iters.
+    float timeStep = 0.02f;
+    int velocityIterations = 1; // number of internal velocity iters.
+    int positionIterations = 1; // number of internal position iters.
     g_World->Step(timeStep, velocityIterations, positionIterations);
-    g_tmLast = now;
-  }
 }
 
 // ------------------------------------------------------------------------

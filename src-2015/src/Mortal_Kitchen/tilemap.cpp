@@ -151,8 +151,8 @@ void tilemap_bind_to_physics(Tilemap *tmap)
       // define a box shape.
       b2PolygonShape box;
       box.SetAsBox(
-        tile->w / 2, tile->h / 2,  // size
-        b2Vec2(i*tmap->tilew + tile->w / 2, j*tmap->tileh + tile->h / 2), // center
+        in_meters(tile->w / 2), in_meters(tile->h / 2),  // size
+        b2Vec2(in_meters(i*tmap->tilew + tile->w / 2), in_meters(j*tmap->tileh + tile->h / 2)), // center
         0.0f);
       // define the dynamic body fixture.
       b2FixtureDef fixtureDef;
@@ -160,9 +160,9 @@ void tilemap_bind_to_physics(Tilemap *tmap)
       // set the box density to be zero, so it will be static.
       fixtureDef.density = 0.0f;
       // override the default friction.
-      fixtureDef.friction = 0.5f;
+      fixtureDef.friction = 0.9f;
       // how bouncy?
-      fixtureDef.restitution = 0.3f;
+      fixtureDef.restitution = 0.1f;
       // user data; set to NULL to distinguish from entities
       fixtureDef.userData = (void*)NULL;
       // add the shape to the body.

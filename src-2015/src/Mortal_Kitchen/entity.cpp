@@ -105,10 +105,9 @@ void lua_set_velocity_y(float v)
 
 void lua_set_impulse(float v)
 {
-  /*
   g_Current->body->ApplyLinearImpulse(
-    g_Current->body->GetMass() * b2Vec2(ix, iy),
-    g_Current->body->GetLocalCenter());*/
+  g_Current->body->GetMass() * b2Vec2(0,v),
+  g_Current->body->GetLocalCenter());
 }
 
 // ------------------------------------------------------------------
@@ -173,10 +172,10 @@ Entity *entity_create(string name,string script)
   g_Current = NULL;
 
   // read physics properties
-  float ctrx = luabind::object_cast<float>(globals(e->script->lua)["physics_center_x"]);
-  float ctry = luabind::object_cast<float>(globals(e->script->lua)["physics_center_y"]);
-  float szx  = luabind::object_cast<float>(globals(e->script->lua)["physics_size_x"]);
-  float szy  = luabind::object_cast<float>(globals(e->script->lua)["physics_size_y"]);
+  float ctrx = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_center_x"]));
+  float ctry = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_center_y"]));
+  float szx = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_size_x"]));
+  float szy = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_size_y"]));
   bool  can_sleep  = luabind::object_cast<bool>(globals(e->script->lua)["physics_can_sleep"]);
   bool  can_rotate = luabind::object_cast<bool>(globals(e->script->lua)["physics_rotation"]);
 
@@ -198,9 +197,9 @@ Entity *entity_create(string name,string script)
   b2FixtureDef fixtureDef;
   fixtureDef.shape = &box;
   // set the box density to be non-zero, so it will be dynamic.
-  fixtureDef.density = 1.0f;
+  fixtureDef.density = 2.0f;
   // override the default friction.
-  fixtureDef.friction = 1.5f;
+  fixtureDef.friction = 0.9f;
   // how bouncy?
   fixtureDef.restitution = 0.2f;
   // user data (pointer to entity being created)
@@ -215,7 +214,7 @@ Entity *entity_create(string name,string script)
 v2f     entity_get_pos(Entity *e)
 {
   b2Vec2 position = e->body->GetTransform().position;
-  return v2f(position.x, position.y);
+  return v2f(in_px(position.x), in_px(position.y));
 }
 
 // ------------------------------------------------------------------
@@ -229,7 +228,7 @@ float   entity_get_angle(Entity *e)
 
 void    entity_set_pos(Entity *e, v2f p)
 {
-  e->body->SetTransform(b2Vec2(p[0],p[1]),0.0f);
+  e->body->SetTransform(b2Vec2(in_meters(p[0]),in_meters(p[1])),0.0f);
 }
 
 // ------------------------------------------------------------------
