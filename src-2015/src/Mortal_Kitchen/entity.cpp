@@ -234,7 +234,6 @@ void    entity_set_pos(Entity *e, v2f p)
 
 // ------------------------------------------------------------------
 
-void    entity_draw(Entity *e)
 {
   if (e->killed) {
     return;
@@ -247,7 +246,6 @@ void    entity_draw(Entity *e)
   int fspc  = e->anims[e->currentAnim]->framespacing;
   v2i sz    = v2i(fspc, e->anims[e->currentAnim]->animframes->h());
   int frame = min(e->currentFrame, e->anims[e->currentAnim]->numframes - 1);
-  v2f pos   = entity_get_pos(e);
   e->anims[e->currentAnim]->animframes->drawSub(
     v2i(pos) - sz/2 /*centered to match physics*/, sz,
     v2i(frame * fspc, 0), sz

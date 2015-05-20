@@ -46,7 +46,7 @@ typedef struct
 // ------------------------------------------------------------------
 
 Entity *entity_create(string fname, string script);
-void    entity_draw(Entity *e);
+void    entity_draw(Entity *e, v2i viewpos);
 void    entity_step(Entity *e, time_t elapsed);
 void    entity_contact(Entity *e,Entity *with);
 void    entity_onfloor(Entity *e);

@@ -18,7 +18,7 @@ Background *background_init(int screenw,int screenh)
 
 // ------------------------------------------------------------------
 
-void        background_draw(Background *bkg, v2i viewpos)
+void background_draw(Background *bkg, v2i viewpos)
 {
   // find the screen image locations required to draw
   v2i mincorner = v2i( 
@@ -69,7 +69,7 @@ void        background_draw(Background *bkg, v2i viewpos)
       map<v2i, DrawImage*>::iterator S = bkg->screens.find(v2i(i, j));
       if (S != bkg->screens.end()) {
         // yes, draw
-        S->second->draw(i*bkg->screenw - viewpos[0] + bkg->screenw / 2, j*bkg->screenh + viewpos[1]);
+        S->second->draw(i*bkg->screenw - viewpos[0], j*bkg->screenh + viewpos[1]);
       }
     }
   }
