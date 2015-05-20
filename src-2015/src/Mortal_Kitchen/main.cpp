@@ -30,8 +30,8 @@ Tilemap        *g_Tilemap      = NULL;
 Background     *g_Bkg          = NULL;
 
 vector<Entity*> g_Entities;
-Entity*         g_Player =			NULL;
-v2i				g_viewpos       = NULL;
+Entity*         g_Player       = NULL;
+v2i 			      g_viewpos      = NULL;
 
 // ------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ void mainRender()
     entity_step(g_Entities[a],el);
   }
   // -> update viewpos (x coord only in this 'game')
-  g_viewpos[0] = (int)entity_get_pos(g_Player)[0];
+  g_viewpos[0] = (int)entity_get_pos(g_Player)[0] - c_ScreenW/4;
 
   //// Display
 
@@ -94,7 +94,7 @@ void mainRender()
   tilemap_draw(g_Tilemap, g_viewpos);
   // -> draw all entities
   for (int a = 0; a < (int)g_Entities.size(); a++) {
-    entity_draw(g_Entities[a]);
+    entity_draw(g_Entities[a], g_viewpos);
   }
   // -> draw physics debug layer
   //phy_debug_draw();
@@ -152,7 +152,7 @@ int main(int argc,const char **argv)
       g_Entities.push_back(c);
     } {
       Entity *c = entity_create("player", "player.lua");
-      entity_set_pos(c, v2f(196,128));
+      entity_set_pos(c, v2f(c_ScreenW/4,128));
       g_Player = c;
       g_Entities.push_back(c);
     }
