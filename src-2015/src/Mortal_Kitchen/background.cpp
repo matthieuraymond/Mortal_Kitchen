@@ -23,11 +23,11 @@ void background_draw(Background *bkg, v2i viewpos)
   // find the screen image locations required to draw
   v2i mincorner = v2i( 
     floor( 
-      v2f(viewpos - v2i(bkg->screenw / 2, bkg->screenh / 2)) 
+      v2f(viewpos) 
     / v2f(bkg->screenw, bkg->screenh) ) );
   v2i maxcorner = v2i(
     ceil(
-      v2f(viewpos + v2i(bkg->screenw / 2, bkg->screenh / 2))
+      v2f(viewpos + v2i(bkg->screenw, bkg->screenh))
     / v2f(bkg->screenw, bkg->screenh)) );
   set<v2i> required;
   for (int j = mincorner[1]; j < maxcorner[1]; j++) {
