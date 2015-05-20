@@ -46,7 +46,11 @@ void mainKeyPressed(uchar key)
     g_Entities.push_back(c);
   }
   if (key == 'z') {
-     play_sound();
+     play_sound("boing.wav");
+  }
+
+  if (key == 'p') {
+	  play_sound("1-up.wav");
   }
 }
 

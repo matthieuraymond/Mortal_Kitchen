@@ -14,6 +14,6 @@
 #include <sndfile.h>
 
 ALuint LoadSound(const std::string& Filename);
-void play_sound();
+void play_sound(string source);
 void rewind_sound();
 void init_sound();

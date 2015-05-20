@@ -3,6 +3,7 @@
 #include <al.h>
 #include <alc.h>
 
+
 #include <sndfile.h>
 
 using namespace std;
@@ -38,21 +39,26 @@ ALuint LoadSound(const std::string& Filename)
 }
 
 ALuint Source;
+list <string> sounds_src = {"boing.wav","1-up.wav"};
+map < string , ALuint > sounds ;
+
 
 void init_sound() {
   ALCdevice* Device = alcOpenDevice(NULL);
   ALCcontext* Context = alcCreateContext(Device, NULL);
   alcMakeContextCurrent(Context);
 
-  ALuint buffer = LoadSound(sourcePath() + "/data/sound/" + "boing.wav");
+  for (list<string>::iterator srcs = sounds_src.begin(); srcs != sounds_src.end(); ++srcs)
+  {
+	  sounds[*srcs] = LoadSound(executablePath() + "/data/sound/" + *srcs);
+  }
 
   alGenSources(1, &Source);
-  alSourcei(Source, AL_BUFFER, buffer);
 }
 
-void play_sound(){
+void play_sound(string snd){
+  alSourcei(Source, AL_BUFFER, sounds[snd]);
   alSourcePlay(Source);
- 
 }
 
 void rewind_sound() {
