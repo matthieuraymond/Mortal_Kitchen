@@ -101,7 +101,7 @@ void mainRender()
     entity_draw(g_Entities[a], g_viewpos);
   }
   // -> draw physics debug layer
-  phy_debug_draw();
+  // phy_debug_draw();
 }
 
 // ------------------------------------------------------------------

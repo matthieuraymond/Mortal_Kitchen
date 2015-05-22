@@ -24,7 +24,7 @@ SourceFiles=SourceFiles
 InstallPrompt=
 DisplayLicense=
 FinishMessage=
-TargetName=G:\Documents\GitHub\Mortal_Kitchen\src-2015\Setup\Mortal_Kitchen-setup.EXE
+TargetName=G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Setup\Mortal-Kitchen_installer.EXE
 FriendlyName=Mortal Kitchen Setup
 AppLaunched=setup.exe
 PostInstallCmd=<None>
@@ -33,7 +33,7 @@ UserQuietInstCmd=
 FILE0="setup.exe"
 FILE1="Setup.msi"
 [SourceFiles]
-SourceFiles0=G:\Documents\GitHub\Mortal_Kitchen\src-2015\Setup\Release\
+SourceFiles0=G:\Documents\GitHub\Mortal_Kitchen\src-2015\src\Setup\Release\
 [SourceFiles0]
 %FILE0%=
 %FILE1%=
