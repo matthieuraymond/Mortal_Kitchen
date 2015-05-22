@@ -44,4 +44,5 @@ link_directories    ( ${CMAKE_SOURCE_DIR}/lib/libsndfile/lib)
 
 INCLUDE_DIRECTORIES( lib/Box2D/Box2D/ )
 ADD_SUBDIRECTORY(src/Mortal_Kitchen)
+ADD_SUBDIRECTORY(src/Setup)
 

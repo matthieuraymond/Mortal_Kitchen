@@ -32,6 +32,7 @@ To get started you need to install :
   * CMake
   * Python 3 or above
   * Visual Studio 2013 or above
+  * Visual Studio 2013 installer project extension
  
 Then, launch CMake and configure :
   * The sources to src-2015 folder
