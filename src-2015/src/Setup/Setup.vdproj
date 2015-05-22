@@ -183,6 +183,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Visual.C++.12.0.x64"
+                    {
+                    "Name" = "8:Visual C++ 2013 Runtime Libraries (x64)"
+                    "ProductCode" = "8:Microsoft.Visual.C++.12.0.x64"
+                    }
+                }
             }
         }
     }
@@ -679,7 +692,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Mortal Kitchen"
         "ProductCode" = "8:{B51318FF-6E21-40F3-947F-A1C7C409B06F}"
-        "PackageCode" = "8:{881C0FF9-3DCF-49C0-82F0-13FA82F9A14E}"
+        "PackageCode" = "8:{858B190B-18C2-4F44-A33A-B69288C0D961}"
         "UpgradeCode" = "8:{133776D8-7193-48D5-A5A0-54FF06075653}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
