@@ -21,13 +21,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0A906BF684984C91A0713C785CAADF9D"
+        "MsmKey" = "8:_076F81BF733440BD99BA01D93808F166"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_128860986D0A4F7A803970BD6A8995D5"
+        "MsmKey" = "8:_0A906BF684984C91A0713C785CAADF9D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -176,6 +176,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -670,15 +678,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Mortal Kitchen"
-        "ProductCode" = "8:{DC02F275-955F-421B-AA5C-EE00BBE2715F}"
-        "PackageCode" = "8:{C15DE96B-3724-4941-95D4-1AAD6D8658CA}"
+        "ProductCode" = "8:{B51318FF-6E21-40F3-947F-A1C7C409B06F}"
+        "PackageCode" = "8:{881C0FF9-3DCF-49C0-82F0-13FA82F9A14E}"
         "UpgradeCode" = "8:{133776D8-7193-48D5-A5A0-54FF06075653}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Artem"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -791,7 +799,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0467803267594DF4A7F91D2DC05CBC66"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6FB3E83814254D9E95C5E2CC4D50AD61"
             {
             "Name" = "8:Mortal Kitchen"
             "Arguments" = "8:"
@@ -799,13 +807,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_128860986D0A4F7A803970BD6A8995D5"
-            "Folder" = "8:_96260CC4BEFA463285A8369F3FF8A824"
+            "Target" = "8:_076F81BF733440BD99BA01D93808F166"
+            "Folder" = "8:_89150F18DEA74CECB0E498EDC5235633"
             "WorkingFolder" = "8:_3B9D348699824614BAABFE2CC341517F"
             "Icon" = "8:_81B6D085F25C4635860F524AD60EC98D"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_466DE62938DB4965B9CFC133387551DE"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_75A4F919D46146C4AE778F78CDD3FCF6"
             {
             "Name" = "8:Mortal Kitchen"
             "Arguments" = "8:"
@@ -813,8 +821,8 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_128860986D0A4F7A803970BD6A8995D5"
-            "Folder" = "8:_89150F18DEA74CECB0E498EDC5235633"
+            "Target" = "8:_076F81BF733440BD99BA01D93808F166"
+            "Folder" = "8:_96260CC4BEFA463285A8369F3FF8A824"
             "WorkingFolder" = "8:_3B9D348699824614BAABFE2CC341517F"
             "Icon" = "8:_81B6D085F25C4635860F524AD60EC98D"
             "Feature" = "8:"
@@ -1218,7 +1226,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_128860986D0A4F7A803970BD6A8995D5"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_076F81BF733440BD99BA01D93808F166"
             {
             "SourcePath" = "8:..\\..\\Mortal_Kitchen.exe"
             "TargetName" = "8:"
@@ -1240,7 +1248,7 @@
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{294DC6F4-1323-4375-9431-A6A6A3C23155}"
+            "OutputProjectGuid" = "8:{133776D8-7193-48D5-A5A0-54FF06075653}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
