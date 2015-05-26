@@ -295,7 +295,7 @@ void    entity_draw(Entity *e, v2i viewpos)
 
 void    entity_step(Entity *e, time_t elapsed)
 {
-	if (e->life <= 0) {
+	if (e->life <= 0 && e->alive) {
 		e->killed = true;
 	}
 
