@@ -170,17 +170,21 @@ int main(int argc,const char **argv)
       Entity *c = entity_create("coin1", "coin.lua");
       entity_set_pos(c, v2f(96, 32));
       g_Entities.push_back(c);
-    } {
-      Entity *c = entity_create("coin2", "coin.lua");
-      entity_set_pos(c, v2f(128, 32));
-      g_Entities.push_back(c);
 	} {
-      Entity *c = entity_create("player", "player.lua");
-      entity_set_pos(c, v2f(c_ScreenW/4,128));
-	  c->alive = true;
-	  c->life = 100;
-	  g_Player = c;	  
-      g_Entities.push_back(c);
+		Entity *c = entity_create("coin2", "coin.lua");
+		entity_set_pos(c, v2f(128, 32));
+		g_Entities.push_back(c);
+	} {
+		Entity *c = entity_create("player", "player.lua");
+		entity_set_pos(c, v2f(c_ScreenW / 4, 128));
+		c->alive = true;
+		c->life = 100;
+		g_Player = c;
+		g_Entities.push_back(c);
+	} {
+		Entity *c = entity_create("enemy", "ennemy.lua");
+		entity_set_pos(c, v2f(c_ScreenW, 128));
+		g_Entities.push_back(c);
     }
 
     g_LastFrame = milliseconds();
@@ -207,3 +211,4 @@ int main(int argc,const char **argv)
 }
 
 // ------------------------------------------------------------------
+
