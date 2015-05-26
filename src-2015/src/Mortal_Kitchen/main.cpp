@@ -31,7 +31,7 @@ Background     *g_Bkg          = NULL;
 
 vector<Entity*> g_Entities;
 Entity*         g_Player       = NULL;
-v2i 			      g_viewpos      = NULL;
+v2i 			g_viewpos      = NULL;
 
 // ------------------------------------------------------------------
 
@@ -50,8 +50,9 @@ void mainKeyPressed(uchar key)
 	  play_sound("travailler.wav");
   }
 
-  if (key == 'o'){
+  if (key == 'a'){
 	  play_sound("ouille.wav");
+	  g_Player->life -= 10;
   }
 
   if (key == 'p'){
@@ -98,14 +99,27 @@ void mainRender()
   //// Display
 
   clearScreen();
-  // -> draw background
-  background_draw(g_Bkg, g_viewpos);
-  // -> draw tilemap
-  tilemap_draw(g_Tilemap, g_viewpos);
-  // -> draw all entities
-  for (int a = 0; a < (int)g_Entities.size(); a++) {
-    entity_draw(g_Entities[a], g_viewpos);
-  }
+
+  if (g_Player->killed) {
+	  // does the body still exist?
+	  //gameover
+	  string name = executablePath() + "/data/screens/gameover.png";
+	  cerr << "attemtping to load " << name << endl;
+	  if (LibSL::System::File::exists(name.c_str())) {
+		  DrawImage *image = new DrawImage(name.c_str());
+		  image->draw(50, 50);
+	  }
+  }	else {
+
+		// -> draw background
+		background_draw(g_Bkg, g_viewpos);
+		// -> draw tilemap
+		tilemap_draw(g_Tilemap, g_viewpos);
+		// -> draw all entities
+		for (int a = 0; a < (int)g_Entities.size(); a++) {
+			entity_draw(g_Entities[a], g_viewpos);
+		}
+	}
   // -> draw physics debug layer
   // phy_debug_draw();
 }
@@ -160,10 +174,12 @@ int main(int argc,const char **argv)
       Entity *c = entity_create("coin2", "coin.lua");
       entity_set_pos(c, v2f(128, 32));
       g_Entities.push_back(c);
-    } {
+	} {
       Entity *c = entity_create("player", "player.lua");
       entity_set_pos(c, v2f(c_ScreenW/4,128));
-      g_Player = c;
+	  c->alive = true;
+	  c->life = 100;
+	  g_Player = c;	  
       g_Entities.push_back(c);
     }
 

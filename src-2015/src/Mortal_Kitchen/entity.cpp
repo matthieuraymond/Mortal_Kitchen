@@ -8,7 +8,7 @@
 
 // The World (in physics.cpp)
 extern b2World *g_World;
-
+extern Entity  *g_Player;
 // ------------------------------------------------------------------
 
 // get access to keys table from main.cpp
@@ -155,6 +155,7 @@ Entity *entity_create(string name,string script)
   e->lastAnimUpdate = 0;
   e->killed = false;
   e->animIsPlaying = false;
+  e->alive = false;
 
   /// scripting
   e->script = script_create();
@@ -286,28 +287,33 @@ void    entity_draw(Entity *e, v2i viewpos)
 
 // ------------------------------------------------------------------
 
-void    entity_step(Entity *e,time_t elapsed)
+void    entity_step(Entity *e, time_t elapsed)
 {
-  if (e->killed) {
-    // does the body still exist?
-    if (e->body != NULL) {
-      // remove from simulation!
-      g_World->DestroyBody(e->body);
-      e->body = NULL;
-    }
-    return;
-  }
-  g_Current = e;
-  // setup global variables in script
-  globals(e->script->lua)["elapsed"] = (int)elapsed;
-  // call stepping function from script
-  begin_script_call(e);
-  try {
-    call_function<void>(e->script->lua, "step");
-  } catch (luabind::error& e) {
-    cerr << Console::red << e.what() << ' ' << Console::gray << endl;
-  }
-  end_script_call(e);
+	if (e->life <= 0) {
+		e->killed = true;
+	}
+
+	if (e->killed && e != g_Player) {
+		// does the body still exist?
+		if (e->body != NULL) {
+			// remove from simulation!
+			g_World->DestroyBody(e->body);
+			e->body = NULL;
+		}
+		return;
+	}
+	g_Current = e;
+	// setup global variables in script
+	globals(e->script->lua)["elapsed"] = (int)elapsed;
+	// call stepping function from script
+	begin_script_call(e);
+	try {
+		call_function<void>(e->script->lua, "step");
+	}
+	catch (luabind::error& e) {
+		cerr << Console::red << e.what() << ' ' << Console::gray << endl;
+	}
+	end_script_call(e);
 }
 
 // ------------------------------------------------------------------

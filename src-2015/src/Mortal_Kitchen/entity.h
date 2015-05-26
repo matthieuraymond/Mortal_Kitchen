@@ -41,6 +41,10 @@ typedef struct
 
   b2Body                  *body;
 
+  //life
+  bool					   alive;
+  int					   life;
+
 } Entity;
 
 // ------------------------------------------------------------------
