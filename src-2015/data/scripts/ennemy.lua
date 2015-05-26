@@ -23,6 +23,9 @@ side = '_left'
 player = 'tomate.'
 on_floor = 1
 step_index = 0
+count = 0
+rand = math.random(50,100)
+view_range = math.random(400,600)
 playanim(player .. state .. side .. '.png',true)
 
 function physics()
@@ -53,26 +56,36 @@ function tql()
 	end		
 end
 
+
 function alert()
 	changed = false
-	if player_pos_x < pos_x then
-		changed = side =="_right"
-		side ="_left"
-	else
+	if player_pos_x < pos_x and count > rand then
+			changed = side =="_right"
+			side ="_left"
+			count = 0
+		
+	elseif count > rand then
 		changed = side=="_left"
 		side = "_right"
+		count = 0
 	end
-
+	
+	count = count + 1
+	
 	if changed then
 		playanim(player .. state .. side .. '.png',true)
+		rand = math.random(50, 100)
 	end
+
 end
 
 function step()
-	--tql()
-	alert()
+	if math.abs(player_pos_x - pos_x) < view_range then
+		alert()
+	else
+		tql()
+	end
 	physics()
-	
 end
 
 
