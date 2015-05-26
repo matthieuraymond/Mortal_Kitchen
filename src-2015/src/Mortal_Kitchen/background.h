@@ -15,6 +15,7 @@ using namespace std;
 
 typedef struct {
   DrawImage *image;
+  time_t	tm_last_used;
   int i;
   int j;
 } Screen;

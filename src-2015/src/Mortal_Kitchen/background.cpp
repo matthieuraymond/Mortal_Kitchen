@@ -30,32 +30,18 @@ void background_draw(Background *bkg, v2i viewpos)
       v2f(viewpos + v2i(bkg->screenw, bkg->screenh))
     / v2f(bkg->screenw, bkg->screenh)) );
   set<v2i> required;
-  for (int j = mincorner[1]; j < maxcorner[1]; j++) {
-    for (int i = mincorner[0]; i < maxcorner[0]; i++) {
-      required.insert(v2i(i, j));
-    }
+  for (int i = 0; i < 10; i++){
+	  required.insert(v2i(i, 0));
   }
-  // free screen images that are no longer required
-  map<v2i, DrawImage*>::iterator S = bkg->screens.begin();
-  while ( S != bkg->screens.end() ) {
-    // is this screen image required?
-    if (required.find(S->first) == required.end()) {
-      // no! delete
-      cerr << "unloading screen " << S->first << endl;
-      delete (S->second);
-      S = bkg->screens.erase(S);
-    } else {
-      // yes, next
-      S++;
-    }
-  }
-  // load if necessary
+
+  // load every screens
   for (set<v2i>::iterator R = required.begin(); R != required.end(); R++) {
-    // already known?
+  //for (int R = 0; R < 9; R++) {
+  	// already known?
     if (bkg->screens.find(*R) == bkg->screens.end()) {
-      // no: load
+      //no: load
       string name = executablePath() + "/data/screens/" + to_string((*R)[0]) + "_" + to_string((*R)[1]) + ".png";
-      // cerr << "attemtping to load " << name << endl;
+	  cerr << "attemtping to load " << name << endl;
       if (LibSL::System::File::exists(name.c_str())) {
         DrawImage *image = new DrawImage(name.c_str());
         bkg->screens[*R] = image;
