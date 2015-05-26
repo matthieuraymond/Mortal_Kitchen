@@ -37,19 +37,14 @@ function step()
 		end
 		if Key_e and on_floor == 1 then
 			state = 'fight'
-			playanim(player .. state .. side .. '.png',false)
 			playsound("pipou.wav")
+			playanim(player .. state .. side .. '.png',false)
 		end 
 	end
 	
 	
 	-- reset states
 	if state == 'walk' and not Key_q and not Key_d then
-		state = 'wait'
-		stopanim()
-	end
-	
-	if state == 'fight' and not Key_e then
 		state = 'wait'
 		stopanim()
 	end
@@ -79,7 +74,7 @@ end
 
 function onAnimEnd()
   if state == 'fight' then
-	--  state = 'wait'
+	state = 'wait'
   end
   if state == 'turn_left' then
     -- state = 'walk_left'
