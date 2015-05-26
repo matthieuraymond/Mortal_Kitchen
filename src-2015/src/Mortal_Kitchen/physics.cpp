@@ -135,10 +135,14 @@ void phy_step()
 {
     // step the engine
     // NOTE: here we use a fixed step
-    float timeStep = 0.02f;
-    int velocityIterations = 1; // number of internal velocity iters.
-    int positionIterations = 1; // number of internal position iters.
-    g_World->Step(timeStep, velocityIterations, positionIterations);
+	t_time current = milliseconds();
+	if (current - g_tmLast > 10) {
+		float timeStep = 0.02f;
+		int velocityIterations = 1; // number of internal velocity iters.
+		int positionIterations = 1; // number of internal position iters.
+		g_World->Step(timeStep, velocityIterations, positionIterations);
+		g_tmLast = current;
+	}
 }
 
 // ------------------------------------------------------------------------

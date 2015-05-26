@@ -52,6 +52,7 @@ function step()
 	if Key_z and on_floor == 1 then
 		set_velocity_y(5.0)
 		on_floor = 0
+		playsound("boing.wav")
 	end
 
 	-- walk if state is 'walk_*'

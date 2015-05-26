@@ -45,10 +45,18 @@ void mainKeyPressed(uchar key)
     entity_set_pos(c, v2f(256 + ((rand() % 128) - 64), 350));
     g_Entities.push_back(c);
   }
-  if (key == 'z') {
-     play_sound("boing.wav");
+
+  if (key == 's'){
+	  play_sound("travailler.wav");
   }
 
+  if (key == 'o'){
+	  play_sound("ouille.wav");
+  }
+
+  if (key == 'p'){
+	  play_sound("aieaieaie.wav");
+  }
 
 }
 
