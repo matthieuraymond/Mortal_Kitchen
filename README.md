@@ -1,5 +1,9 @@
 ### UPDATES :
 
+0.5 : Beggining enemies, first passive IA implemented (can't really be called IA ftm)
+0.4 : Life added to entities, tomato can now kill entities (coins for the moment)
+0.3 : Sound added, boiiinngg
+0.2 : Physics has been implemented, tomato can now jump and fight =D, also obstacle added
 0.1 : git is now fully functionnal, to get started, read below. The game is in an early early early stage of devlopment.
 
 
