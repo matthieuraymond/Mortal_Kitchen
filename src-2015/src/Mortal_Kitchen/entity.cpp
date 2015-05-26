@@ -4,6 +4,7 @@
 #include "drawimage.h"
 #include "script.h"
 #include "entity.h"
+#include "sound.h"
 
 // The World (in physics.cpp)
 extern b2World *g_World;
@@ -66,6 +67,10 @@ void lua_playanim(string filename, bool looping)
   g_Current->lastAnimUpdate = milliseconds();
   g_Current->animIsPlaying = true;
   g_Current->animIsALoop = looping;
+}
+
+void lua_playsound(string snd){
+	play_sound(snd);
 }
 
 // ------------------------------------------------------------------
@@ -163,7 +168,8 @@ Entity *entity_create(string name,string script)
         def("stopanim", &lua_stopanim),
         def("set_velocity_x", &lua_set_velocity_x),
         def("set_velocity_y", &lua_set_velocity_y),
-        def("set_impulse", &lua_set_impulse)
+        def("set_impulse", &lua_set_impulse),
+		def("playsound", &lua_playsound)
       ];
   }
   // load the script (global space gets executed)

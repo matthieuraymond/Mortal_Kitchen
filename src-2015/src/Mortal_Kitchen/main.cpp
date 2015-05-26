@@ -49,9 +49,7 @@ void mainKeyPressed(uchar key)
      play_sound("boing.wav");
   }
 
-  if (key == 'p') {
-	  play_sound("1-up.wav");
-  }
+
 }
 
 // ------------------------------------------------------------------

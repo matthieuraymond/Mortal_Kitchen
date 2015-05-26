@@ -37,7 +37,8 @@ function step()
 		end
 		if Key_e and on_floor == 1 then
 			state = 'fight'
-			playanim(player .. state .. side .. '.png',true)
+			playanim(player .. state .. side .. '.png',false)
+			playsound("pipou.wav")
 		end 
 	end
 	
@@ -77,6 +78,9 @@ function onFloor()
 end
 
 function onAnimEnd()
+  if state == 'fight' then
+	--  state = 'wait'
+  end
   if state == 'turn_left' then
     -- state = 'walk_left'
 	-- playanim('gripe.run_left.png',true)
