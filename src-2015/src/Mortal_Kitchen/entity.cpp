@@ -8,7 +8,7 @@
 
 // The World (in physics.cpp)
 extern b2World *g_World;
-
+extern Entity *g_Player;
 // ------------------------------------------------------------------
 
 // get access to keys table from main.cpp
@@ -117,6 +117,8 @@ void lua_set_impulse(float v)
 
 // ------------------------------------------------------------------
 
+
+
 void begin_script_call(Entity *e)
 {
   g_Current = e;
@@ -127,8 +129,10 @@ void begin_script_call(Entity *e)
   }
   globals(e->script->lua)["name"] = e->name;
   v2f pos = entity_get_pos(e);
-  globals(e->script->lua)["pos_x"] = pos[0];
-  globals(e->script->lua)["pos_y"] = pos[1];
+  globals(e->script->lua)["player_pos_x"] = entity_get_pos(g_Player)[0];
+  globals(e->script->lua)["player_pos_y"] = entity_get_pos(g_Player)[1];
+  globals(e->script->lua)["pos_x"] = entity_get_pos(e)[0];
+  globals(e->script->lua)["pos_y"] = entity_get_pos(e)[1];
   globals(e->script->lua)["killed"] = e->killed;
 }
 
@@ -142,6 +146,8 @@ void end_script_call(Entity *e)
   e->killed = luabind::object_cast<bool>(globals(e->script->lua)["killed"]);
   g_Current = NULL;
 }
+
+
 
 // ------------------------------------------------------------------
 
