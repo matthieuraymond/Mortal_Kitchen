@@ -63,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_65EF100155824B1D997FE62246871CFD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7C866601C2954524A9AAEE98AB878D3C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -344,6 +350,26 @@
             "TargetName" = "8:tomate.walk_left.png"
             "Tag" = "8:"
             "Folder" = "8:_C98B67E1096B4799867DE4E6BAB682DD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65EF100155824B1D997FE62246871CFD"
+            {
+            "SourcePath" = "8:..\\..\\OpenAL32.dll"
+            "TargetName" = "8:OpenAL32.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3B9D348699824614BAABFE2CC341517F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1241,7 +1267,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_076F81BF733440BD99BA01D93808F166"
             {
-            "SourcePath" = "8:..\\..\\Mortal_Kitchen.exe"
+            "SourcePath" = "8:..\\..\\Mortal_Kitchen-d.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3B9D348699824614BAABFE2CC341517F"
