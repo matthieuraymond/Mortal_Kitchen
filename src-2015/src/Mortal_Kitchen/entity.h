@@ -37,13 +37,16 @@ typedef struct
   // v2f                      pos; ==> this is now in the physics body
   bool                     killed;
 
-  Script                  *script;
+  Script                  *script;                    
 
   b2Body                  *body;
 
   //life
   bool					   alive;
   int					   life;
+
+  int                      damage;
+  string                   owner;
 
 } Entity;
 
@@ -55,6 +58,7 @@ void    entity_step(Entity *e, time_t elapsed);
 void    entity_contact(Entity *e,Entity *with);
 void    entity_onfloor(Entity *e);
 AAB<2>  entity_bbox(Entity *e);
+void    apply_damage(Entity *with, Entity *from);
 
 v2f     entity_get_pos(Entity *e);
 float   entity_get_angle(Entity *e);
