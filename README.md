@@ -1,5 +1,9 @@
 ### UPDATES :
 
+0.7 : Added attackes, tomatos can now kill and be killed, IA upgraded to follow and attack player when near
+
+0.6 : Basic menu added and game over
+
 0.5 : Beggining enemies, first passive IA implemented (can't really be called IA ftm)
 
 0.4 : Life added to entities, tomato can now kill entities (coins for the moment)
