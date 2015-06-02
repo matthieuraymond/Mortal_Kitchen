@@ -49,9 +49,9 @@ void mainKeyPressed(uchar key)
 	g_Keys[key] = true;
 
 	if (key == ' ') {
-		Entity *c = entity_create("coin0", "coin.lua");
+		/*Entity *c = entity_create("coin0", "coin.lua");
 		entity_set_pos(c, v2f(256 + ((rand() % 128) - 64), 350));
-		g_Entities.push_back(c);
+		g_Entities.push_back(c);*/
 	}
 
 	if (key == 'a'){
@@ -150,7 +150,7 @@ void mainRender()
 		}
 
 		// -> draw physics debug layer
-		//phy_debug_draw();
+		phy_debug_draw();
 
 		if (g_Player->killed) {
 			g_GameState = 2;

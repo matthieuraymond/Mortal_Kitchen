@@ -49,6 +49,7 @@ void apply_damage(Entity *with, Entity *from)
 {
 	if (with->name != from->owner) {
 		with->life -= from->damage;
+		from->killed = true;
 	}
 		
 }
@@ -129,13 +130,20 @@ void lua_set_impulse(float v)
 
 // ------------------------------------------------------------------
 
-void lua_attack(string filename, string owner, int posx, int posy) 
+void lua_attack(string filename, string owner, string side, int posx, int posy) 
 {
+	int coef = 1;
+	if (side == "_left") {
+		coef = -1;
+	}
 	Entity *c = entity_create("damage", filename);
 	c->damage = luabind::object_cast<int>(globals(c->script->lua)["damage"]);
 	c->owner = owner;
 	int width = luabind::object_cast<int>(globals(c->script->lua)["physics_size_x"]);
-	entity_set_pos(c, v2f(posx + width + 5, posy));
+	float speed_x = luabind::object_cast<float>(globals(c->script->lua)["speed_x"]);
+	float speed_y = luabind::object_cast<float>(globals(c->script->lua)["speed_y"]);
+	entity_set_pos(c, v2f(posx + coef * (width + 3), posy));
+	c->body->SetLinearVelocity(b2Vec2(coef * speed_x, speed_y));
 	g_Entities.push_back(c);
 }
 
@@ -156,7 +164,7 @@ void begin_script_call(Entity *e)
   globals(e->script->lua)["pos_x"] = entity_get_pos(e)[0];
   globals(e->script->lua)["pos_y"] = entity_get_pos(e)[1];
   globals(e->script->lua)["killed"] = e->killed;
-  globals(e->script->lua)["name"] = e->name;
+  globals(e->script->lua)["owner"] = e->name;
 }
 
 // ------------------------------------------------------------------
@@ -185,6 +193,7 @@ Entity *entity_create(string name,string script)
   e->killed = false;
   e->animIsPlaying = false;
   e->alive = false;
+  // For attacks
   e->damage = 0;
   e->owner = "";
 
@@ -215,7 +224,7 @@ Entity *entity_create(string name,string script)
   float ctry = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_center_y"]));
   float szx = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_size_x"]));
   float szy = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_size_y"]));
-  float density = in_meters(luabind::object_cast<float>(globals(e->script->lua)["density"]));
+  float density = luabind::object_cast<float>(globals(e->script->lua)["density"]);
   bool  can_sleep  = luabind::object_cast<bool>(globals(e->script->lua)["physics_can_sleep"]);
   bool  can_rotate = luabind::object_cast<bool>(globals(e->script->lua)["physics_rotation"]);
 

@@ -6,13 +6,29 @@ physics_can_sleep = true
 physics_rotation  = true
 damage            = 25
 range             = 3
-density           = 0
+density           = -1
+range             = 100*0.05 -- 100 for px to m (0.05 is in m)
+speed_x           = 2
+speed_y           = 0
+gone_through      = 0
+last_pos_x        = 0
+
 
 addanim('void.png',10)
 playanim('void.png',false)
 
-function step()
+initialized = false
 
+function step()
+	if not initialized then
+		last_pos_x = pos_x
+		initialized = true
+	end
+	gone_through = gone_through + math.abs(last_pos_x - pos_x)
+	last_pos_x = pos_x
+	if gone_through > range then
+		killed = true
+	end
 end
 
 function contact(with)
@@ -24,5 +40,5 @@ function onAnimEnd()
 end
 
 function onFloor()
-
+	killed = true
 end

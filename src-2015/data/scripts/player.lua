@@ -40,7 +40,13 @@ function step()
 			state = 'fight'
 			playsound("pipou.wav")
 			playanim(player .. state .. side .. '.png',false)
-			attack('punch.lua',name,pos_x + physics_size_x, 150)
+			
+			-- attack
+			coef = 1
+			if side == "_left" then
+				coef = -1
+			end
+			attack('punch.lua',name, side, pos_x + coef * physics_size_x, pos_y + 50)
 		end 
 	end
 	

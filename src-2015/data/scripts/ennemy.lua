@@ -2,7 +2,7 @@ physics_center_x  =  0
 physics_center_y  =  0
 physics_size_x    = 25
 physics_size_y    = 75
-density           = 2.0
+density           = 2
 physics_can_sleep = false
 physics_rotation  = false
 
@@ -25,30 +25,27 @@ player = 'tomate.'
 on_floor = 1
 step_index = 0
 count = 0
-count_attack = 0
 rand = math.random(50,100)
 view_range = math.random(400,600)
-attack_range = 250
-time_attack = 40
+aggressive_range = 250
 playanim(player .. state .. side .. '.png',true)
 
 
 function physics()
-	-- walk if state is 'walk_*'
+
+	factor = 1
+	if side == '_left' then
+		factor = -1
+	end
+	
 	if state == 'walk' then 
-		factor = 1
-		if side == '_left' then
-			factor = -1
-		end
 		set_velocity_x(factor * 2.0)
 	end
+	
 end
 
 
 function tql()
-
-
-
 	if step_index < 100 then
 		step_index = step_index + 1
 		
@@ -88,29 +85,23 @@ function alert()
 
 end
 
-function attack()
-	
-
-	
-	
-	if count_attack > time_attack then
+function aggressive()
+	if state ~= 'fight' then
 		if player_pos_x < pos_x then
 			side="_left"
 		else
 			side="_right"
 		end
 		state = 'fight'
-		playanim(player .. state .. side .. '.png',true)
-		count_attack = 0 
-	else
-		count_attack = count_attack + 1;
+		playanim(player .. state .. side .. '.png',false)
+		attack('punch.lua',name, side, pos_x + factor * physics_size_x, pos_y + 50)
 	end
 end
 
 
 function step()
-	if math.abs(player_pos_x - pos_x) < attack_range then
-		attack()
+	if math.abs(player_pos_x - pos_x) < aggressive_range then
+		aggressive()
 	elseif math.abs(player_pos_x - pos_x) < view_range then	
 		alert()
 	else
@@ -119,9 +110,9 @@ function step()
 	physics()
 end
 
+function contact(with)
 
-
-
+end
 
 function onFloor()
 	on_floor = 1
