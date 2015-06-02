@@ -14,6 +14,8 @@ b2World *g_World = NULL;
 
 // ------------------------------------------------------------------------
 
+extern v2i g_viewpos;
+
 // converters
 
 float in_meters(int px) {
@@ -75,9 +77,9 @@ public:
     glColor3f(color.r, color.b, color.b);
     glBegin(GL_LINE_STRIP);
     for (int i = 0; i < vertexCount; i++) {
-      glVertex2f(in_px(vertices[i].x), in_px(vertices[i].y));
+		glVertex2f(in_px(vertices[i].x) - g_viewpos[0], in_px(vertices[i].y) - g_viewpos[1]);
     }
-    glVertex2f(in_px(vertices[0].x), in_px(vertices[0].y));
+	glVertex2f(in_px(vertices[0].x) - g_viewpos[0], in_px(vertices[0].y)-g_viewpos[1]);
     glEnd();
   }
   void DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
@@ -85,9 +87,9 @@ public:
     glColor3f(color.r, color.b, color.b);
     glBegin(GL_LINE_STRIP);
     for (int i = 0; i < vertexCount; i++) {
-      glVertex2f(in_px(vertices[i].x), in_px(vertices[i].y));
+		glVertex2f(in_px(vertices[i].x) - g_viewpos[0], in_px(vertices[i].y) - g_viewpos[1]);
     }
-    glVertex2f(in_px(vertices[0].x), in_px(vertices[0].y));
+	glVertex2f(in_px(vertices[0].x) - g_viewpos[0], in_px(vertices[0].y) - g_viewpos[1]);
     glEnd();
   }
   void DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color)
@@ -96,7 +98,7 @@ public:
     glBegin(GL_LINE_STRIP);
     for (int i = 0; i < 32; i++) {
       float a = i * 6.28 / 31.0f;
-      glVertex2f(in_px(radius*cos(a) + center.x), in_px(radius*sin(a) + center.y));
+	  glVertex2f(in_px(radius*cos(a) + center.x) - g_viewpos[0], in_px(radius*sin(a) + center.y) - g_viewpos[1]);
     }
     glEnd();
   }
@@ -106,7 +108,7 @@ public:
     glBegin(GL_LINE_STRIP);
     for (int i = 0; i < 32; i++) {
       float a = i * 6.28 / 31.0f;
-      glVertex2f(in_px(radius*cos(a) + center.x), in_px(radius*sin(a) + center.y));
+	  glVertex2f(in_px(radius*cos(a) + center.x) - g_viewpos[0], in_px(radius*sin(a) + center.y) - g_viewpos[1]);
     }
     glEnd();
   }
