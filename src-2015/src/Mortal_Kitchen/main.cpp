@@ -60,7 +60,7 @@ void mainKeyPressed(uchar key)
   }
 
   if (key == 'p'){
-	  play_sound("aieaieaie.wav");
+	  play_sound("mort.wav");
   }
 
 }
