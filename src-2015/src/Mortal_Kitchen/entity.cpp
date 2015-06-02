@@ -134,7 +134,8 @@ void lua_attack(string filename, string owner, int posx, int posy)
 	Entity *c = entity_create("damage", filename);
 	c->damage = luabind::object_cast<int>(globals(c->script->lua)["damage"]);
 	c->owner = owner;
-	entity_set_pos(c, v2f(250, 250));
+	int width = luabind::object_cast<int>(globals(c->script->lua)["physics_size_x"]);
+	entity_set_pos(c, v2f(posx + width + 5, posy));
 	g_Entities.push_back(c);
 }
 
