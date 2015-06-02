@@ -39,6 +39,7 @@ function step()
 			state = 'fight'
 			playsound("pipou.wav")
 			playanim(player .. state .. side .. '.png',false)
+			attack('punch.lua',name,pos_x,75)
 		end 
 	end
 	

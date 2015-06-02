@@ -27,29 +27,40 @@ int in_px(float m) {
 class ContactListener : public b2ContactListener
 {
 public:
-  void BeginContact(b2Contact* contact)  { }
-  void EndContact(b2Contact* contact)    { }
-  void PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
-  {
-    // get fixtures
-    b2Fixture    *fA = contact->GetFixtureA();
-    b2Fixture    *fB = contact->GetFixtureB();
-    // get user data
-    void *dA = fA->GetUserData();
-    void *dB = fB->GetUserData();
-    if (dA != NULL && dB != NULL) {
-      entity_contact((Entity*)dA, (Entity*)dB);
-      entity_contact((Entity*)dB, (Entity*)dA);
-    }
-    else if (dA != NULL) {
-      entity_onfloor((Entity*)dA);
-    }
-    else {
-      entity_onfloor((Entity*)dB);
-    }
-    // To disable contact: contact->SetEnabled(false);
-  }
-  void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) { }
+	void BeginContact(b2Contact* contact)  { }
+	void EndContact(b2Contact* contact)    { }
+	void PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
+	{
+		// get fixtures
+		b2Fixture    *fA = contact->GetFixtureA();
+		b2Fixture    *fB = contact->GetFixtureB();
+		// get user data
+		void *dA = fA->GetUserData();
+		void *dB = fB->GetUserData();
+		if (dA != NULL && dB != NULL) {
+			//is one of the entities a damage ?
+			if (((Entity*)dA)->name == "damage") {
+				apply_damage((Entity*)dB, (Entity*)dA);
+				((Entity*)dA)->killed = true;
+			}
+			else if (((Entity*)dB)->name == "damage") {
+				apply_damage((Entity*)dA, (Entity*)dB);
+				((Entity*)dB)->killed = true;
+			}
+			else {
+				entity_contact((Entity*)dA, (Entity*)dB);
+				entity_contact((Entity*)dB, (Entity*)dA);
+			}
+		}
+		else if (dA != NULL) {
+			entity_onfloor((Entity*)dA);
+		}
+		else {
+			entity_onfloor((Entity*)dB);
+		}
+		// To disable contact: contact->SetEnabled(false);
+	}
+	void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) { }
 };
 
 ContactListener g_ContactListener;

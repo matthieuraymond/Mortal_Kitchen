@@ -14,6 +14,8 @@ extern Entity *g_Player;
 // get access to keys table from main.cpp
 extern bool g_Keys[256];
 
+extern vector<Entity*> g_Entities;
+
 // ------------------------------------------------------------------
 
 const int g_FrameDelay = 100; // ms between frames
@@ -42,6 +44,16 @@ DrawImage *loadAnimation(string filename)
 }
 
 // ------------------------------------------------------------------
+
+void apply_damage(Entity *with, Entity *from)
+{
+	if (with->name != from->owner) {
+		with->life -= from->damage;
+	}
+		
+}
+
+// -------------------------------------------------------------------
 
 void lua_addanim(string filename, int framespacing)
 {
@@ -117,7 +129,16 @@ void lua_set_impulse(float v)
 
 // ------------------------------------------------------------------
 
+void lua_attack(string filename, string owner, int posx, int posy) 
+{
+	Entity *c = entity_create("damage", filename);
+	c->damage = luabind::object_cast<int>(globals(c->script->lua)["damage"]);
+	c->owner = owner;
+	entity_set_pos(c, v2f(250, 250));
+	g_Entities.push_back(c);
+}
 
+// ------------------------------------------------------------------
 
 void begin_script_call(Entity *e)
 {
@@ -134,6 +155,7 @@ void begin_script_call(Entity *e)
   globals(e->script->lua)["pos_x"] = entity_get_pos(e)[0];
   globals(e->script->lua)["pos_y"] = entity_get_pos(e)[1];
   globals(e->script->lua)["killed"] = e->killed;
+  globals(e->script->lua)["name"] = e->name;
 }
 
 // ------------------------------------------------------------------
@@ -162,6 +184,8 @@ Entity *entity_create(string name,string script)
   e->killed = false;
   e->animIsPlaying = false;
   e->alive = false;
+  e->damage = 0;
+  e->owner = "";
 
   /// scripting
   e->script = script_create();
@@ -176,7 +200,8 @@ Entity *entity_create(string name,string script)
         def("set_velocity_x", &lua_set_velocity_x),
         def("set_velocity_y", &lua_set_velocity_y),
         def("set_impulse", &lua_set_impulse),
-		def("playsound", &lua_playsound)
+		def("playsound", &lua_playsound),
+		def("attack", &lua_attack)
       ];
   }
   // load the script (global space gets executed)

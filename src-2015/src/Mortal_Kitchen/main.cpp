@@ -162,7 +162,7 @@ void mainRender()
 		}
 
 		// -> draw physics debug layer
-		// phy_debug_draw();
+		phy_debug_draw();
 
 		if (g_Player->killed) {
 			g_GameState = 2;
