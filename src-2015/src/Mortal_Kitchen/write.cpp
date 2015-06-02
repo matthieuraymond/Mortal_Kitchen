@@ -5,7 +5,7 @@ map<char, DrawImage*> letters;
 
 void initText() {
 	string name = executablePath() + "/data/letters/";
-	for (int i = 'a'; i < 'f'; i++) {
+	for (int i = 'a'; i < 'z'; i++) {
 		string temp = name + (char)i + ".png";
 		DrawImage *image = new DrawImage(temp.c_str());
 		letters[i] = image;

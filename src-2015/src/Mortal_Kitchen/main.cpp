@@ -35,6 +35,9 @@ Entity*         g_Player       = NULL;
 v2i 			g_viewpos      = NULL;
 
 int				g_GameState    = 0; // 0: menu, 1: playing, 2: game over
+int				g_Menu		   = 0; // 0: main menu, 1: credits
+int				selector	   = 0;
+DrawImage		*selectBall    = NULL;
 DrawImage		*menu		   = NULL;
 DrawImage		*gameOver	   = NULL;
 
@@ -43,26 +46,53 @@ DrawImage		*gameOver	   = NULL;
 // 'mainKeyPressed' is called everytime a key is pressed
 void mainKeyPressed(uchar key)
 {
-  g_Keys[key] = true;
+	g_Keys[key] = true;
 
-  if (key == ' ') {
-    Entity *c = entity_create("coin0", "coin.lua");
-    entity_set_pos(c, v2f(256 + ((rand() % 128) - 64), 350));
-    g_Entities.push_back(c);
-  }
+	if (key == ' ') {
+		Entity *c = entity_create("coin0", "coin.lua");
+		entity_set_pos(c, v2f(256 + ((rand() % 128) - 64), 350));
+		g_Entities.push_back(c);
+	}
 
-  if (key == 's'){
-	  play_sound("travailler.wav");
-  }
+	if (key == 's'){
+		play_sound("travailler.wav");
+	}
 
-  if (key == 'a'){
-	  play_sound("ouille.wav");
-	  g_Player->life -= 10;
-  }
+	if (key == 'a'){
+		play_sound("ouille.wav");
+		g_Player->life -= 10;
+	}
 
-  if (key == 'p'){
-	  play_sound("mort.wav");
-  }
+	if (key == 'p'){
+		play_sound("mort.wav");
+	}
+
+	// Menu
+	if (g_GameState == 0) {
+		if (g_Menu == 0) {
+			if (key == 'z') {
+				selector += 1;
+				selector = selector % 2;
+			}
+			else if (key == 's') {
+				selector -= 1;
+				selector = abs(selector % 2);
+			}
+			else if (key == ' ') {
+				if (selector == 0) {
+					g_GameState = 1;
+				}
+				else if (selector == 1) {
+					g_Menu = 1;
+				}
+			}
+		}
+		else if (g_Menu == 1) {
+			if (key == ' ') {
+				g_Menu = 0;
+			}
+		}
+	}
 
 }
 
@@ -71,10 +101,10 @@ void mainKeyPressed(uchar key)
 // 'mainKeyUnpressed' is called everytime a key is released
 void mainKeyUnpressed(uchar key)
 {
-  g_Keys[key] = false;
-  if (key == 'z') {
-    rewind_sound();
-  }
+	g_Keys[key] = false;
+	if (key == 'z') {
+		rewind_sound();
+	}
 }
 
 // ------------------------------------------------------------------
@@ -82,13 +112,18 @@ void mainKeyUnpressed(uchar key)
 // 'mainRender' is called everytime the screen is drawn
 void mainRender()
 {
+	clearScreen();
 
 	// Menu
 	if (g_GameState == 0) {
-		//menu->draw(0, 0);
-		drawText("aaaaa", v2i(c_ScreenW / 2, c_ScreenH / 2));
-		if (g_Keys['p']) {
-			g_GameState = 1;
+		if (g_Menu == 0) {
+			// Main menu
+			drawText("play", v2i(c_ScreenW / 2, c_ScreenH / 2));
+			drawText("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
+			selectBall->draw(c_ScreenW / 2 - 64, c_ScreenH / 2 - 64 * selector);
+		}
+		else if (g_Menu == 1) {
+			drawText("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
 		}
 	}
 	// Playing
@@ -173,6 +208,11 @@ int main(int argc,const char **argv)
 	cerr << "attemtping to load " << name << endl;
 	if (LibSL::System::File::exists(name.c_str())) {
 		gameOver = new DrawImage(name.c_str());
+	}
+	name = executablePath() + "/data/select.png";
+	cerr << "attemtping to load " << name << endl;
+	if (LibSL::System::File::exists(name.c_str())) {
+		selectBall = new DrawImage(name.c_str());
 	}
 
     ///// Level creation
