@@ -61,7 +61,7 @@ void mainKeyPressed(uchar key)
   }
 
   if (key == 'p'){
-	  play_sound("aieaieaie.wav");
+	  play_sound("mort.wav");
   }
 
 }
@@ -97,22 +97,22 @@ void mainRender()
 		//// Compute elapsed time
 		time_t now = milliseconds();
 		time_t el = now - g_LastFrame;
-		if (el > 50) {
+		if (el > 25) {
 			g_LastFrame = now;
+
+
+			//// Physics
+			phy_step();
+
+			//// Logic
+
+			// -> step all entities
+			for (int a = 0; a < (int)g_Entities.size(); a++) {
+				entity_step(g_Entities[a], el);
+			}
+			// -> update viewpos (x coord only in this 'game')
+			g_viewpos[0] = (int)entity_get_pos(g_Player)[0] - c_ScreenW / 4;
 		}
-
-		//// Physics
-		phy_step();
-
-		//// Logic
-
-		// -> step all entities
-		for (int a = 0; a < (int)g_Entities.size(); a++) {
-			entity_step(g_Entities[a], el);
-		}
-		// -> update viewpos (x coord only in this 'game')
-		g_viewpos[0] = (int)entity_get_pos(g_Player)[0] - c_ScreenW / 4;
-
 		//// Display
 
 		clearScreen();
