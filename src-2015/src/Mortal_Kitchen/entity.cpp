@@ -215,6 +215,7 @@ Entity *entity_create(string name,string script)
   float ctry = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_center_y"]));
   float szx = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_size_x"]));
   float szy = in_meters(luabind::object_cast<float>(globals(e->script->lua)["physics_size_y"]));
+  float density = in_meters(luabind::object_cast<float>(globals(e->script->lua)["density"]));
   bool  can_sleep  = luabind::object_cast<bool>(globals(e->script->lua)["physics_can_sleep"]);
   bool  can_rotate = luabind::object_cast<bool>(globals(e->script->lua)["physics_rotation"]);
 
@@ -236,7 +237,7 @@ Entity *entity_create(string name,string script)
   b2FixtureDef fixtureDef;
   fixtureDef.shape = &box;
   // set the box density to be non-zero, so it will be dynamic.
-  fixtureDef.density = 2.0f;
+  fixtureDef.density = density;
   // override the default friction.
   fixtureDef.friction = 0.9f;
   // how bouncy?

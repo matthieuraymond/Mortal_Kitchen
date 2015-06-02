@@ -6,6 +6,7 @@ physics_can_sleep = true
 physics_rotation  = true
 damage            = 25
 range             = 3
+density           = 0
 
 addanim('void.png',10)
 playanim('void.png',false)

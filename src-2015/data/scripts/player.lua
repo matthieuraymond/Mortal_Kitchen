@@ -2,6 +2,7 @@ physics_center_x  =  0
 physics_center_y  =  0
 physics_size_x    = 25
 physics_size_y    = 75
+density           = 2
 physics_can_sleep = false
 physics_rotation  = false
 
@@ -39,7 +40,7 @@ function step()
 			state = 'fight'
 			playsound("pipou.wav")
 			playanim(player .. state .. side .. '.png',false)
-			attack('punch.lua',name,pos_x + physics_size_x,75)
+			attack('punch.lua',name,pos_x + physics_size_x, 150)
 		end 
 	end
 	

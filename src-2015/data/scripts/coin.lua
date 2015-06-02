@@ -2,6 +2,7 @@ physics_center_x  = 0
 physics_center_y  = 0
 physics_size_x    = 8
 physics_size_y    = 8
+density           = 2.0
 physics_can_sleep = true
 physics_rotation  = true
 
