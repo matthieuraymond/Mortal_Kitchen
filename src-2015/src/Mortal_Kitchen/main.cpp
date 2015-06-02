@@ -33,6 +33,10 @@ vector<Entity*> g_Entities;
 Entity*         g_Player       = NULL;
 v2i 			g_viewpos      = NULL;
 
+int				g_GameState    = 0; // 0: menu, 1: playing, 2: game over
+DrawImage		*menu		   = NULL;
+DrawImage		*gameOver	   = NULL;
+
 // ------------------------------------------------------------------
 
 // 'mainKeyPressed' is called everytime a key is pressed
@@ -77,39 +81,39 @@ void mainKeyUnpressed(uchar key)
 // 'mainRender' is called everytime the screen is drawn
 void mainRender()
 {
-  //// Compute elapsed time
-  time_t now = milliseconds();
-  time_t el = now - g_LastFrame;
-  if (el > 50) {
-    g_LastFrame = now;
-  }
 
-  //// Physics
-  phy_step();
-  
-  //// Logic
+	// Menu
+	if (g_GameState == 0) {
+		menu->draw(0, 0);
+		if (g_Keys['p']) {
+			g_GameState = 1;
+		}
+	}
+	// Playing
+	else if (g_GameState == 1) {
 
-  // -> step all entities
-  for (int a = 0; a < (int)g_Entities.size(); a++) {
-    entity_step(g_Entities[a],el);
-  }
-  // -> update viewpos (x coord only in this 'game')
-  g_viewpos[0] = (int)entity_get_pos(g_Player)[0] - c_ScreenW/4;
+		//// Compute elapsed time
+		time_t now = milliseconds();
+		time_t el = now - g_LastFrame;
+		if (el > 50) {
+			g_LastFrame = now;
+		}
 
-  //// Display
+		//// Physics
+		phy_step();
 
-  clearScreen();
+		//// Logic
 
-  if (g_Player->killed) {
-	  // does the body still exist?
-	  //gameover
-	  string name = executablePath() + "/data/screens/gameover.png";
-	  cerr << "attemtping to load " << name << endl;
-	  if (LibSL::System::File::exists(name.c_str())) {
-		  DrawImage *image = new DrawImage(name.c_str());
-		  image->draw(50, 50);
-	  }
-  }	else {
+		// -> step all entities
+		for (int a = 0; a < (int)g_Entities.size(); a++) {
+			entity_step(g_Entities[a], el);
+		}
+		// -> update viewpos (x coord only in this 'game')
+		g_viewpos[0] = (int)entity_get_pos(g_Player)[0] - c_ScreenW / 4;
+
+		//// Display
+
+		clearScreen();
 
 		// -> draw background
 		background_draw(g_Bkg, g_viewpos);
@@ -119,9 +123,18 @@ void mainRender()
 		for (int a = 0; a < (int)g_Entities.size(); a++) {
 			entity_draw(g_Entities[a], g_viewpos);
 		}
+
+		// -> draw physics debug layer
+		// phy_debug_draw();
+
+		if (g_Player->killed) {
+			g_GameState = 2;
+		}
 	}
-  // -> draw physics debug layer
-  // phy_debug_draw();
+	// Game Over
+	else if (g_GameState == 2) {
+		gameOver->draw(0, 0);
+	}
 }
 
 // ------------------------------------------------------------------
@@ -146,6 +159,17 @@ int main(int argc,const char **argv)
     for (int i = 0; i < 256; i++) {
       g_Keys[i] = false;
     }
+
+	string name = executablePath() + "/data/screens/menu.png";
+	cerr << "attemtping to load " << name << endl;
+	if (LibSL::System::File::exists(name.c_str())) {
+		menu = new DrawImage(name.c_str());
+	}
+	name = executablePath() + "/data/screens/gameover.png";
+	cerr << "attemtping to load " << name << endl;
+	if (LibSL::System::File::exists(name.c_str())) {
+		gameOver = new DrawImage(name.c_str());
+	}
 
     ///// Level creation
 
