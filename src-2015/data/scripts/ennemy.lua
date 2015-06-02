@@ -24,9 +24,13 @@ player = 'tomate.'
 on_floor = 1
 step_index = 0
 count = 0
+count_attack = 0
 rand = math.random(50,100)
 view_range = math.random(400,600)
+attack_range = 250
+time_attack = 40
 playanim(player .. state .. side .. '.png',true)
+
 
 function physics()
 	-- walk if state is 'walk_*'
@@ -41,6 +45,9 @@ end
 
 
 function tql()
+
+
+
 	if step_index < 100 then
 		step_index = step_index + 1
 		
@@ -59,6 +66,7 @@ end
 
 function alert()
 	changed = false
+	state = 'walk'
 	if player_pos_x < pos_x and count > rand then
 			changed = side =="_right"
 			side ="_left"
@@ -79,8 +87,30 @@ function alert()
 
 end
 
+function attack()
+	
+
+	
+	
+	if count_attack > time_attack then
+		if player_pos_x < pos_x then
+			side="_left"
+		else
+			side="_right"
+		end
+		state = 'fight'
+		playanim(player .. state .. side .. '.png',true)
+		count_attack = 0 
+	else
+		count_attack = count_attack + 1;
+	end
+end
+
+
 function step()
-	if math.abs(player_pos_x - pos_x) < view_range then
+	if math.abs(player_pos_x - pos_x) < attack_range then
+		attack()
+	elseif math.abs(player_pos_x - pos_x) < view_range then	
 		alert()
 	else
 		tql()
@@ -90,9 +120,7 @@ end
 
 
 
-function contact(with)
-	
-end
+
 
 function onFloor()
 	on_floor = 1

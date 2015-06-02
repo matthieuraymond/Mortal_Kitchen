@@ -50,30 +50,19 @@ void mainKeyPressed(uchar key)
     g_Entities.push_back(c);
   }
 
-  if (key == 's'){
-	  play_sound("travailler.wav");
-  }
 
   if (key == 'a'){
 	  play_sound("ouille.wav");
 	  g_Player->life -= 10;
   }
 
-  if (key == 'p'){
-	  play_sound("mort.wav");
-  }
-
 }
-
 // ------------------------------------------------------------------
 
 // 'mainKeyUnpressed' is called everytime a key is released
 void mainKeyUnpressed(uchar key)
 {
   g_Keys[key] = false;
-  if (key == 'z') {
-    rewind_sound();
-  }
 }
 
 // ------------------------------------------------------------------
@@ -187,13 +176,13 @@ int main(int argc,const char **argv)
 
     // load a simple entity
     {
-      Entity *c = entity_create("coin0", "coin.lua");
-      entity_set_pos(c, v2f(32, 32));
-      g_Entities.push_back(c);
+        Entity *c = entity_create("coin0", "coin.lua");
+        entity_set_pos(c, v2f(32, 32));
+        g_Entities.push_back(c);
     } {
-      Entity *c = entity_create("coin1", "coin.lua");
-      entity_set_pos(c, v2f(96, 32));
-      g_Entities.push_back(c);
+        Entity *c = entity_create("coin1", "coin.lua");
+        entity_set_pos(c, v2f(96, 32));
+        g_Entities.push_back(c);
 	} {
 		Entity *c = entity_create("coin2", "coin.lua");
 		entity_set_pos(c, v2f(128, 32));
