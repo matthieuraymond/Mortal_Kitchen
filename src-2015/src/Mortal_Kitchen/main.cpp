@@ -13,6 +13,7 @@ LIBSL_WIN32_FIX;
 #include "background.h"
 #include "physics.h"
 #include "sound.h"
+#include "write.h"
 
 // ------------------------------------------------------------------
 
@@ -84,7 +85,8 @@ void mainRender()
 
 	// Menu
 	if (g_GameState == 0) {
-		menu->draw(0, 0);
+		//menu->draw(0, 0);
+		drawText("aaaaa", v2i(c_ScreenW / 2, c_ScreenH / 2));
 		if (g_Keys['p']) {
 			g_GameState = 1;
 		}
@@ -159,6 +161,8 @@ int main(int argc,const char **argv)
     for (int i = 0; i < 256; i++) {
       g_Keys[i] = false;
     }
+
+	initText();
 
 	string name = executablePath() + "/data/screens/menu.png";
 	cerr << "attemtping to load " << name << endl;

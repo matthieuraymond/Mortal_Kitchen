@@ -15,6 +15,8 @@ ADD_EXECUTABLE(Mortal_Kitchen
   physics.h
   sound.cpp
   sound.h
+  write.h
+  write.cpp
   ../../data/scripts/coin.lua
   ../../data/scripts/player.lua
   ../../data/scripts/ennemy.lua
