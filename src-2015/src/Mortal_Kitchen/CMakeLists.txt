@@ -19,7 +19,10 @@ ADD_EXECUTABLE(Mortal_Kitchen
   write.cpp
   ../../data/scripts/coin.lua
   ../../data/scripts/player.lua
-  ../../data/scripts/ennemy.lua
+  ../../data/scripts/tomato.lua
+  ../../data/scripts/punch.lua
+  ../../data/scripts/meat_thrower.lua
+  ../../data/scripts/meat.lua
   ../../data/scripts/level.lua
 )
   

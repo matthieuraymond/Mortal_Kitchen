@@ -86,7 +86,7 @@ function alert()
 end
 
 function aggressive()
-	if state ~= 'fight' then
+	if state ~= 'fight'  and math.random(0,100) > 30 then -- 70% chance of attacking
 		if player_pos_x < pos_x then
 			side="_left"
 		else
