@@ -1,15 +1,15 @@
 physics_center_x  =  0
 physics_center_y  =  0
-physics_size_x    = 25
-physics_size_y    = 75
-density           = 2
+physics_size_x    = 35
+physics_size_y    = 128
+density           = 5
 physics_can_sleep = false
 physics_rotation  = false
 
-addanim('tomate.walk_left.png',64)
-addanim('tomate.walk_right.png',64)
-addanim('tomate.fight_right.png',100)
-addanim('tomate.fight_left.png',100)
+addanim('tomate.walk_left.png',256)
+addanim('tomate.walk_right.png',256)
+addanim('tomate.fight_right.png',256)
+addanim('tomate.fight_left.png',256)
 
 playanim('tomate.walk_left.png',true)
 stopanim()
@@ -46,7 +46,7 @@ function step()
 			if side == "_left" then
 				coef = -1
 			end
-			attack('punch.lua',name, side, pos_x + coef * physics_size_x, pos_y + 50)
+			attack('punch.lua',name, side, pos_x + coef * physics_size_x, pos_y + 60)
 		end 
 	end
 	
@@ -58,7 +58,7 @@ function step()
 	end
 
 	if Key_z and on_floor == 1 then
-		set_velocity_y(5.0)
+		set_velocity_y(6.0)
 		on_floor = 0
 		playsound("boing.wav")
 	end
@@ -69,7 +69,7 @@ function step()
 		if side == '_left' then
 			factor = -1
 		end
-		set_velocity_x(factor * 2.0)
+		set_velocity_x(factor * 2.2)
 	end
 end
 

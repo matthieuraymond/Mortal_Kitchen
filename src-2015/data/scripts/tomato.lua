@@ -1,15 +1,15 @@
 physics_center_x  =  0
 physics_center_y  =  0
-physics_size_x    = 25
-physics_size_y    = 75
+physics_size_x    = 35
+physics_size_y    = 125
 density           = 2
 physics_can_sleep = false
 physics_rotation  = false
 
-addanim('tomate.walk_left.png',64)
-addanim('tomate.walk_right.png',64)
-addanim('tomate.fight_right.png',100)
-addanim('tomate.fight_left.png',100)
+addanim('tomate.walk_left.png',256)
+addanim('tomate.walk_right.png',256)
+addanim('tomate.fight_right.png',256)
+addanim('tomate.fight_left.png',256)
 
 playanim('tomate.walk_left.png',true)
 stopanim()
@@ -94,7 +94,7 @@ function aggressive()
 		end
 		state = 'fight'
 		playanim(player .. state .. side .. '.png',false)
-		attack('punch.lua',name, side, pos_x + factor * physics_size_x, pos_y + 50)
+		attack('punch.lua',name, side, pos_x + factor * physics_size_x, pos_y + 60)
 	end
 end
 

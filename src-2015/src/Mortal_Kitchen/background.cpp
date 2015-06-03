@@ -30,7 +30,7 @@ void background_draw(Background *bkg, v2i viewpos)
       v2f(viewpos + v2i(bkg->screenw, bkg->screenh))
     / v2f(bkg->screenw, bkg->screenh)) );
   set<v2i> required;
-  for (int i = 0; i < 10; i++){
+  for (int i = -1; i < 10; i++){
 	  required.insert(v2i(i, 0));
   }
 

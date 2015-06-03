@@ -150,7 +150,7 @@ void mainRender()
 		}
 
 		// -> draw physics debug layer
-		phy_debug_draw();
+		//phy_debug_draw();
 
 		if (g_Player->killed) {
 			g_GameState = 2;
@@ -232,21 +232,21 @@ int main(int argc,const char **argv)
 		g_Entities.push_back(c);
 	} {
 		Entity *c = entity_create("player", "player.lua");
-		entity_set_pos(c, v2f(c_ScreenW / 4, 128));
+		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
 		c->alive = true;
-		c->life = 100;
+		c->life = 150;
 		g_Player = c;
 		g_Entities.push_back(c);
 	} {
 		Entity *c = entity_create("enemy", "tomato.lua");
-		entity_set_pos(c, v2f(c_ScreenW, 128));
+		entity_set_pos(c, v2f(c_ScreenW, 256));
 		c->alive = true;
 		c->life = 50;
 		g_Entities.push_back(c);
     }
 	{
 		Entity *c = entity_create("enemy", "meatboy.lua");
-		entity_set_pos(c, v2f(1.5*c_ScreenW, 200));
+		entity_set_pos(c, v2f(1.8*c_ScreenW, 256));
 		c->alive = true;
 		c->life = 100;
 		g_Entities.push_back(c);

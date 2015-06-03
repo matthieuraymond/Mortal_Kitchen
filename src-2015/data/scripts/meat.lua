@@ -4,11 +4,11 @@ physics_size_x    = 10
 physics_size_y    = 10
 physics_can_sleep = true
 physics_rotation  = true
-damage            = 25
+damage            = 20
 range             = 3
 density           = 2
-speed_x           = 4
-speed_y           = 2
+speed_x           = 6
+speed_y           = 4
 last_pos_x        = 0
 
 
