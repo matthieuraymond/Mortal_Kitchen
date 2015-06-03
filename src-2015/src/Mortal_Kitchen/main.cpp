@@ -241,7 +241,7 @@ int main(int argc,const char **argv)
 		Entity *c = entity_create("enemy", "tomato.lua");
 		entity_set_pos(c, v2f(c_ScreenW, 128));
 		c->alive = true;
-		c->life = 100;
+		c->life = 50;
 		g_Entities.push_back(c);
     }
 	{
