@@ -34,5 +34,6 @@ typedef struct
 
 Background *background_init(int w, int h);
 void        background_draw(Background*, v2i viewpos);
+void        background_load(Background *bkg);
 
 // ------------------------------------------------------------------

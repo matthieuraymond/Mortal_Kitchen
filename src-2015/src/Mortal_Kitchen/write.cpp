@@ -20,3 +20,17 @@ void drawText(string text, v2i pos) {
 		letters[c]->draw(pos[0]+i*32, pos[1]);
 	}
 }
+
+void drawTextCentered(string text, v2i pos) {
+	int i = 0;
+	int l = text.length();
+	int width = 0;
+	for (i = 0; i < l; i++) {
+		char c = text[i];
+		width += letters[c]->w();
+	}
+	for (i = 0; i < l; i++) {
+		char c = text[i];
+		letters[c]->draw(pos[0] - width/2 + i * 32, pos[1]);
+	}
+}

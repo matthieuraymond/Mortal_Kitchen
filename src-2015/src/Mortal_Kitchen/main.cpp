@@ -40,6 +40,7 @@ int				selector	   = 0;
 DrawImage		*selectBall    = NULL;
 DrawImage		*menu		   = NULL;
 DrawImage		*gameOver	   = NULL;
+void init_game();
 
 // ------------------------------------------------------------------
 
@@ -54,10 +55,10 @@ void mainKeyPressed(uchar key)
 		g_Entities.push_back(c);*/
 	}
 
-	if (key == 'a'){
+	/*if (key == 'a'){
 		play_sound("ouille.wav");
 		g_Player->life -= 10;
-	}
+	}*/
 
 	// Menu
 	if (g_GameState == 0) {
@@ -72,6 +73,9 @@ void mainKeyPressed(uchar key)
 			}
 			else if (key == ' ') {
 				if (selector == 0) {
+					clearScreen();
+					drawTextCentered("loading", v2i(c_ScreenW / 2, c_ScreenH / 2));
+					background_load(g_Bkg);
 					g_GameState = 1;
 				}
 				else if (selector == 1) {
@@ -85,7 +89,12 @@ void mainKeyPressed(uchar key)
 			}
 		}
 	}
-
+	if (g_GameState == 2) {
+		if (key == ' ') {
+			init_game();
+			g_GameState = 0;
+		}
+	}
 }
 // ------------------------------------------------------------------
 
@@ -106,12 +115,12 @@ void mainRender()
 	if (g_GameState == 0) {
 		if (g_Menu == 0) {
 			// Main menu
-			drawText("play", v2i(c_ScreenW / 2, c_ScreenH / 2));
-			drawText("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
-			selectBall->draw(c_ScreenW / 2 - 64, c_ScreenH / 2 - 64 * selector);
+			drawTextCentered("play", v2i(c_ScreenW / 2, c_ScreenH / 2));
+			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
+			selectBall->draw(c_ScreenW / 2 - 150, c_ScreenH / 2 - 64 * selector);
 		}
 		else if (g_Menu == 1) {
-			drawText("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
+			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
 		}
 	}
 	// Playing
@@ -163,6 +172,64 @@ void mainRender()
 }
 
 // ------------------------------------------------------------------
+void init_game() {
+
+	///// Level creation
+
+	// create background
+	g_Bkg = background_init(c_ScreenW, c_ScreenH);
+
+	// load a tilemap
+	g_Tilemap = tilemap_load("level.lua");
+
+	// init physics
+	phy_init();
+
+	// bind tilemap to physics
+	tilemap_bind_to_physics(g_Tilemap);
+	g_Entities.clear();
+	// load a simple entity
+	/*{
+		Entity *c = entity_create("coin0", "coin.lua");
+		entity_set_pos(c, v2f(32, 32));
+		g_Entities.push_back(c);
+	} {
+		Entity *c = entity_create("coin1", "coin.lua");
+		entity_set_pos(c, v2f(96, 32));
+		g_Entities.push_back(c);
+	} {
+		Entity *c = entity_create("coin2", "coin.lua");
+		entity_set_pos(c, v2f(128, 32));
+		g_Entities.push_back(c);
+	}*/ {
+		Entity *c = entity_create("player", "player.lua");
+		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
+		c->alive = true;
+		c->life = 150;
+		g_Player = c;
+		g_Entities.push_back(c);
+	} {
+		Entity *c = entity_create("enemy", "tomato.lua");
+		entity_set_pos(c, v2f(c_ScreenW, 256));
+		c->alive = true;
+		c->life = 50;
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("enemy", "meatboy.lua");
+		entity_set_pos(c, v2f(1.8*c_ScreenW, 256));
+		c->alive = true;
+		c->life = 100;
+		g_Entities.push_back(c);
+	}
+	g_LastFrame = milliseconds();
+
+	//init sound 
+	init_sound();
+}
+
+
+
 
 // 'main' is the starting point of the application
 int main(int argc,const char **argv)
@@ -203,58 +270,7 @@ int main(int argc,const char **argv)
 		selectBall = new DrawImage(name.c_str());
 	}
 
-    ///// Level creation
-
-    // create background
-    g_Bkg = background_init(c_ScreenW, c_ScreenH);
-
-    // load a tilemap
-    g_Tilemap = tilemap_load("level.lua");
-
-    // init physics
-    phy_init();
-
-    // bind tilemap to physics
-    tilemap_bind_to_physics(g_Tilemap);
-
-    // load a simple entity
-    {
-        Entity *c = entity_create("coin0", "coin.lua");
-        entity_set_pos(c, v2f(32, 32));
-        g_Entities.push_back(c);
-    } {
-        Entity *c = entity_create("coin1", "coin.lua");
-        entity_set_pos(c, v2f(96, 32));
-        g_Entities.push_back(c);
-	} {
-		Entity *c = entity_create("coin2", "coin.lua");
-		entity_set_pos(c, v2f(128, 32));
-		g_Entities.push_back(c);
-	} {
-		Entity *c = entity_create("player", "player.lua");
-		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
-		c->alive = true;
-		c->life = 150;
-		g_Player = c;
-		g_Entities.push_back(c);
-	} {
-		Entity *c = entity_create("enemy", "tomato.lua");
-		entity_set_pos(c, v2f(c_ScreenW, 256));
-		c->alive = true;
-		c->life = 50;
-		g_Entities.push_back(c);
-    }
-	{
-		Entity *c = entity_create("enemy", "meatboy.lua");
-		entity_set_pos(c, v2f(1.8*c_ScreenW, 256));
-		c->alive = true;
-		c->life = 100;
-		g_Entities.push_back(c);
-	}
-    g_LastFrame = milliseconds();
-
-    //init sound 
-    init_sound();
+	init_game();
 
     // enter the main loop
     SimpleUI::loop();

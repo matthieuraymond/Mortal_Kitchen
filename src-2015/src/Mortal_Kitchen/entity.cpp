@@ -51,6 +51,10 @@ void apply_damage(Entity *with, Entity *from)
 		with->life -= from->damage;
 		from->killed = true;
 	}
+
+	if (with->name == "player") {
+		cerr << Console::red << "life : " << with->life << endl;
+	}
 		
 }
 

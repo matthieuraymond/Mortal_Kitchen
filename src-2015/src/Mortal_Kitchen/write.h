@@ -6,3 +6,4 @@ using namespace std;
 
 void initText();
 void drawText(string text, v2i pos);
+void drawTextCentered(string text, v2i pos);
