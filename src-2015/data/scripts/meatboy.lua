@@ -2,7 +2,7 @@ physics_center_x  =  20
 physics_center_y  =  0
 physics_size_x    = 75
 physics_size_y    = 200
-density           = 2
+density           = 20
 physics_can_sleep = false
 physics_rotation  = false
 
@@ -10,8 +10,8 @@ state = 'fight'
 side = 'left'
 player = 'meatboy.'
 separator = '.'
-addanim('meatboy.fight'..separator..'right.png',430)
-addanim('meatboy.fight'..separator..'left.png',430)
+addanim('meatboy.fight'..separator..'right.png',430,125)
+addanim('meatboy.fight'..separator..'left.png',430,125)
 playanim(player .. 'fight' .. separator .. side .. '.png',false)
 
 function step()

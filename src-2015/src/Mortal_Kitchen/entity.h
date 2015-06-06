@@ -19,6 +19,7 @@ typedef struct {
   DrawImage *animframes;
   int        framespacing;
   int        numframes;
+  int        delay;
 } SpriteAnim;
 
 // ------------------------------------------------------------------
@@ -47,7 +48,7 @@ typedef struct
 
   int                      damage;
   string                   owner;
-
+  
 } Entity;
 
 // ------------------------------------------------------------------

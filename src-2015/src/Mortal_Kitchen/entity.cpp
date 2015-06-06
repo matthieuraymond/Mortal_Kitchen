@@ -18,8 +18,6 @@ extern vector<Entity*> g_Entities;
 
 // ------------------------------------------------------------------
 
-const int g_FrameDelay = 100; // ms between frames
-
 Entity *g_Current = NULL;
 
 map<string, DrawImage*> g_Animations;
@@ -60,14 +58,16 @@ void apply_damage(Entity *with, Entity *from)
 
 // -------------------------------------------------------------------
 
-void lua_addanim(string filename, int framespacing)
+void lua_addanim(string filename, int framespacing, int delay)
 {
   sl_assert(g_Current != NULL);
   SpriteAnim *s = new SpriteAnim;
   s->animframes = loadAnimation(filename);
   s->framespacing = framespacing;
   s->numframes = (int)ceil(s->animframes->w() / framespacing);
+  s->delay = delay;
   g_Current->anims[filename] = s;
+  g_Current->currentFrame = 0;
 }
 
 // ------------------------------------------------------------------
@@ -80,7 +80,9 @@ void lua_playanim(string filename, bool looping)
     return;
   }
   g_Current->currentAnim = filename;
-  g_Current->currentFrame = 0;
+  if (!looping) {
+	  g_Current->currentFrame = 0;
+  }
   g_Current->lastAnimUpdate = milliseconds();
   g_Current->animIsPlaying = true;
   g_Current->animIsALoop = looping;
@@ -168,6 +170,7 @@ void begin_script_call(Entity *e)
   globals(e->script->lua)["pos_x"] = entity_get_pos(e)[0];
   globals(e->script->lua)["pos_y"] = entity_get_pos(e)[1];
   globals(e->script->lua)["killed"] = e->killed;
+  globals(e->script->lua)["player_life"] = g_Player->life;
   globals(e->script->lua)["owner"] = e->name;
 }
 
@@ -307,7 +310,7 @@ void    entity_draw(Entity *e, v2i viewpos)
   // next frame
   if (e->animIsPlaying) {
     time_t now = milliseconds();
-    if (now - e->lastAnimUpdate > g_FrameDelay) {
+	if (now - e->lastAnimUpdate > e->anims[e->currentAnim]->delay) {
       if (e->animIsALoop) {
         e->currentFrame = (e->currentFrame + 1) % e->anims[e->currentAnim]->numframes;
       } else {

@@ -6,9 +6,9 @@ physics_can_sleep = true
 physics_rotation  = true
 damage            = 25
 density           = 0
-range             = 100*0.1 -- 100 for px to m (0.05 is in m)
-speed_x           = 2
-speed_y           = 0
+range             = 100*0.8 -- 100 for px to m (0.05 is in m)
+speed_x           = 6.5
+speed_y           = 1
 gone_through      = 0
 last_pos_x        = 0
 

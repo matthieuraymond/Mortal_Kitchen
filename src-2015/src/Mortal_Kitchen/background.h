@@ -30,10 +30,26 @@ typedef struct
   int                     screenh;
 } Background;
 
+typedef struct
+{
+	map<v2i, DrawImage*>    screens;
+
+	int                     screenw;
+	int                     screenh;
+	int                     max;
+	int                     current;
+	string                  folder;
+	t_time                  last_switch;
+	int                     speed;
+} BackgroundSprite;
+
 // ------------------------------------------------------------------
 
 Background *background_init(int w, int h);
+BackgroundSprite *backgroundSprite_init(int screenw, int screenh, int range, string folder, int speed);
 void        background_draw(Background*, v2i viewpos);
+void        backgroundSprite_draw(BackgroundSprite *bkg, v2i viewpos);
 void        background_load(Background *bkg);
+void        backgroundSprite_load(BackgroundSprite *bkg);
 
 // ------------------------------------------------------------------

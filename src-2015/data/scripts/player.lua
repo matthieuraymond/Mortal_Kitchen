@@ -17,10 +17,10 @@ player = 'sergio.'
 separator = '.'
 on_floor = true
 
-addanim(player .. 'walk'..separator..'left.png',256)
-addanim(player .. 'walk'..separator..'right.png',256)
-addanim(player .. 'fight'..separator..'right.png',256)
-addanim(player .. 'fight'..separator..'left.png',256)
+addanim(player .. 'walk'..separator..'left.png',256,75) --75ms between frames, sergio is the fastest
+addanim(player .. 'walk'..separator..'right.png',256,75)
+addanim(player .. 'fight'..separator..'right.png',320,50)
+addanim(player .. 'fight'..separator..'left.png',320,50)
 
 playanim(player .. 'walk'..separator..'left.png',true)
 stopanim()
@@ -47,7 +47,7 @@ function step()
 			if side == "left" then
 				coef = -1
 			end
-			attack('punch.lua',name, side, pos_x + coef * physics_size_x, pos_y + 60)
+			attack('sergio_punch.lua',name, side, pos_x + coef * physics_size_x, pos_y + 45)
 		end 
 	end
 	

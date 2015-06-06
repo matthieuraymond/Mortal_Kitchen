@@ -30,6 +30,8 @@ bool            g_Keys[256];
 Tilemap        *g_Tilemap      = NULL;
 Background     *g_Bkg          = NULL;
 
+vector<BackgroundSprite*> g_BkgSprites;
+
 vector<Entity*> g_Entities;
 Entity*         g_Player       = NULL;
 v2i 			g_viewpos      = NULL;
@@ -76,16 +78,14 @@ void mainKeyPressed(uchar key)
 					clearScreen();
 					drawTextCentered("loading", v2i(c_ScreenW / 2, c_ScreenH / 2));
 					background_load(g_Bkg);
+					for (int a = 0; a < (int)g_BkgSprites.size(); a++) {
+						backgroundSprite_load(g_BkgSprites[a]);
+					}
 					g_GameState = playing;
 				}
 				else if (selector == 1) {
 					g_Menu = 1;
 				}
-			}
-		}
-		else if (g_Menu == playing) {
-			if (key == ' ') {
-				g_Menu = 0;
 			}
 		}
 	}
@@ -131,6 +131,11 @@ void gameLoop() {
 
 	// -> draw background
 	background_draw(g_Bkg, g_viewpos);
+	// -> draw background sprites
+	for (int a = 0; a < (int)g_BkgSprites.size(); a++) {
+		backgroundSprite_draw(g_BkgSprites[a], g_viewpos);
+	}
+	
 	// -> draw tilemap
 	tilemap_draw(g_Tilemap, g_viewpos);
 	// -> draw all entities
@@ -188,6 +193,8 @@ void init_game() {
 
 	// create background
 	g_Bkg = background_init(c_ScreenW, c_ScreenH);
+	g_BkgSprites.push_back(backgroundSprite_init(c_ScreenW, c_ScreenH, 3, "friteuse", 250));
+	g_BkgSprites.push_back(backgroundSprite_init(c_ScreenW, c_ScreenH, 3, "cuiseur", 150));
 
 	// load a tilemap
 	g_Tilemap = tilemap_load("level.lua");
@@ -200,13 +207,6 @@ void init_game() {
 	g_Entities.clear(); // needed when restarting
 
 	{
-		Entity *c = entity_create("player", "player.lua");
-		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
-		c->alive = true;
-		c->life = 1500;
-		g_Player = c;
-		g_Entities.push_back(c);
-	} {
 		Entity *c = entity_create("enemy", "salad.lua");
 		entity_set_pos(c, v2f(c_ScreenW * 1.5, 256));
 		c->alive = true;
@@ -225,6 +225,19 @@ void init_game() {
 		entity_set_pos(c, v2f(3.0*c_ScreenW, 256));
 		c->alive = true;
 		c->life = 100;
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("life", "life.lua");
+		entity_set_pos(c, v2f(1.7*c_ScreenW, 350));
+		g_Entities.push_back(c);
+	}
+	{ // Always keep sergio last so he's over
+		Entity *c = entity_create("player", "player.lua");
+		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
+		c->alive = true;
+		c->life = 100;
+		g_Player = c;
 		g_Entities.push_back(c);
 	}
 	g_LastFrame = milliseconds();

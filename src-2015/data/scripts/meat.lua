@@ -12,7 +12,7 @@ speed_y           = 4
 last_pos_x        = 0
 
 
-addanim('meat.png',45)
+addanim('meat.png',45,100)
 playanim('meat.png',false)
 
 initialized = false

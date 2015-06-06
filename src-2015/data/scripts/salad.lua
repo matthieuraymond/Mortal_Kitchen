@@ -16,10 +16,10 @@ count = 0
 rand = math.random(50,100)
 view_range = math.random(200,300)
 aggressive_range = math.random(100,200)
-addanim(player ..'walk'..separator..'left.png',256)
-addanim(player ..'walk'..separator..'right.png',256)
-addanim(player ..'fight'..separator..'right.png',256)
-addanim(player ..'fight'..separator..'left.png',256)
+addanim(player ..'walk'..separator..'left.png',256,100)
+addanim(player ..'walk'..separator..'right.png',256, 100)
+addanim(player ..'fight'..separator..'right.png',256, 100)
+addanim(player ..'fight'..separator..'left.png',256, 100)
 playanim(player .. state .. separator .. side .. '.png',true)
 
 
