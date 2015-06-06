@@ -149,8 +149,8 @@ void phy_step()
     // NOTE: here we use a fixed step
 	t_time current = milliseconds();
 	if (current - g_tmLast > 10) {
-		float timeStep = 0.04f;
-		int velocityIterations = 8; // number of internal velocity iters.
+		float timeStep = 0.05f;
+		int velocityIterations = 10; // number of internal velocity iters.
 		int positionIterations = 6; // number of internal position iters.
 		g_World->Step(timeStep, velocityIterations, positionIterations);
 		g_tmLast = current;

@@ -1,18 +1,10 @@
 physics_center_x  =  0
 physics_center_y  =  0
 physics_size_x    = 35
-physics_size_y    = 128
+physics_size_y    = 120
 density           = 5
 physics_can_sleep = false
 physics_rotation  = false
-
-addanim('tomate.walk_left.png',256)
-addanim('tomate.walk_right.png',256)
-addanim('tomate.fight_right.png',256)
-addanim('tomate.fight_left.png',256)
-
-playanim('tomate.walk_left.png',true)
-stopanim()
 
 -- define a state variable which can be: 
 -- 'wait_left', 'wait_right'
@@ -20,30 +12,39 @@ stopanim()
 -- 'turn_left', 'turn_right'
 
 state = 'wait'
-side = '_left'
-player = 'tomate.'
-on_floor = 1
+side = 'left'
+player = 'sergio.'
+separator = '.'
+on_floor = true
+
+addanim(player .. 'walk'..separator..'left.png',256)
+addanim(player .. 'walk'..separator..'right.png',256)
+addanim(player .. 'fight'..separator..'right.png',256)
+addanim(player .. 'fight'..separator..'left.png',256)
+
+playanim(player .. 'walk'..separator..'left.png',true)
+stopanim()
 
 function step()
 
 	if state == 'wait' then
 		if Key_q then
 			state = 'walk'
-			side = '_left'
-			playanim(player .. state .. side .. '.png',true)
+			side = 'left'
+			playanim(player .. state .. separator .. side .. '.png',true)
 		elseif Key_d then
 			state = 'walk'
-			side = '_right'
-			playanim(player .. state .. side .. '.png',true)
+			side = 'right'
+			playanim(player .. state .. separator .. side .. '.png',true)
 		end
-		if Key_e and on_floor == 1 then
+		if Key_e and on_floor then
 			state = 'fight'
 			playsound("pipou.wav")
-			playanim(player .. state .. side .. '.png',false)
+			playanim(player .. state .. separator .. side .. '.png',false)
 			
 			-- attack
 			coef = 1
-			if side == "_left" then
+			if side == "left" then
 				coef = -1
 			end
 			attack('punch.lua',name, side, pos_x + coef * physics_size_x, pos_y + 60)
@@ -57,16 +58,17 @@ function step()
 		stopanim()
 	end
 
-	if Key_z and on_floor == 1 then
+	if Key_z and on_floor then
 		set_velocity_y(6.0)
-		on_floor = 0
+		on_floor = false
+		-- play jump anim not a loop
 		playsound("boing.wav")
 	end
 
 	-- walk if state is 'walk_*'
 	if state == 'walk' then 
 		factor = 1
-		if side == '_left' then
+		if side == 'left' then
 			factor = -1
 		end
 		set_velocity_x(factor * 2.2)
@@ -78,19 +80,14 @@ function contact(with)
 end
 
 function onFloor()
-	on_floor = 1
+	on_floor = true
 end
 
 function onAnimEnd()
   if state == 'fight' then
 	state = 'wait'
   end
-  if state == 'turn_left' then
-    -- state = 'walk_left'
-	-- playanim('gripe.run_left.png',true)
-  end
-  if state == 'turn_right' then
-    -- state = 'walk_right'
-	-- playanim('gripe.run_right.png',true)
+  if state == 'jumping' and on_floor then
+    state = 'wait'
   end
 end

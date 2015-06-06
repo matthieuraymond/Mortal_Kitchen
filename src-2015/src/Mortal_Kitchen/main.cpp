@@ -34,11 +34,11 @@ vector<Entity*> g_Entities;
 Entity*         g_Player       = NULL;
 v2i 			g_viewpos      = NULL;
 
-int				g_GameState    = 0; // 0: menu, 1: playing, 2: game over
+enum        	g_State {menu, playing, over };
+g_State         g_GameState    = menu;
 int				g_Menu		   = 0; // 0: main menu, 1: credits
 int				selector	   = 0;
 DrawImage		*selectBall    = NULL;
-DrawImage		*menu		   = NULL;
 DrawImage		*gameOver	   = NULL;
 void init_game();
 
@@ -61,7 +61,7 @@ void mainKeyPressed(uchar key)
 	}*/
 
 	// Menu
-	if (g_GameState == 0) {
+	if (g_GameState == menu) {
 		if (g_Menu == 0) {
 			if (key == 'z') {
 				selector += 1;
@@ -76,23 +76,23 @@ void mainKeyPressed(uchar key)
 					clearScreen();
 					drawTextCentered("loading", v2i(c_ScreenW / 2, c_ScreenH / 2));
 					background_load(g_Bkg);
-					g_GameState = 1;
+					g_GameState = playing;
 				}
 				else if (selector == 1) {
 					g_Menu = 1;
 				}
 			}
 		}
-		else if (g_Menu == 1) {
+		else if (g_Menu == playing) {
 			if (key == ' ') {
 				g_Menu = 0;
 			}
 		}
 	}
-	if (g_GameState == 2) {
+	if (g_GameState == over) {
 		if (key == ' ') {
 			init_game();
-			g_GameState = 0;
+			g_GameState = menu;
 		}
 	}
 }
@@ -106,6 +106,62 @@ void mainKeyUnpressed(uchar key)
 
 // ------------------------------------------------------------------
 
+void gameLoop() {
+	//// Compute elapsed time
+	time_t now = milliseconds();
+	time_t el = now - g_LastFrame;
+	if (el > 20) {
+		g_LastFrame = now;
+
+		//// Physics
+		phy_step();
+
+		//// Logic
+
+		// -> step all entities
+		for (int a = 0; a < (int)g_Entities.size(); a++) {
+			entity_step(g_Entities[a], el);
+		}
+		// -> update viewpos (x coord only in this 'game')
+		g_viewpos[0] = (int)entity_get_pos(g_Player)[0] - c_ScreenW / 4;
+	}
+	//// Display
+
+	clearScreen();
+
+	// -> draw background
+	background_draw(g_Bkg, g_viewpos);
+	// -> draw tilemap
+	tilemap_draw(g_Tilemap, g_viewpos);
+	// -> draw all entities
+	for (int a = 0; a < (int)g_Entities.size(); a++) {
+		entity_draw(g_Entities[a], g_viewpos);
+	}
+
+	// -> draw physics debug layer
+	//phy_debug_draw();
+
+	if (g_Player->killed) {
+		g_GameState = over;
+	}
+}
+
+// ----------------------------------------------------------------------------------
+
+void menuLoop() {
+	if (g_Menu == 0) {
+		// Main menu
+		drawTextCentered("play", v2i(c_ScreenW / 2, c_ScreenH / 2));
+		drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
+		selectBall->draw(c_ScreenW / 2 - 150, c_ScreenH / 2 - 64 * selector);
+	}
+	else if (g_Menu == 1) {
+		drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
+	}
+}
+
+// -----------------------------------------------------------------------------------
+
 // 'mainRender' is called everytime the screen is drawn
 void mainRender()
 {
@@ -113,57 +169,11 @@ void mainRender()
 
 	// Menu
 	if (g_GameState == 0) {
-		if (g_Menu == 0) {
-			// Main menu
-			drawTextCentered("play", v2i(c_ScreenW / 2, c_ScreenH / 2));
-			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
-			selectBall->draw(c_ScreenW / 2 - 150, c_ScreenH / 2 - 64 * selector);
-		}
-		else if (g_Menu == 1) {
-			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
-		}
+		menuLoop();
 	}
 	// Playing
 	else if (g_GameState == 1) {
-
-		//// Compute elapsed time
-		time_t now = milliseconds();
-		time_t el = now - g_LastFrame;
-		if (el > 25) {
-			g_LastFrame = now;
-
-
-			//// Physics
-			phy_step();
-
-			//// Logic
-
-			// -> step all entities
-			for (int a = 0; a < (int)g_Entities.size(); a++) {
-				entity_step(g_Entities[a], el);
-			}
-			// -> update viewpos (x coord only in this 'game')
-			g_viewpos[0] = (int)entity_get_pos(g_Player)[0] - c_ScreenW / 4;
-		}
-		//// Display
-
-		clearScreen();
-
-		// -> draw background
-		background_draw(g_Bkg, g_viewpos);
-		// -> draw tilemap
-		tilemap_draw(g_Tilemap, g_viewpos);
-		// -> draw all entities
-		for (int a = 0; a < (int)g_Entities.size(); a++) {
-			entity_draw(g_Entities[a], g_viewpos);
-		}
-
-		// -> draw physics debug layer
-		//phy_debug_draw();
-
-		if (g_Player->killed) {
-			g_GameState = 2;
-		}
+		gameLoop();
 	}
 	// Game Over
 	else if (g_GameState == 2) {
@@ -187,37 +197,32 @@ void init_game() {
 
 	// bind tilemap to physics
 	tilemap_bind_to_physics(g_Tilemap);
-	g_Entities.clear();
-	// load a simple entity
-	/*{
-		Entity *c = entity_create("coin0", "coin.lua");
-		entity_set_pos(c, v2f(32, 32));
-		g_Entities.push_back(c);
-	} {
-		Entity *c = entity_create("coin1", "coin.lua");
-		entity_set_pos(c, v2f(96, 32));
-		g_Entities.push_back(c);
-	} {
-		Entity *c = entity_create("coin2", "coin.lua");
-		entity_set_pos(c, v2f(128, 32));
-		g_Entities.push_back(c);
-	}*/ {
+	g_Entities.clear(); // needed when restarting
+
+	{
 		Entity *c = entity_create("player", "player.lua");
 		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
 		c->alive = true;
-		c->life = 150;
+		c->life = 1500;
 		g_Player = c;
 		g_Entities.push_back(c);
 	} {
+		Entity *c = entity_create("enemy", "salad.lua");
+		entity_set_pos(c, v2f(c_ScreenW * 1.5, 256));
+		c->alive = true;
+		c->life = 50;
+		g_Entities.push_back(c);
+	}
+	{
 		Entity *c = entity_create("enemy", "tomato.lua");
-		entity_set_pos(c, v2f(c_ScreenW, 256));
+		entity_set_pos(c, v2f(c_ScreenW * 2.0, 256));
 		c->alive = true;
 		c->life = 50;
 		g_Entities.push_back(c);
 	}
 	{
 		Entity *c = entity_create("enemy", "meatboy.lua");
-		entity_set_pos(c, v2f(1.8*c_ScreenW, 256));
+		entity_set_pos(c, v2f(3.0*c_ScreenW, 256));
 		c->alive = true;
 		c->life = 100;
 		g_Entities.push_back(c);
@@ -254,12 +259,7 @@ int main(int argc,const char **argv)
 
 	initText();
 
-	string name = executablePath() + "/data/screens/menu.png";
-	cerr << "attemtping to load " << name << endl;
-	if (LibSL::System::File::exists(name.c_str())) {
-		menu = new DrawImage(name.c_str());
-	}
-	name = executablePath() + "/data/screens/gameover.png";
+	string name = executablePath() + "/data/screens/gameover.png";
 	cerr << "attemtping to load " << name << endl;
 	if (LibSL::System::File::exists(name.c_str())) {
 		gameOver = new DrawImage(name.c_str());

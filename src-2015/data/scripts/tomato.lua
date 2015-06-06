@@ -6,35 +6,27 @@ density           = 2
 physics_can_sleep = false
 physics_rotation  = false
 
-addanim('tomate.walk_left.png',256)
-addanim('tomate.walk_right.png',256)
-addanim('tomate.fight_right.png',256)
-addanim('tomate.fight_left.png',256)
-
-playanim('tomate.walk_left.png',true)
-stopanim()
-
--- define a state variable which can be: 
--- 'wait_left', 'wait_right'
--- 'walk_left', 'walk_right'
--- 'turn_left', 'turn_right'
-
 state = 'walk'
-side = '_left'
+side = 'left'
 player = 'tomate.'
+separator = '.'
 on_floor = 1
 step_index = 0
 count = 0
 rand = math.random(50,100)
-view_range = math.random(400,600)
-aggressive_range = 250
-playanim(player .. state .. side .. '.png',true)
+view_range = math.random(200,300)
+aggressive_range = math.random(100,200)
+addanim(player ..'walk'..separator..'left.png',256)
+addanim(player ..'walk'..separator..'right.png',256)
+addanim(player ..'fight'..separator..'right.png',256)
+addanim(player ..'fight'..separator..'left.png',256)
+playanim(player .. state .. separator .. side .. '.png',true)
 
 
 function physics()
 
 	factor = 1
-	if side == '_left' then
+	if side == 'left' then
 		factor = -1
 	end
 	
@@ -51,12 +43,12 @@ function tql()
 		
 	else
 		step_index = 0 
-		if side== '_left' then
-			side = '_right'
-			playanim(player .. state .. side .. '.png',true)
+		if side== 'left' then
+			side = 'right'
+			playanim(player .. state .. separator .. side .. '.png',true)
 		else
-			side = '_left'
-			playanim(player .. state .. side .. '.png',true)
+			side = 'left'
+			playanim(player .. state .. separator .. side .. '.png',true)
 		end
 	end		
 end
@@ -66,34 +58,34 @@ function alert()
 	changed = false
 	state = 'walk'
 	if player_pos_x < pos_x and count > rand then
-			changed = side =="_right"
-			side ="_left"
+			changed = side =="right"
+			side ="left"
 			count = 0
 		
 	elseif count > rand then
-		changed = side=="_left"
-		side = "_right"
+		changed = side=="left"
+		side = "right"
 		count = 0
 	end
 	
 	count = count + 1
 	
 	if changed then
-		playanim(player .. state .. side .. '.png',true)
+		playanim(player .. state .. separator .. side .. '.png',true)
 		rand = math.random(50, 100)
 	end
 
 end
 
 function aggressive()
-	if state ~= 'fight'  and math.random(0,100) > 30 then -- 70% chance of attacking
+	if state ~= 'fight'  and math.random(0,100) > 50 then -- 50% chance of attacking
 		if player_pos_x < pos_x then
-			side="_left"
+			side="left"
 		else
-			side="_right"
+			side="right"
 		end
 		state = 'fight'
-		playanim(player .. state .. side .. '.png',false)
+		playanim(player .. state .. separator .. side .. '.png',false)
 		attack('punch.lua',name, side, pos_x + factor * physics_size_x, pos_y + 60)
 	end
 end
@@ -101,8 +93,10 @@ end
 
 function step()
 	if math.abs(player_pos_x - pos_x) < aggressive_range then
+		aggressive_range = math.random(100,200)
 		aggressive()
-	elseif math.abs(player_pos_x - pos_x) < view_range then	
+	elseif math.abs(player_pos_x - pos_x) < view_range then
+		view_range = math.random(200,300)
 		alert()
 	else
 		tql()

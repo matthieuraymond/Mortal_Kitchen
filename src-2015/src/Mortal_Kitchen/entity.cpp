@@ -137,7 +137,7 @@ void lua_set_impulse(float v)
 void lua_attack(string filename, string owner, string side, int posx, int posy) 
 {
 	int coef = 1;
-	if (side == "_left") {
+	if (side == "left") {
 		coef = -1;
 	}
 	Entity *c = entity_create("damage", filename);
