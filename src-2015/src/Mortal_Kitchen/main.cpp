@@ -62,6 +62,10 @@ void mainKeyPressed(uchar key)
 		g_Player->life -= 10;
 	}*/
 
+	if (key == 'm'){
+		play_sound("travailler.wav");
+	}
+
 	// Menu
 	if (g_GameState == menu) {
 		if (g_Menu == 0) {
