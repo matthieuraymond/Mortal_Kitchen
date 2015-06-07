@@ -148,7 +148,7 @@ void gameLoop() {
 	}
 
 	// -> draw physics debug layer
-	//phy_debug_draw();
+	phy_debug_draw();
 
 	if (g_Player->killed) {
 		g_GameState = over;
@@ -232,6 +232,13 @@ void init_game() {
 		g_Entities.push_back(c);
 	}
 	{
+		Entity *c = entity_create("enemy", "maxipain.lua");
+		entity_set_pos(c, v2f(4.0*c_ScreenW, 256));
+		c->alive = true;
+		c->life = 100;
+		g_Entities.push_back(c);
+	}
+	{
 		Entity *c = entity_create("life", "life.lua");
 		entity_set_pos(c, v2f(1.7*c_ScreenW, 350));
 		g_Entities.push_back(c);
@@ -240,7 +247,7 @@ void init_game() {
 		Entity *c = entity_create("player", "player.lua");
 		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
 		c->alive = true;
-		c->life = 100;
+		c->life = 1500;
 		g_Player = c;
 		g_Entities.push_back(c);
 	}

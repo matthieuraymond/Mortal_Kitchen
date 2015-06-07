@@ -8,7 +8,7 @@ physics_rotation  = false
 
 state = 'walk'
 side = 'left'
-player = 'tomate.'
+player = 'kebab.'
 separator = '.'
 on_floor = 1
 step_index = 0
@@ -16,10 +16,10 @@ count = 0
 rand = math.random(50,100)
 view_range = math.random(200,300)
 aggressive_range = math.random(100,200)
-addanim(player ..'walk'..separator..'left.png',256, 100)
-addanim(player ..'walk'..separator..'right.png',256, 100)
-addanim(player ..'fight'..separator..'right.png',256, 100)
-addanim(player ..'fight'..separator..'left.png',256, 100)
+addanim(player ..'walk'..separator..'left.png',600, 100)
+addanim(player ..'walk'..separator..'right.png',600, 100)
+addanim(player ..'fight'..separator..'right.png',600, 100)
+addanim(player ..'fight'..separator..'left.png',600, 100)
 playanim(player .. state .. separator .. side .. '.png',true)
 
 

@@ -24,6 +24,11 @@ ADD_EXECUTABLE(Mortal_Kitchen
   ../../data/scripts/meatboy.lua
   ../../data/scripts/meat.lua
   ../../data/scripts/level.lua
+  ../../data/scripts/life.lua
+  ../../data/scripts/salad.lua
+  ../../data/scripts/sergio_punch.lua
+  ../../data/scripts/punch.lua
+  ../../data/scripts/maxipain.lua
 )
   
 
