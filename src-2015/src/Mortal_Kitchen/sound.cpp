@@ -38,7 +38,7 @@ ALuint LoadSound(const std::string& Filename)
   return Buffer;
 }
 
-ALuint Source;
+map < string, ALuint > sources;
 list <string> sounds_src = {"boing.wav","1-up.wav","piece.wav","pipou.wav","travailler.wav","ouille.wav","aieaieaie.wav","mort.wav"};
 map < string , ALuint > sounds ;
 
@@ -51,16 +51,19 @@ void init_sound() {
   for (list<string>::iterator srcs = sounds_src.begin(); srcs != sounds_src.end(); ++srcs)
   {
 	  sounds[*srcs] = LoadSound(executablePath() + "/data/sound/" + *srcs);
+	  alGenSources(1, &sources[*srcs]);
   }
-
-  alGenSources(1, &Source);
 }
 
 void play_sound(string snd){
-  alSourcei(Source, AL_BUFFER, sounds[snd]);
-  alSourcePlay(Source);
+	ALint Status;
+	alGetSourcei(sources[snd], AL_SOURCE_STATE, &Status);
+	if (Status != AL_PLAYING) {
+		alSourcei(sources[snd], AL_BUFFER, sounds[snd]);
+		alSourcePlay(sources[snd]);
+	}
 }
 
 void rewind_sound() {
-  alSourceRewind(Source);
+  //alSourceRewind(Source);
 }

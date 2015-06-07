@@ -10,6 +10,9 @@ void initText() {
 		DrawImage *image = new DrawImage(temp.c_str());
 		letters[i] = image;
 	}
+	string temp = name + (char)'+' + ".png";
+	DrawImage *image = new DrawImage(temp.c_str());
+	letters['+'] = image;
 }
 
 void drawText(string text, v2i pos) {

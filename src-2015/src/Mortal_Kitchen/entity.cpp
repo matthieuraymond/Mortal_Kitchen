@@ -47,6 +47,9 @@ void apply_damage(Entity *with, Entity *from)
 {
 	if (with->name != from->owner) {
 		with->life -= from->damage;
+		/*with->body->ApplyLinearImpulse(
+			with->body->GetMass() * b2Vec2(from->push, 0),
+			with->body->GetLocalCenter());*/
 		from->killed = true;
 	}
 
@@ -136,6 +139,14 @@ void lua_set_impulse(float v)
 
 // ------------------------------------------------------------------
 
+void lua_set_y(int y)
+{
+	b2Vec2 position = g_Current->body->GetTransform().position;
+	g_Current->body->SetTransform(b2Vec2(position.x, in_meters(y)), 0.0f);
+}
+
+// ------------------------------------------------------------------
+
 void lua_attack(string filename, string owner, string side, int posx, int posy) 
 {
 	int coef = 1;
@@ -144,6 +155,7 @@ void lua_attack(string filename, string owner, string side, int posx, int posy)
 	}
 	Entity *c = entity_create("damage", filename);
 	c->damage = luabind::object_cast<int>(globals(c->script->lua)["damage"]);
+	c->push = luabind::object_cast<int>(globals(c->script->lua)["push"]);
 	c->owner = owner;
 	int width = luabind::object_cast<int>(globals(c->script->lua)["physics_size_x"]);
 	float speed_x = luabind::object_cast<float>(globals(c->script->lua)["speed_x"]);
@@ -202,6 +214,7 @@ Entity *entity_create(string name,string script)
   e->alive = false;
   // For attacks
   e->damage = 0;
+  e->push = 0;
   e->owner = "";
 
   /// scripting
@@ -215,6 +228,7 @@ Entity *entity_create(string name,string script)
         def("print",    &lua_print),
         def("stopanim", &lua_stopanim),
         def("set_velocity_x", &lua_set_velocity_x),
+		def("set_y", &lua_set_y),
         def("set_velocity_y", &lua_set_velocity_y),
         def("set_impulse", &lua_set_impulse),
 		def("playsound", &lua_playsound),

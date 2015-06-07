@@ -37,7 +37,9 @@ Entity*         g_Player       = NULL;
 v2i 			g_viewpos      = NULL;
 
 enum        	g_State {menu, playing, over };
+enum            g_Loading {no, requested, yes};
 g_State         g_GameState    = menu;
+g_Loading       g_LoadState    = no;
 int				g_Menu		   = 0; // 0: main menu, 1: credits
 int				selector	   = 0;
 DrawImage		*selectBall    = NULL;
@@ -62,10 +64,6 @@ void mainKeyPressed(uchar key)
 		g_Player->life -= 10;
 	}*/
 
-	if (key == 'm'){
-		play_sound("travailler.wav");
-	}
-
 	// Menu
 	if (g_GameState == menu) {
 		if (g_Menu == 0) {
@@ -79,13 +77,7 @@ void mainKeyPressed(uchar key)
 			}
 			else if (key == ' ') {
 				if (selector == 0) {
-					clearScreen();
-					drawTextCentered("loading", v2i(c_ScreenW / 2, c_ScreenH / 2));
-					background_load(g_Bkg);
-					for (int a = 0; a < (int)g_BkgSprites.size(); a++) {
-						backgroundSprite_load(g_BkgSprites[a]);
-					}
-					g_GameState = playing;
+					g_LoadState = requested;
 				}
 				else if (selector == 1) {
 					g_Menu = 1;
@@ -142,10 +134,18 @@ void gameLoop() {
 	
 	// -> draw tilemap
 	tilemap_draw(g_Tilemap, g_viewpos);
+
 	// -> draw all entities
 	for (int a = 0; a < (int)g_Entities.size(); a++) {
 		entity_draw(g_Entities[a], g_viewpos);
 	}
+
+	// -> draw life
+	string life_str = "";
+	for (int i = 0; i < (g_Player->life / 50); i++) {
+		life_str = life_str.append("+");
+	}
+	drawText(life_str, v2i(50, c_ScreenH - 150));
 
 	// -> draw physics debug layer
 	phy_debug_draw();
@@ -158,14 +158,28 @@ void gameLoop() {
 // ----------------------------------------------------------------------------------
 
 void menuLoop() {
-	if (g_Menu == 0) {
-		// Main menu
-		drawTextCentered("play", v2i(c_ScreenW / 2, c_ScreenH / 2));
-		drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
-		selectBall->draw(c_ScreenW / 2 - 150, c_ScreenH / 2 - 64 * selector);
+	if (g_LoadState == yes) {
+		background_load(g_Bkg);
+		for (int a = 0; a < (int)g_BkgSprites.size(); a++) {
+			backgroundSprite_load(g_BkgSprites[a]);
+		}
+		g_LoadState = no;
+		g_GameState = playing;
 	}
-	else if (g_Menu == 1) {
-		drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
+	else if (g_LoadState == requested) {
+		drawTextCentered("loading", v2i(c_ScreenW / 2, c_ScreenH / 2));
+		g_LoadState = yes;
+	}
+	else {
+		if (g_Menu == 0) {
+			// Main menu
+			drawTextCentered("play", v2i(c_ScreenW / 2, c_ScreenH / 2));
+			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
+			selectBall->draw(c_ScreenW / 2 - 150, c_ScreenH / 2 - 64 * selector);
+		}
+		else if (g_Menu == 1) {
+			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
+		}
 	}
 }
 
@@ -214,14 +228,14 @@ void init_game() {
 		Entity *c = entity_create("enemy", "salad.lua");
 		entity_set_pos(c, v2f(c_ScreenW * 1.5, 256));
 		c->alive = true;
-		c->life = 50;
+		c->life = 100;
 		g_Entities.push_back(c);
 	}
 	{
 		Entity *c = entity_create("enemy", "tomato.lua");
 		entity_set_pos(c, v2f(c_ScreenW * 2.0, 256));
 		c->alive = true;
-		c->life = 50;
+		c->life = 100;
 		g_Entities.push_back(c);
 	}
 	{
@@ -232,22 +246,27 @@ void init_game() {
 		g_Entities.push_back(c);
 	}
 	{
+		Entity *c = entity_create("enemy", "ketchup.lua");
+		entity_set_pos(c, v2f(0.5*c_ScreenW, 500));
+		g_Entities.push_back(c);
+	}
+	{
 		Entity *c = entity_create("enemy", "maxipain.lua");
 		entity_set_pos(c, v2f(4.0*c_ScreenW, 256));
 		c->alive = true;
-		c->life = 100;
+		c->life = 250;
 		g_Entities.push_back(c);
 	}
 	{
 		Entity *c = entity_create("life", "life.lua");
-		entity_set_pos(c, v2f(1.7*c_ScreenW, 350));
+		entity_set_pos(c, v2f(1.58*c_ScreenW, 350));
 		g_Entities.push_back(c);
 	}
 	{ // Always keep sergio last so he's over
 		Entity *c = entity_create("player", "player.lua");
 		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
 		c->alive = true;
-		c->life = 1500;
+		c->life = 250;
 		g_Player = c;
 		g_Entities.push_back(c);
 	}

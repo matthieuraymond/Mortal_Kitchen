@@ -10,12 +10,12 @@ state = 'fight'
 side = 'left'
 player = 'meatboy.'
 separator = '.'
-addanim('meatboy.fight'..separator..'right.png',430,125)
-addanim('meatboy.fight'..separator..'left.png',430,125)
+addanim(player..'fight'..separator..'right.png',430,125)
+addanim(player..'fight'..separator..'left.png',430,125)
 playanim(player .. 'fight' .. separator .. side .. '.png',false)
 
 function step()
-	if state ~= 'fight'  and math.random(0,100) > 30 then -- 70% chance of attacking
+	if state ~= 'fight' then
 		if player_pos_x < pos_x then
 			side="left"
 			factor = -1

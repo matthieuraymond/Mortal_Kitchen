@@ -47,6 +47,7 @@ typedef struct
   int					   life;
 
   int                      damage;
+  float                    push;
   string                   owner;
   
 } Entity;

@@ -43,6 +43,7 @@ public:
 			//is one of the entities a damage ?
 			if (((Entity*)dA)->name == "damage") {
 				apply_damage((Entity*)dB, (Entity*)dA);
+				((Entity*)dA)->killed = true;
 			}
 			else if (((Entity*)dB)->name == "damage") {
 				apply_damage((Entity*)dA, (Entity*)dB);
