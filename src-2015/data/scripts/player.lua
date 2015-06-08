@@ -31,6 +31,8 @@ addanim(player .. 'fight'..separator..'left.png',320,50)
 playanim(player .. 'walk'..separator..'left.png',true)
 stopanim()
 
+last_Key = ''
+
 function step()
 
 	if state == 'wait' then
@@ -38,11 +40,16 @@ function step()
 			state = 'walk'
 			side = 'left'
 			playanim(player .. state .. separator .. side .. '.png',true)
-		elseif Key_d then
+			last_Key = 'q'
+		end
+		if Key_d then
+			Key_q = false
 			state = 'walk'
 			side = 'right'
 			playanim(player .. state .. separator .. side .. '.png',true)
+			last_Key = 'd'
 		end
+
 		if Key_s then
 			state = 'crouch'
 			physics_size_x    = crouch_size_x

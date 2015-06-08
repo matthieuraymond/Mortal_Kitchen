@@ -29,6 +29,7 @@ ADD_EXECUTABLE(Mortal_Kitchen
   ../../data/scripts/sergio_punch.lua
   ../../data/scripts/punch.lua
   ../../data/scripts/maxipain.lua
+  ../../data/scripts/blow.lua
 )
   
 

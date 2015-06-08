@@ -337,7 +337,7 @@ void init_game() {
 	}
 	{
 		Entity *c = entity_create("enemy", "maxipain.lua");
-		entity_set_pos(c, v2f(7.0*c_ScreenW, 256));
+		entity_set_pos(c, v2f(c_ScreenW, 256));//7*
 		c->alive = true;
 		c->life = 250;
 		g_Boss = c; // BOSS
@@ -347,7 +347,7 @@ void init_game() {
 		Entity *c = entity_create("player", "player.lua");
 		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
 		c->alive = true;
-		c->life = 250;
+		c->life = 1500;
 		g_Player = c;
 		g_Entities.push_back(c);
 	}

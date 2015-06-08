@@ -37,6 +37,7 @@ end
 
 
 function tql()
+	print("tql")
 	state = 'walk'
 	if step_index < 50 then
 		step_index = step_index + 1
@@ -55,6 +56,7 @@ end
 
 
 function alert()
+	print("alert")
 	changed = false
 	state = 'walk'
 	if player_pos_x < pos_x and count > rand then
@@ -78,6 +80,7 @@ function alert()
 end
 
 function aggressive()
+	print("agressive")
 	if state ~= 'fight'  then
 		if player_pos_x < pos_x then
 			side = "left"

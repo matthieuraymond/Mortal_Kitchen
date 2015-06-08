@@ -15,8 +15,8 @@ step_index = 0
 count = 0
 rand = math.random(50,100)
 view_range = math.random(200,300)
-aggressive_range = math.random(100,200)
-addanim(player ..'walk'..separator..'left.png',600, 100)
+aggressive_range = math.random(300,400)
+addanim(player ..'walk'..separator..'left.png',600,100)
 addanim(player ..'walk'..separator..'right.png',600, 100)
 addanim(player ..'fight'..separator..'right.png',600, 100)
 addanim(player ..'fight'..separator..'left.png',600, 100)
@@ -24,7 +24,6 @@ playanim(player .. state .. separator .. side .. '.png',true)
 
 
 function physics()
-
 	factor = 1
 	if side == 'left' then
 		factor = -1
@@ -38,7 +37,9 @@ end
 
 
 function tql()
-	if step_index < 100 then
+	--print("tql")
+	state = 'walk'
+	if step_index < 50 then
 		step_index = step_index + 1
 		
 	else
@@ -55,12 +56,13 @@ end
 
 
 function alert()
+	--print("alert")
 	changed = false
 	state = 'walk'
 	if player_pos_x < pos_x and count > rand then
-			changed = side =="right"
-			side ="left"
-			count = 0
+		changed = side =="right"
+		side ="left"
+		count = 0
 		
 	elseif count > rand then
 		changed = side=="left"
@@ -78,26 +80,26 @@ function alert()
 end
 
 function aggressive()
-	if state ~= 'fight'  and math.random(0,100) > 50 then -- 50% chance of attacking
+	--print("agressive")
+	if state ~= 'fight'  then
 		if player_pos_x < pos_x then
-			side="left"
+			side = "left"
 		else
-			side="right"
+			side = "right"
 		end
 		state = 'fight'
 		playanim(player .. state .. separator .. side .. '.png',false)
-		attack('punch.lua',name, side, pos_x + factor * physics_size_x, pos_y + 60)
+		attack('blow.lua',name, side, pos_x + factor * physics_size_x, pos_y)
 	end
 end
 
 
 function step()
-	if math.abs(player_pos_x - pos_x) < aggressive_range then
-		aggressive_range = math.random(100,200)
-		-- aggressive()
-		alert()
-	elseif math.abs(player_pos_x - pos_x) < view_range then
-		view_range = math.random(200,300)
+	if math.abs(player_pos_x - pos_x) < 400 then
+		if math.random(0,100) > 70 then
+			aggressive()
+		end
+	elseif math.abs(player_pos_x - pos_x) < 500 then
 		alert()
 	else
 		tql()
@@ -115,7 +117,7 @@ end
 
 function onAnimEnd()
   if state == 'fight' then
-	state = 'wait'
+	playanim(player .. state .. separator .. side .. '.png',false)
   end
   if state == 'turn_left' then
     -- state = 'walk_left'
