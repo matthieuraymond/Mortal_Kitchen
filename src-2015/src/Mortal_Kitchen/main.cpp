@@ -34,9 +34,10 @@ vector<BackgroundSprite*> g_BkgSprites;
 
 vector<Entity*> g_Entities;
 Entity*         g_Player       = NULL;
+Entity*         g_Boss         = NULL;
 v2i 			g_viewpos      = NULL;
 
-enum        	g_State {menu, playing, over };
+enum        	g_State {menu, playing, over, winner };
 enum            g_Loading {no, requested, yes};
 g_State         g_GameState    = menu;
 g_Loading       g_LoadState    = no;
@@ -46,6 +47,7 @@ DrawImage		*selectBall    = NULL;
 DrawImage		*gameOver	   = NULL;
 DrawImage       *menuBkg       = NULL;
 DrawImage       *loadingBkg    = NULL;
+DrawImage       *gameWinner        = NULL;
 void init_game();
 
 // ------------------------------------------------------------------
@@ -87,7 +89,7 @@ void mainKeyPressed(uchar key)
 			}
 		}
 	}
-	if (g_GameState == over) {
+	if (g_GameState == over || g_GameState == winner) {
 		if (key == ' ') {
 			init_game();
 			g_GameState = menu;
@@ -150,11 +152,16 @@ void gameLoop() {
 	drawText(life_str, v2i(25, c_ScreenH - 75));
 
 	// -> draw physics debug layer
-	phy_debug_draw();
+	//phy_debug_draw();
 
 	if (g_Player->killed) {
 		play_sound("mort.wav");
 		g_GameState = over;
+	}
+
+	if (g_Boss->killed) {
+		play_sound("winner.wav");
+		g_GameState = winner;
 	}
 
 	//play sound
@@ -203,16 +210,20 @@ void mainRender()
 	clearScreen();
 
 	// Menu
-	if (g_GameState == 0) {
+	if (g_GameState == menu) {
 		menuLoop();
 	}
 	// Playing
-	else if (g_GameState == 1) {
+	else if (g_GameState == playing) {
 		gameLoop();
 	}
 	// Game Over
-	else if (g_GameState == 2) {
+	else if (g_GameState == over) {
 		gameOver->draw(0, 0);
+	}
+	// Winner
+	else if (g_GameState == winner) {
+		gameWinner->draw(0, 0);
 	}
 }
 
@@ -235,7 +246,11 @@ void init_game() {
 	// bind tilemap to physics
 	tilemap_bind_to_physics(g_Tilemap);
 	g_Entities.clear(); // needed when restarting
-
+	{
+		Entity *c = entity_create("enemy", "ketchup.lua");
+		entity_set_pos(c, v2f(0.5*c_ScreenW, 500));
+		g_Entities.push_back(c);
+	}
 	{
 		Entity *c = entity_create("enemy", "salad.lua");
 		entity_set_pos(c, v2f(c_ScreenW * 1.5, 256));
@@ -243,6 +258,7 @@ void init_game() {
 		c->life = 100;
 		g_Entities.push_back(c);
 	}
+		lua_attack("life.lua", "", "", 1.58*c_ScreenW, 350);
 	{
 		Entity *c = entity_create("enemy", "tomato.lua");
 		entity_set_pos(c, v2f(c_ScreenW * 2.0, 256));
@@ -252,34 +268,86 @@ void init_game() {
 	}
 	{
 		Entity *c = entity_create("enemy", "meatboy.lua");
-		entity_set_pos(c, v2f(3.0*c_ScreenW, 256));
+		entity_set_pos(c, v2f(2.6*c_ScreenW, 256));
+		c->alive = true;
+		c->life = 100;
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("enemy", "tomato.lua");
+		entity_set_pos(c, v2f(c_ScreenW * 2.8, 256));
 		c->alive = true;
 		c->life = 100;
 		g_Entities.push_back(c);
 	}
 	{
 		Entity *c = entity_create("enemy", "ketchup.lua");
-		entity_set_pos(c, v2f(0.5*c_ScreenW, 500));
+		entity_set_pos(c, v2f(3.0*c_ScreenW, 500));
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("enemy", "mayo.lua");
+		entity_set_pos(c, v2f(3.2*c_ScreenW, 500));
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("enemy", "ketchup.lua");
+		entity_set_pos(c, v2f(3.4*c_ScreenW, 500));
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("enemy", "mayo.lua");
+		entity_set_pos(c, v2f(3.55*c_ScreenW, 500));
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("enemy", "ketchup.lua");
+		entity_set_pos(c, v2f(3.7*c_ScreenW, 500));
+		g_Entities.push_back(c);
+	}
+		lua_attack("life.lua", "", "", 4.38*c_ScreenW, 350);
+		lua_attack("life.lua", "", "", 4.25*c_ScreenW, 350);
+	{
+		Entity *c = entity_create("enemy", "meatboy.lua");
+		entity_set_pos(c, v2f(4.5*c_ScreenW, 256));
+		c->alive = true;
+		c->life = 100;
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("enemy", "tomato.lua");
+		entity_set_pos(c, v2f(c_ScreenW * 5.7, 256));
+		c->alive = true;
+		c->life = 100;
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("enemy", "salad.lua");
+		entity_set_pos(c, v2f(c_ScreenW * 5.8, 256));
+		c->alive = true;
+		c->life = 100;
+		g_Entities.push_back(c);
+	}
+	{
+		Entity *c = entity_create("enemy", "tomato.lua");
+		entity_set_pos(c, v2f(c_ScreenW * 5.9, 256));
+		c->alive = true;
+		c->life = 100;
 		g_Entities.push_back(c);
 	}
 	{
 		Entity *c = entity_create("enemy", "maxipain.lua");
-		entity_set_pos(c, v2f(4.0*c_ScreenW, 256));
+		entity_set_pos(c, v2f(7.0*c_ScreenW, 256));
 		c->alive = true;
 		c->life = 250;
+		g_Boss = c; // BOSS
 		g_Entities.push_back(c);
-	}
-	{
-		//Entity *c = entity_create("damage", "life.lua");
-		lua_attack("life.lua", "", "", 1.58*c_ScreenW, 350);
-		//entity_set_pos(c, v2f(1.58*c_ScreenW, 350));
-		//g_Entities.push_back(c);
 	}
 	{ // Always keep sergio last so he's over
 		Entity *c = entity_create("player", "player.lua");
 		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
 		c->alive = true;
-		c->life = 250;
+		c->life = 2500;
 		g_Player = c;
 		g_Entities.push_back(c);
 	}
@@ -327,6 +395,11 @@ int main(int argc,const char **argv)
 	cerr << "attemtping to load " << name << endl;
 	if (LibSL::System::File::exists(name.c_str())) {
 		gameOver = new DrawImage(name.c_str());
+	}
+	name = executablePath() + "/data/screens/winner.png";
+	cerr << "attemtping to load " << name << endl;
+	if (LibSL::System::File::exists(name.c_str())) {
+		gameWinner = new DrawImage(name.c_str());
 	}
 	name = executablePath() + "/data/select.png";
 	cerr << "attemtping to load " << name << endl;

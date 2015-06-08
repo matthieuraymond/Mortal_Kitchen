@@ -94,7 +94,8 @@ end
 function step()
 	if math.abs(player_pos_x - pos_x) < aggressive_range then
 		aggressive_range = math.random(100,200)
-		aggressive()
+		-- aggressive()
+		alert()
 	elseif math.abs(player_pos_x - pos_x) < view_range then
 		view_range = math.random(200,300)
 		alert()
