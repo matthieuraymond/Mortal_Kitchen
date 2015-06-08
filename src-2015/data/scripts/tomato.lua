@@ -38,6 +38,7 @@ end
 
 
 function tql()
+	state = 'walk'
 	if step_index < 75 then
 		step_index = step_index + 1
 		
@@ -114,7 +115,7 @@ end
 
 function onAnimEnd()
   if state == 'fight' then
-	state = 'wait'
+	playanim(player .. state .. separator .. side .. '.png',false)
   end
   if state == 'turn_left' then
     -- state = 'walk_left'

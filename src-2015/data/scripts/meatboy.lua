@@ -1,7 +1,7 @@
 physics_center_x  =  20
-physics_center_y  =  0
+physics_center_y  =  -30
 physics_size_x    = 75
-physics_size_y    = 200
+physics_size_y    = 170
 density           = 20
 physics_can_sleep = false
 physics_rotation  = false

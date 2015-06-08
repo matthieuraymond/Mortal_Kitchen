@@ -49,6 +49,8 @@ typedef struct
   int                      damage;
   float                    push;
   string                   owner;
+
+  int                      x_init;
   
 } Entity;
 

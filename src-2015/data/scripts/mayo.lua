@@ -13,6 +13,7 @@ playanim(player .. '.png',false)
 
 function step()
 	set_y(550)
+	set_x(x_init)
 	if state ~= 'fight' then 
 		state = 'fight'
 		playanim(player .. '.png',false)

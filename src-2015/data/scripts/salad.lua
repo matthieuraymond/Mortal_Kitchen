@@ -24,7 +24,6 @@ playanim(player .. state .. separator .. side .. '.png',true)
 
 
 function physics()
-
 	factor = 1
 	if side == 'left' then
 		factor = -1
@@ -38,6 +37,7 @@ end
 
 
 function tql()
+	state = 'walk'
 	if step_index < 50 then
 		step_index = step_index + 1
 		
@@ -114,7 +114,7 @@ end
 
 function onAnimEnd()
   if state == 'fight' then
-	state = 'wait'
+	playanim(player .. state .. separator .. side .. '.png',false)
   end
   if state == 'turn_left' then
     -- state = 'walk_left'

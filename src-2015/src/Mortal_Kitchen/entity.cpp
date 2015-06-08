@@ -140,6 +140,12 @@ void lua_set_y(int y)
 	g_Current->body->SetTransform(b2Vec2(position.x, in_meters(y)), 0.0f);
 }
 
+void lua_set_x(int x)
+{
+	b2Vec2 position = g_Current->body->GetTransform().position;
+	g_Current->body->SetTransform(b2Vec2(in_meters(x), position.y), 0.0f);
+}
+
 // ------------------------------------------------------------------
 
 void lua_attack(string filename, string owner, string side, int posx, int posy) 
@@ -206,6 +212,7 @@ void begin_script_call(Entity *e)
   globals(e->script->lua)["player_pos_y"] = entity_get_pos(g_Player)[1];
   globals(e->script->lua)["pos_x"] = entity_get_pos(e)[0];
   globals(e->script->lua)["pos_y"] = entity_get_pos(e)[1];
+  globals(e->script->lua)["x_init"] = e->x_init;
   globals(e->script->lua)["killed"] = e->killed;
   globals(e->script->lua)["player_life"] = g_Player->life;
   globals(e->script->lua)["owner"] = e->name;
@@ -254,6 +261,7 @@ Entity *entity_create(string name,string script)
         def("stopanim", &lua_stopanim),
         def("set_velocity_x", &lua_set_velocity_x),
 		def("set_y", &lua_set_y),
+		def("set_x", &lua_set_x),
         def("set_velocity_y", &lua_set_velocity_y),
         def("set_impulse", &lua_set_impulse),
 		def("playsound", &lua_playsound),
@@ -325,6 +333,7 @@ float   entity_get_angle(Entity *e)
 void    entity_set_pos(Entity *e, v2f p)
 {
   e->body->SetTransform(b2Vec2(in_meters(p[0]),in_meters(p[1])),0.0f);
+  e->x_init = p[0];
 }
 
 // ------------------------------------------------------------------
