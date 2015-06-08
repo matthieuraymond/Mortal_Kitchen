@@ -38,7 +38,7 @@ end
 
 
 function tql()
-	if step_index < 100 then
+	if step_index < 50 then
 		step_index = step_index + 1
 		
 	else

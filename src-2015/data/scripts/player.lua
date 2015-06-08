@@ -1,7 +1,11 @@
 physics_center_x  =  0
 physics_center_y  =  0
-physics_size_x    = 35
-physics_size_y    = 120
+stand_size_x    = 35
+stand_size_y    = 120
+crouch_size_x    = 45
+crouch_size_y    = 80
+physics_size_x    = stand_size_x
+physics_size_y    = stand_size_y
 density           = 5
 physics_can_sleep = false
 physics_rotation  = false
@@ -19,6 +23,8 @@ on_floor = true
 
 addanim(player .. 'walk'..separator..'left.png',256,75) --75ms between frames, sergio is the fastest
 addanim(player .. 'walk'..separator..'right.png',256,75)
+addanim(player .. 'crouch'..separator..'left.png',256,75)
+addanim(player .. 'crouch'..separator..'right.png',256,75)
 addanim(player .. 'fight'..separator..'right.png',320,50)
 addanim(player .. 'fight'..separator..'left.png',320,50)
 
@@ -37,7 +43,15 @@ function step()
 			side = 'right'
 			playanim(player .. state .. separator .. side .. '.png',true)
 		end
-		if Key_e and on_floor then
+		if Key_s then
+			state = 'crouch'
+			physics_size_x    = crouch_size_x
+			physics_size_y    = crouch_size_y
+			set_y(pos_y - (stand_size_y - crouch_size_y))
+			reset_box()
+			playanim(player .. state .. separator .. side .. '.png',true)
+		end
+		if Key_g and on_floor then
 			state = 'fight'
 			playsound("pipou.wav")
 			playanim(player .. state .. separator .. side .. '.png',false)
@@ -55,6 +69,16 @@ function step()
 	-- reset states
 	if state == 'walk' and not Key_q and not Key_d then
 		state = 'wait'
+		stopanim()
+	end
+	
+	if state == 'crouch' and not Key_s then
+		physics_size_x    = stand_size_x
+        physics_size_y    = stand_size_y
+		set_y(pos_y + (stand_size_y - crouch_size_y))
+		reset_box()
+		state = 'wait'
+		playanim(player .. 'walk' .. separator .. side .. '.png',true) --get up
 		stopanim()
 	end
 

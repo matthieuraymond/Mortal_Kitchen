@@ -18,8 +18,8 @@ view_range = math.random(200,300)
 aggressive_range = math.random(100,200)
 addanim(player ..'walk'..separator..'left.png',256,100)
 addanim(player ..'walk'..separator..'right.png',256,100)
-addanim(player ..'fight'..separator..'right.png',256,100)
-addanim(player ..'fight'..separator..'left.png',256,100)
+addanim(player ..'fight'..separator..'right.png',256,50)
+addanim(player ..'fight'..separator..'left.png',256,500)
 playanim(player .. state .. separator .. side .. '.png',true)
 
 
@@ -38,7 +38,7 @@ end
 
 
 function tql()
-	if step_index < 100 then
+	if step_index < 75 then
 		step_index = step_index + 1
 		
 	else

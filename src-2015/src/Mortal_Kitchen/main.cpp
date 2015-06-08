@@ -44,6 +44,8 @@ int				g_Menu		   = 0; // 0: main menu, 1: credits
 int				selector	   = 0;
 DrawImage		*selectBall    = NULL;
 DrawImage		*gameOver	   = NULL;
+DrawImage       *menuBkg       = NULL;
+DrawImage       *loadingBkg    = NULL;
 void init_game();
 
 // ------------------------------------------------------------------
@@ -145,19 +147,27 @@ void gameLoop() {
 	for (int i = 0; i < (g_Player->life / 50); i++) {
 		life_str = life_str.append("+");
 	}
-	drawText(life_str, v2i(50, c_ScreenH - 150));
+	drawText(life_str, v2i(25, c_ScreenH - 75));
 
 	// -> draw physics debug layer
 	phy_debug_draw();
 
 	if (g_Player->killed) {
+		play_sound("mort.wav");
 		g_GameState = over;
 	}
+
+	//play sound
+	play_sound("game.wav");
 }
 
 // ----------------------------------------------------------------------------------
 
 void menuLoop() {
+
+	//play sound
+	play_sound("menu.wav");
+
 	if (g_LoadState == yes) {
 		background_load(g_Bkg);
 		for (int a = 0; a < (int)g_BkgSprites.size(); a++) {
@@ -167,10 +177,12 @@ void menuLoop() {
 		g_GameState = playing;
 	}
 	else if (g_LoadState == requested) {
-		drawTextCentered("loading", v2i(c_ScreenW / 2, c_ScreenH / 2));
+		loadingBkg->draw(0, 0);
+		drawTextCentered("loading", v2i(c_ScreenW / 2, c_ScreenH - 100));
 		g_LoadState = yes;
 	}
 	else {
+		menuBkg->draw(0, 0);
 		if (g_Menu == 0) {
 			// Main menu
 			drawTextCentered("play", v2i(c_ScreenW / 2, c_ScreenH / 2));
@@ -258,9 +270,10 @@ void init_game() {
 		g_Entities.push_back(c);
 	}
 	{
-		Entity *c = entity_create("life", "life.lua");
-		entity_set_pos(c, v2f(1.58*c_ScreenW, 350));
-		g_Entities.push_back(c);
+		//Entity *c = entity_create("damage", "life.lua");
+		lua_attack("life.lua", "", "", 1.58*c_ScreenW, 350);
+		//entity_set_pos(c, v2f(1.58*c_ScreenW, 350));
+		//g_Entities.push_back(c);
 	}
 	{ // Always keep sergio last so he's over
 		Entity *c = entity_create("player", "player.lua");
@@ -271,9 +284,6 @@ void init_game() {
 		g_Entities.push_back(c);
 	}
 	g_LastFrame = milliseconds();
-
-	//init sound 
-	init_sound();
 }
 
 
@@ -301,8 +311,19 @@ int main(int argc,const char **argv)
     }
 
 	initText();
+	init_sound();
 
-	string name = executablePath() + "/data/screens/gameover.png";
+	string name = executablePath() + "/data/screens/menu.png";
+	cerr << "attemtping to load " << name << endl;
+	if (LibSL::System::File::exists(name.c_str())) {
+		menuBkg = new DrawImage(name.c_str());
+	}
+	name = executablePath() + "/data/screens/loading.png";
+	cerr << "attemtping to load " << name << endl;
+	if (LibSL::System::File::exists(name.c_str())) {
+		loadingBkg = new DrawImage(name.c_str());
+	}
+	name = executablePath() + "/data/screens/gameover.png";
 	cerr << "attemtping to load " << name << endl;
 	if (LibSL::System::File::exists(name.c_str())) {
 		gameOver = new DrawImage(name.c_str());

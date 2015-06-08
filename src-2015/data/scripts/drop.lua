@@ -25,7 +25,10 @@ function step()
 end
 
 function contact(with)
-
+  if with == 'player' then
+	son = {"ouille.wav","aieaieaie.wav"}
+	playsound(son[math.random(1,2)])
+  end 
 end
 
 function onAnimEnd()

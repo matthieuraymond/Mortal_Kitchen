@@ -40,6 +40,10 @@ public:
 		void *dA = fA->GetUserData();
 		void *dB = fB->GetUserData();
 		if (dA != NULL && dB != NULL) {
+
+			entity_contact((Entity*)dA, (Entity*)dB);
+			entity_contact((Entity*)dB, (Entity*)dA);
+
 			//is one of the entities a damage ?
 			if (((Entity*)dA)->name == "damage") {
 				apply_damage((Entity*)dB, (Entity*)dA);
@@ -48,10 +52,6 @@ public:
 			else if (((Entity*)dB)->name == "damage") {
 				apply_damage((Entity*)dA, (Entity*)dB);
 				((Entity*)dB)->killed = true;
-			}
-			else {
-				entity_contact((Entity*)dA, (Entity*)dB);
-				entity_contact((Entity*)dB, (Entity*)dA);
 			}
 		}
 		else if (dA != NULL) {

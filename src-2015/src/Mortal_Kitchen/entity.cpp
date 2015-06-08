@@ -51,12 +51,7 @@ void apply_damage(Entity *with, Entity *from)
 			with->body->GetMass() * b2Vec2(from->push, 0),
 			with->body->GetLocalCenter());*/
 		from->killed = true;
-	}
-
-	if (with->name == "player") {
-		cerr << Console::red << "life : " << with->life << endl;
-	}
-		
+	}	
 }
 
 // -------------------------------------------------------------------
@@ -165,6 +160,36 @@ void lua_attack(string filename, string owner, string side, int posx, int posy)
 	g_Entities.push_back(c);
 }
 
+void lua_reset_box() {
+
+	//destroy old fixture 
+	b2Fixture *fixtureA = g_Current->body->GetFixtureList();
+	g_Current->body->DestroyFixture(fixtureA);
+
+	// read physics properties
+	float ctrx = in_meters(luabind::object_cast<float>(globals(g_Current->script->lua)["physics_center_x"]));
+	float ctry = in_meters(luabind::object_cast<float>(globals(g_Current->script->lua)["physics_center_y"]));
+	float szx = in_meters(luabind::object_cast<float>(globals(g_Current->script->lua)["physics_size_x"]));
+	float szy = in_meters(luabind::object_cast<float>(globals(g_Current->script->lua)["physics_size_y"]));
+	float density = luabind::object_cast<float>(globals(g_Current->script->lua)["density"]);
+
+	b2PolygonShape box;
+	box.SetAsBox(szx, szy, b2Vec2(ctrx, ctry), 0.0f);
+	// define the dynamic body fixture.
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &box;
+	// set the box density to be non-zero, so it will be dynamic.
+	fixtureDef.density = density;
+	// override the default friction.
+	fixtureDef.friction = 0.9f;
+	// how bouncy?
+	fixtureDef.restitution = 0.2f;
+	// user data (pointer to entity being created)
+	fixtureDef.userData = (void*)(g_Current);
+	// add the shape to the body.
+	g_Current->body->CreateFixture(&fixtureDef);
+}
+
 // ------------------------------------------------------------------
 
 void begin_script_call(Entity *e)
@@ -232,7 +257,8 @@ Entity *entity_create(string name,string script)
         def("set_velocity_y", &lua_set_velocity_y),
         def("set_impulse", &lua_set_impulse),
 		def("playsound", &lua_playsound),
-		def("attack", &lua_attack)
+		def("attack", &lua_attack),
+		def("reset_box", &lua_reset_box)
       ];
   }
   // load the script (global space gets executed)

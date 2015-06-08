@@ -7,9 +7,9 @@ physics_rotation  = true
 damage            = 50
 push              = 1.0
 density           = 0
-range             = 100*0.2 -- 100 for px to m (0.05 is in m)
+range             = 100*0.3 -- 100 for px to m (0.05 is in m)
 speed_x           = 2
-speed_y           = 1
+speed_y           = 4
 gone_through      = 0
 last_pos_x        = 0
 
@@ -32,7 +32,10 @@ function step()
 end
 
 function contact(with)
-
+  if with == 'player' then
+	son = {"ouille.wav","aieaieaie.wav"}
+	playsound(son[math.random(1,2)])
+  end 
 end
 
 function onAnimEnd()

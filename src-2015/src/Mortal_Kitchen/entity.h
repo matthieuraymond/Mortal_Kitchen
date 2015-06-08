@@ -61,6 +61,7 @@ void    entity_contact(Entity *e,Entity *with);
 void    entity_onfloor(Entity *e);
 AAB<2>  entity_bbox(Entity *e);
 void    apply_damage(Entity *with, Entity *from);
+void    lua_attack(string filename, string owner, string side, int posx, int posy);
 
 v2f     entity_get_pos(Entity *e);
 float   entity_get_angle(Entity *e);
