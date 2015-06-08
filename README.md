@@ -1,4 +1,14 @@
+### Demo :
+The current alpha demo is available here : (please note that the game is still in early devlopment) 
+https://www.dropbox.com/s/1xprcoeh88u5zks/Mortal_Kitchen_DEMO-installer.EXE?dl=0
+
 ### UPDATES :
+
+1.0 : First demo working ! (Note that the boss UI is still missing =( )
+
+0.9 : Improve UI, add somes bkg sounds and new enemies (meatboy, salad, ketchup, etc)
+
+0.8 : Adding Sergio !
 
 0.7 : Added attackes, tomatos can now kill and be killed, IA upgraded to follow and attack player when near
 
@@ -55,15 +65,6 @@ Then, launch CMake and configure :
 You should now have a fully functional version of Mortal Kitchen, the gameprog.sln might be in the newly created BUILD folder.
 
 Any added file to the project should be mentioned in the corresponding CMakeLists.txt so other can generate solution including this new file. 
- 
-# ** Testing sprites, tiles, etc with this projects **
- 
-  * All content should be added to src-2015\data (in tilemap for map, sprites for sprites, etc)
-  * Sprite may then be referenced in the scripts src-2015\data\scripts
-  * To launch the game, click on Mortal_Kitchen.exe in src-2015
-  * Any added file may be (or will be) added to the installer project so they're packed in the installer
- 
-N.B : Push the space bar to reload your scripts/sprites
  
 Have fun on this awesome project ! =)
  
