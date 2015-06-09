@@ -30,10 +30,17 @@ void drawTextCentered(string text, v2i pos) {
 	int width = 0;
 	for (i = 0; i < l; i++) {
 		char c = text[i];
-		width += letters[c]->w();
+		if (c != ' ') {
+			width += letters[c]->w();
+		}
+		else {
+			width += 30;
+		}
 	}
 	for (i = 0; i < l; i++) {
 		char c = text[i];
-		letters[c]->draw(pos[0] - width/2 + i * 32, pos[1]);
+		if (c != ' ') {
+			letters[c]->draw(pos[0] - width / 2 + i * 32, pos[1]);
+		}
 	}
 }

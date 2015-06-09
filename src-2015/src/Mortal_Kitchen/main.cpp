@@ -41,7 +41,8 @@ enum        	g_State {menu, playing, over, winner };
 enum            g_Loading {no, requested, yes};
 g_State         g_GameState    = menu;
 g_Loading       g_LoadState    = no;
-int				g_Menu		   = 0; // 0: main menu, 1: credits
+enum			g_Menu { mainMenu, credits, levelSelect };
+g_Menu			g_MenuState    = mainMenu;
 int				selector	   = 0;
 DrawImage		*selectBall    = NULL;
 DrawImage		*gameOver	   = NULL;
@@ -49,6 +50,7 @@ DrawImage       *menuBkg       = NULL;
 DrawImage       *loadingBkg    = NULL;
 DrawImage       *gameWinner        = NULL;
 void init_game();
+void menuKey(uchar key);
 
 // ------------------------------------------------------------------
 
@@ -70,24 +72,7 @@ void mainKeyPressed(uchar key)
 
 	// Menu
 	if (g_GameState == menu) {
-		if (g_Menu == 0) {
-			if (key == 'z') {
-				selector += 1;
-				selector = selector % 2;
-			}
-			else if (key == 's') {
-				selector -= 1;
-				selector = abs(selector % 2);
-			}
-			else if (key == ' ') {
-				if (selector == 0) {
-					g_LoadState = requested;
-				}
-				else if (selector == 1) {
-					g_Menu = 1;
-				}
-			}
-		}
+		menuKey(key);
 	}
 	if (g_GameState == over || g_GameState == winner) {
 		if (key == ' ') {
@@ -102,6 +87,68 @@ void mainKeyPressed(uchar key)
 void mainKeyUnpressed(uchar key)
 {
   g_Keys[key] = false;
+}
+
+void menuKey(uchar key) {
+	if (g_MenuState == mainMenu) {
+		if (key == 'z') {
+			if (selector == 0) {
+				selector = 2;
+			}
+			else {
+				selector -= 1;
+				selector = selector % 3;
+			}
+		}
+		else if (key == 's') {
+			selector += 1;
+			selector = selector % 3;
+		}
+		else if (key == ' ') {
+			if (selector == 0) {
+				g_LoadState = requested;
+			}
+			else if (selector == 1) {
+				g_MenuState = levelSelect;
+				selector = 0;
+			}
+			else if (selector == 2) {
+				g_MenuState = credits;
+			}
+		}
+	}
+	else if (g_MenuState == credits) {
+		if (key == ' ') {
+			g_MenuState = mainMenu;
+		}
+	}
+	else if (g_MenuState == levelSelect) {
+		if (key == 'z') {
+			if (selector == 0) {
+				selector = 2;
+			}
+			else {
+				selector -= 1;
+				selector = selector % 3;
+			}
+		}
+		else if (key == 's') {
+			selector += 1;
+			selector = selector % 3;
+		}
+		else if (key == ' ') {
+			if (selector == 0) {
+				g_LoadState = requested;
+			}
+			else if (selector == 1) {
+				g_LoadState = requested;
+			}
+			else if (selector == 2) {
+				g_MenuState = mainMenu;
+				selector = 0;
+			}
+		}
+	}
 }
 
 // ------------------------------------------------------------------
@@ -190,14 +237,22 @@ void menuLoop() {
 	}
 	else {
 		menuBkg->draw(0, 0);
-		if (g_Menu == 0) {
+		if (g_MenuState == mainMenu) {
 			// Main menu
-			drawTextCentered("play", v2i(c_ScreenW / 2, c_ScreenH / 2));
-			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
+			drawTextCentered("new game", v2i(c_ScreenW / 2, c_ScreenH / 2));
+			drawTextCentered("load game", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
+			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 128));
 			selectBall->draw(c_ScreenW / 2 - 150, c_ScreenH / 2 - 64 * selector);
 		}
-		else if (g_Menu == 1) {
+		else if (g_MenuState == credits) {
 			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
+		}
+		else if (g_MenuState == levelSelect) {
+			// Select level
+			drawTextCentered("level one", v2i(c_ScreenW / 2, c_ScreenH / 2));
+			drawTextCentered("level two", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
+			drawTextCentered("back", v2i(c_ScreenW / 2, c_ScreenH / 2 - 128));
+			selectBall->draw(c_ScreenW / 2 - 150, c_ScreenH / 2 - 64 * selector);
 		}
 	}
 }
