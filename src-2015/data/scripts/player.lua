@@ -27,6 +27,8 @@ addanim(player .. 'crouch'..separator..'left.png',256,75)
 addanim(player .. 'crouch'..separator..'right.png',256,75)
 addanim(player .. 'fight'..separator..'right.png',320,50)
 addanim(player .. 'fight'..separator..'left.png',320,50)
+addanim(player .. 'jump'..separator..'right.png',256,75)
+addanim(player .. 'jump'..separator..'left.png',256,75)
 
 playanim(player .. 'walk'..separator..'left.png',true)
 stopanim()
@@ -93,7 +95,9 @@ function step()
 	if Key_z and on_floor then
 		set_velocity_y(6.0)
 		on_floor = false
+		state='jump'
 		-- play jump anim not a loop
+		playanim(player .. state .. separator .. side .. '.png',false)
 		playsound("boing.wav")
 	end
 
@@ -113,13 +117,14 @@ end
 
 function onFloor()
 	on_floor = true
+	if state=='jump' then 
+	state='walk'
+	playanim(player .. state .. separator .. side .. '.png',false)
+	end
 end
 
 function onAnimEnd()
   if state == 'fight' then
 	state = 'wait'
-  end
-  if state == 'jumping' and on_floor then
-    state = 'wait'
   end
 end
