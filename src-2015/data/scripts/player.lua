@@ -60,7 +60,8 @@ function step()
 		end
 		if Key_g and on_floor then
 			state = 'fight'
-			playsound("pipou.wav")
+			son = {"ha.wav","pipou.wav"}
+			playsound(son[math.random(1,2)])
 			playanim(player .. state .. separator .. side .. '.png',false)
 			
 			-- attack
