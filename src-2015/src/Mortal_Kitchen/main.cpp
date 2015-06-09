@@ -152,7 +152,7 @@ void gameLoop() {
 	drawText(life_str, v2i(25, c_ScreenH - 75));
 
 	// -> draw physics debug layer
-	//phy_debug_draw();
+	phy_debug_draw();
 
 	if (g_Player->killed) {
 		play_sound("mort.wav");
@@ -246,11 +246,11 @@ void init_game() {
 	// bind tilemap to physics
 	tilemap_bind_to_physics(g_Tilemap);
 	g_Entities.clear(); // needed when restarting
-	{
+	/*{
 		Entity *c = entity_create("enemy", "ketchup.lua");
 		entity_set_pos(c, v2f(0.5*c_ScreenW, 500));
 		g_Entities.push_back(c);
-	}
+	}*/
 	{
 		Entity *c = entity_create("enemy", "salad.lua");
 		entity_set_pos(c, v2f(c_ScreenW * 1.5, 256));
