@@ -1,6 +1,6 @@
 ### Demo :
 The current alpha demo is available here : (please note that the game is still in early devlopment) 
-https://www.dropbox.com/s/1xprcoeh88u5zks/Mortal_Kitchen_DEMO-installer.EXE?dl=0
+https://www.dropbox.com/s/z9k2h0pwciuxzx7/Mortal_Kitchen_Demo-installer.EXE?dl=0
 
 ### UPDATES :
 
