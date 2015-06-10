@@ -5,6 +5,7 @@ physics_size_y    = 8
 density           = 2.0
 physics_can_sleep = true
 physics_rotation  = true
+is_movable        = true
 
 addanim('spinning_coin_gold.png',16,100)
 playanim('spinning_coin_gold.png',false)

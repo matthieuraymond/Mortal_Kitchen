@@ -1,10 +1,11 @@
 physics_center_x  =  0
 physics_center_y  =  0
-physics_size_x    = 200
+physics_size_x    = 125
 physics_size_y    = 150
 density           = 2
 physics_can_sleep = false
 physics_rotation  = false
+is_movable        = true
 
 state = 'walk'
 side = 'left'

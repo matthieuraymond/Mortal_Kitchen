@@ -4,6 +4,7 @@ physics_size_x    = 17
 physics_size_y    = 50
 physics_can_sleep = true
 physics_rotation  = false
+is_movable        = true
 damage            = 50
 push              = 1.0
 range             = 100* 5.0 -- 100 for px to m (0.05 is in m)

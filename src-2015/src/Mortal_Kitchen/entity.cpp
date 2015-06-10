@@ -282,11 +282,17 @@ Entity *entity_create(string name,string script)
   float density = luabind::object_cast<float>(globals(e->script->lua)["density"]);
   bool  can_sleep  = luabind::object_cast<bool>(globals(e->script->lua)["physics_can_sleep"]);
   bool  can_rotate = luabind::object_cast<bool>(globals(e->script->lua)["physics_rotation"]);
+  bool  is_movable = luabind::object_cast<bool>(globals(e->script->lua)["is_movable"]);
 
   /// physics
   // define the dynamic body
   b2BodyDef bodyDef;
-  bodyDef.type = b2_dynamicBody;
+  if (is_movable) {
+	  bodyDef.type = b2_dynamicBody;
+  }
+  else {
+	  bodyDef.type = b2_staticBody;
+  }
   bodyDef.position.Set(0.0f, 0.0f);
   e->body = g_World->CreateBody(&bodyDef);
   e->body->SetSleepingAllowed(can_sleep);
@@ -312,6 +318,8 @@ Entity *entity_create(string name,string script)
   e->body->CreateFixture(&fixtureDef);
   return e;
 }
+
+// ------------------------------------------------------------------
 
 // ------------------------------------------------------------------
 

@@ -4,6 +4,7 @@ physics_size_x    = 10
 physics_size_y    = 10
 physics_can_sleep = true
 physics_rotation  = true
+is_movable        = true
 damage            = 50
 push              = 1.0
 density           = 0

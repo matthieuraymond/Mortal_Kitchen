@@ -5,6 +5,7 @@ physics_size_y    = 125
 density           = 2
 physics_can_sleep = false
 physics_rotation  = false
+is_movable        = true
 
 state = 'walk'
 side = 'left'

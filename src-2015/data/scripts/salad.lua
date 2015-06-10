@@ -5,6 +5,7 @@ physics_size_y    = 125
 density           = 2
 physics_can_sleep = false
 physics_rotation  = false
+is_movable        = true
 
 state = 'walk'
 side = 'left'
@@ -84,8 +85,10 @@ function aggressive()
 	if state ~= 'fight'  then
 		if player_pos_x < pos_x then
 			side = "left"
+			factor = -1
 		else
 			side = "right"
+			factor = 1
 		end
 		state = 'fight'
 		playanim(player .. state .. separator .. side .. '.png',false)
@@ -117,7 +120,7 @@ end
 
 function onAnimEnd()
   if state == 'fight' then
-	playanim(player .. state .. separator .. side .. '.png',false)
+	state = 'wait'
   end
   if state == 'turn_left' then
     -- state = 'walk_left'

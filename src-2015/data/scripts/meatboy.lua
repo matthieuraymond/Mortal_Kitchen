@@ -5,6 +5,7 @@ physics_size_y    = 170
 density           = 20
 physics_can_sleep = false
 physics_rotation  = false
+is_movable        = true
 
 state = 'fight'
 side = 'left'

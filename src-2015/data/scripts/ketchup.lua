@@ -5,6 +5,7 @@ physics_size_y    = 25
 density           = 0.1
 physics_can_sleep = false
 physics_rotation  = false
+is_movable        = true
 
 player = 'ketchup'
 separator = '.'

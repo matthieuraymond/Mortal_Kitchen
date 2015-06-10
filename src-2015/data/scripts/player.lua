@@ -9,6 +9,7 @@ physics_size_y    = stand_size_y
 density           = 5
 physics_can_sleep = false
 physics_rotation  = false
+is_movable        = true
 
 -- define a state variable which can be: 
 -- 'wait_left', 'wait_right'

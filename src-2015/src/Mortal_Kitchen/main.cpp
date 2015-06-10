@@ -37,13 +37,15 @@ Entity*         g_Player       = NULL;
 Entity*         g_Boss         = NULL;
 v2i 			g_viewpos      = NULL;
 
-enum        	g_State {menu, playing, over, winner };
+enum        	g_State {menu, playing, cinematic, boss, over, winner };
 enum            g_Loading {no, requested, yes};
+bool            g_CinPlayed     = false;
 g_State         g_GameState    = menu;
 g_Loading       g_LoadState    = no;
 enum			g_Menu { mainMenu, credits, levelSelect };
 g_Menu			g_MenuState    = mainMenu;
 int				selector	   = 0;
+int             g_animStart    = 0;
 DrawImage		*selectBall    = NULL;
 DrawImage		*gameOver	   = NULL;
 DrawImage       *menuBkg       = NULL;
@@ -170,7 +172,9 @@ void gameLoop() {
 			entity_step(g_Entities[a], el);
 		}
 		// -> update viewpos (x coord only in this 'game')
-		g_viewpos[0] = (int)entity_get_pos(g_Player)[0] - c_ScreenW / 4;
+		if (g_GameState == playing) {
+			g_viewpos[0] = (int)entity_get_pos(g_Player)[0] - c_ScreenW / 4;
+		}
 	}
 	//// Display
 
@@ -199,7 +203,13 @@ void gameLoop() {
 	drawText(life_str, v2i(25, c_ScreenH - 75));
 
 	// -> draw physics debug layer
-	phy_debug_draw();
+	//phy_debug_draw();
+
+	if (entity_get_pos(g_Player)[0] > 6.5 * c_ScreenW && !(g_CinPlayed)) {
+		g_animStart = milliseconds();
+		g_Player->animIsPlaying = false;
+		g_GameState = cinematic;
+	}
 
 	if (g_Player->killed) {
 		play_sound("mort.wav");
@@ -212,7 +222,78 @@ void gameLoop() {
 	}
 
 	//play sound
-	play_sound("game.wav");
+	if (g_GameState == playing) {
+		play_sound("game.wav");
+	}
+	else if (g_GameState == boss) {
+		play_sound("boss.wav");
+	}
+}
+
+// ----------------------------------------------------------------------------------
+
+void cinematicLoop() {
+
+	//// Compute elapsed time
+	time_t now = milliseconds();
+	time_t el = now - g_LastFrame;
+	if (el > 20) {
+		g_viewpos[0] += 10;
+		if (g_viewpos[0] >= 7 * c_ScreenW) {
+			g_viewpos[0] = 7 * c_ScreenW;
+		}
+
+		g_LastFrame = now;
+
+		//// Physics
+		phy_step();
+
+	}
+	//// Display
+
+	clearScreen();
+
+	// -> draw background
+	background_draw(g_Bkg, g_viewpos);
+	// -> draw background sprites
+	for (int a = 0; a < (int)g_BkgSprites.size(); a++) {
+		backgroundSprite_draw(g_BkgSprites[a], g_viewpos);
+	}
+	
+	// -> draw tilemap
+	tilemap_draw(g_Tilemap, g_viewpos);
+
+	// -> draw all entities
+	for (int a = 0; a < (int)g_Entities.size(); a++) {
+		entity_draw(g_Entities[a], g_viewpos);
+	}
+
+	// -> draw physics debug layer
+	phy_debug_draw();
+
+	if (g_viewpos[0] >= 6.95 * c_ScreenW && g_viewpos[0] < 7 * c_ScreenW) {
+		g_Player->animIsPlaying = true;
+		entity_set_pos(g_Player, v2f(6.8 * c_ScreenW, 256));
+		entity_set_pos(g_Boss, v2f(8.2 * c_ScreenW, 256));
+		g_Player->body->SetLinearVelocity(b2Vec2(3, 6));
+		g_Boss->body->SetLinearVelocity(b2Vec2(-5, 7));
+	}
+
+	if ((now - g_animStart) > 4000) {
+		{
+			Entity *c = entity_create("wall", "wall.lua");
+			entity_set_pos(c, v2f(7 * c_ScreenW, 256));
+			g_Entities.push_back(c);
+		}
+		{
+		Entity *c = entity_create("wall", "wall.lua");
+		entity_set_pos(c, v2f(8 * c_ScreenW, 256));
+		g_Entities.push_back(c);
+		}
+		g_CinPlayed = true;
+		g_GameState = boss;
+	}
+
 }
 
 // ----------------------------------------------------------------------------------
@@ -242,7 +323,7 @@ void menuLoop() {
 			drawTextCentered("new game", v2i(c_ScreenW / 2, c_ScreenH / 2));
 			drawTextCentered("load game", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
 			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2 - 128));
-			selectBall->draw(c_ScreenW / 2 - 150, c_ScreenH / 2 - 64 * selector);
+			selectBall->draw(c_ScreenW / 2 - 170, c_ScreenH / 2 - 64 * selector);
 		}
 		else if (g_MenuState == credits) {
 			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
@@ -252,7 +333,7 @@ void menuLoop() {
 			drawTextCentered("level one", v2i(c_ScreenW / 2, c_ScreenH / 2));
 			drawTextCentered("level two", v2i(c_ScreenW / 2, c_ScreenH / 2 - 64));
 			drawTextCentered("back", v2i(c_ScreenW / 2, c_ScreenH / 2 - 128));
-			selectBall->draw(c_ScreenW / 2 - 150, c_ScreenH / 2 - 64 * selector);
+			selectBall->draw(c_ScreenW / 2 - 170, c_ScreenH / 2 - 64 * selector);
 		}
 	}
 }
@@ -269,8 +350,11 @@ void mainRender()
 		menuLoop();
 	}
 	// Playing
-	else if (g_GameState == playing) {
+	else if (g_GameState == playing || g_GameState == boss) {
 		gameLoop();
+	}
+	else if (g_GameState == cinematic) {
+		cinematicLoop();
 	}
 	// Game Over
 	else if (g_GameState == over) {
@@ -392,7 +476,7 @@ void init_game() {
 	}
 	{
 		Entity *c = entity_create("enemy", "maxipain.lua");
-		entity_set_pos(c, v2f(c_ScreenW, 256));//7*
+		entity_set_pos(c, v2f(8.5*c_ScreenW, 256));
 		c->alive = true;
 		c->life = 250;
 		g_Boss = c; // BOSS
@@ -400,15 +484,14 @@ void init_game() {
 	}
 	{ // Always keep sergio last so he's over
 		Entity *c = entity_create("player", "player.lua");
-		entity_set_pos(c, v2f(c_ScreenW / 4, 256));
+		entity_set_pos(c, v2f(c_ScreenW *6, 256)); //6*c_ScreenW
 		c->alive = true;
-		c->life = 1500;
+		c->life = 2500;
 		g_Player = c;
 		g_Entities.push_back(c);
 	}
 	g_LastFrame = milliseconds();
 }
-
 
 
 
