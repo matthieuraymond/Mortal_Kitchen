@@ -103,7 +103,7 @@ function step()
 	end
 
 	-- walk if state is 'walk_*'
-	if state == 'walk' then 
+	if state == 'walk' or state == 'jump' then 
 		factor = 1
 		if side == 'left' then
 			factor = -1
