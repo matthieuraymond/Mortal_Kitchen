@@ -484,9 +484,9 @@ void init_game() {
 	}
 	{ // Always keep sergio last so he's over
 		Entity *c = entity_create("player", "player.lua");
-		entity_set_pos(c, v2f(c_ScreenW *6, 256)); //6*c_ScreenW
+		entity_set_pos(c, v2f(c_ScreenW / 4, 256)); //6*c_ScreenW
 		c->alive = true;
-		c->life = 2500;
+		c->life = 250;
 		g_Player = c;
 		g_Entities.push_back(c);
 	}

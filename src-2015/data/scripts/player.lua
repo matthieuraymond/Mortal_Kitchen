@@ -34,8 +34,6 @@ addanim(player .. 'jump'..separator..'left.png',256,75)
 playanim(player .. 'walk'..separator..'left.png',true)
 stopanim()
 
-last_Key = ''
-
 function step()
 
 	if state == 'wait' then
@@ -43,14 +41,11 @@ function step()
 			state = 'walk'
 			side = 'left'
 			playanim(player .. state .. separator .. side .. '.png',true)
-			last_Key = 'q'
 		end
 		if Key_d then
-			Key_q = false
 			state = 'walk'
 			side = 'right'
 			playanim(player .. state .. separator .. side .. '.png',true)
-			last_Key = 'd'
 		end
 
 		if Key_s then
@@ -76,6 +71,18 @@ function step()
 		end 
 	end
 	
+	if state == 'jump' and not(on_floor) then
+		if Key_q then
+			side = 'left'
+			set_velocity_x(-2.2)
+			playanim(player .. state .. separator .. side .. '.png',true)
+		end
+		if Key_d then
+			side = 'right'
+			set_velocity_x(2.2)
+			playanim(player .. state .. separator .. side .. '.png',true)
+		end
+	end
 	
 	-- reset states
 	if state == 'walk' and not Key_q and not Key_d then
@@ -103,7 +110,7 @@ function step()
 	end
 
 	-- walk if state is 'walk_*'
-	if state == 'walk' or state == 'jump' then 
+	if state == 'walk' then 
 		factor = 1
 		if side == 'left' then
 			factor = -1
@@ -119,8 +126,8 @@ end
 function onFloor()
 	on_floor = true
 	if state=='jump' then 
-	state='walk'
-	playanim(player .. state .. separator .. side .. '.png',false)
+		state='walk'
+		playanim(player .. state .. separator .. side .. '.png',false)
 	end
 end
 
