@@ -14,6 +14,7 @@ extern b2World *g_World;
 extern vector<Entity*> g_Entities;
 extern int c_ScreenW;
 extern Entity* g_Boss;
+extern int g_Level;
 
 // ------------------------------------------------------------------
 
@@ -109,6 +110,7 @@ int lua_num_tiles_y()
 
 void lua_entity(string name, string script, float posx, int life) 
 {
+
 	Entity *c = entity_create(name, script);
 	entity_set_pos(c, v2f(c_ScreenW * posx, 500));
 	c->alive = (life > 0);

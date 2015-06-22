@@ -13,6 +13,15 @@ tilemap('map2.png',32,32)
 -- add enemies
 
 function init_entities() 
-
+	set_entity("enemy", "ketchup-high.lua", 2.1, 0)
+	set_entity("enemy", "mayo-high.lua", 2.5, 0)
+	set_entity("enemy", "ketchup-high.lua", 2.85, 0)
+	
+	set_entity("enemy", "tomato.lua", 2.0, 0)
+	set_entity("enemy", "salad.lua", 2.2, 0)
+	set_entity("enemy", "oignon.lua", 2.4, 0)
+	set_entity("enemy", "tomato.lua", 2.6, 0)
+	set_entity("enemy", "tomato.lua", 2.8, 0)
+	set_entity("enemy", "tomato.lua", 3.0, 0)
 end
 
