@@ -79,7 +79,6 @@ void mainKeyPressed(uchar key)
 	}
 	if (g_GameState == over || g_GameState == winner) {
 		if (key == ' ') {
-			init_game();
 			g_GameState = menu;
 		}
 	}
@@ -208,20 +207,22 @@ void gameLoop() {
 	// -> draw physics debug layer
 	//phy_debug_draw();
 
-	if (entity_get_pos(g_Player)[0] > 6.5 * c_ScreenW && !(g_CinPlayed)) {
-		g_animStart = milliseconds();
-		g_Player->animIsPlaying = false;
-		g_GameState = cinematic;
-	}
+	if (g_GameState == playing) {
+		if (entity_get_pos(g_Player)[0] > 6.5 * c_ScreenW && !(g_CinPlayed)) {
+			g_animStart = milliseconds();
+			g_Player->animIsPlaying = false;
+			g_GameState = cinematic;
+		}
 
-	if (g_Player->killed) {
-		play_sound("mort.wav");
-		g_GameState = over;
-	}
+		if (g_Player->killed) {
+			play_sound("mort.wav");
+			g_GameState = over;
+		}
 
-	if (g_Boss->killed) {
-		play_sound("winner.wav");
-		g_GameState = winner;
+		if (g_Boss != NULL && g_Boss->killed) {
+			play_sound("winner.wav");
+			g_GameState = winner;
+		}
 	}
 
 	//play sound
@@ -308,6 +309,7 @@ void menuLoop() {
 
 	if (g_LoadState == yes) {
 		background_load(g_Bkg);
+		init_game();
 		for (int a = 0; a < (int)g_BkgSprites.size(); a++) {
 			backgroundSprite_load(g_BkgSprites[a]);
 		}
@@ -371,11 +373,7 @@ void mainRender()
 
 // ------------------------------------------------------------------
 void init_game() {
-
 	///// Level creation
-
-	// create background
-	g_Bkg = background_init(c_ScreenW, c_ScreenH);
 	if (g_Level == 1) {
 		g_BkgSprites.push_back(backgroundSprite_init(c_ScreenW, c_ScreenH, 3, "friteuse", 250));
 		g_BkgSprites.push_back(backgroundSprite_init(c_ScreenW, c_ScreenH, 3, "cuiseur", 150));
@@ -385,9 +383,6 @@ void init_game() {
 
 	// load a tilemap
 	g_Tilemap = tilemap_load(levelScript);
-
-	// init physics
-	phy_init();
 
 	// bind tilemap to physics
 	tilemap_bind_to_physics(g_Tilemap);
@@ -459,7 +454,13 @@ int main(int argc,const char **argv)
 		selectBall = new DrawImage(name.c_str());
 	}
 
-	init_game();
+	// create background
+	g_Bkg = background_init(c_ScreenW, c_ScreenH);
+
+	// init physics
+	phy_init();
+
+	g_LastFrame = milliseconds();
 
     // enter the main loop
     SimpleUI::loop();
