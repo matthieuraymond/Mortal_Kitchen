@@ -273,7 +273,7 @@ void cinematicLoop() {
 	}
 
 	// -> draw physics debug layer
-	phy_debug_draw();
+	// phy_debug_draw();
 
 	if (g_viewpos[0] >= 6.95 * c_ScreenW && g_viewpos[0] < 7 * c_ScreenW) {
 		g_Player->animIsPlaying = true;

@@ -127,7 +127,7 @@ function onFloor()
 	on_floor = true
 	if state=='jump' then 
 		state='walk'
-		playanim(player .. state .. separator .. side .. '.png',false)
+		playanim(player .. state .. separator .. side .. '.png',true)
 	end
 end
 

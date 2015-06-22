@@ -17,7 +17,7 @@ playanim(player .. 'fight' .. separator .. side .. '.png',false)
 
 function step()
 	if state ~= 'fight' then
-		if player_pos_x < pos_x then
+		if  pos_x < 4000 then
 			side="left"
 			factor = -1
 		else
