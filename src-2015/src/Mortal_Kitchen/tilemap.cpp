@@ -11,6 +11,9 @@
 #include "physics.h"
 // The World (in physics.cpp)
 extern b2World *g_World;
+extern vector<Entity*> g_Entities;
+extern int c_ScreenW;
+extern Entity* g_Boss;
 
 // ------------------------------------------------------------------
 
@@ -104,32 +107,46 @@ int lua_num_tiles_y()
 
 // ------------------------------------------------------------------
 
+void lua_entity(string name, string script, float posx, int life) 
+{
+	Entity *c = entity_create(name, script);
+	entity_set_pos(c, v2f(c_ScreenW * posx, 500));
+	c->alive = (life > 0);
+	c->life = life;
+	if (name == "boss") {
+		g_Boss = c;
+	}
+	g_Entities.push_back(c);
+}
+
+// ------------------------------------------------------------------
+
 Tilemap *tilemap_load(string fname)
 {
   Tilemap *tilemap = new Tilemap;
 
-  Script *script = script_create();
+  tilemap->script = script_create();
   
   // install our own functions into the script
   {
-    module(script->lua)
+    module(tilemap->script->lua)
       [
-        def("tile", &lua_tile),
-        def("tilemap", &lua_tilemap),
-        def("color", &lua_color),
-        def("tileat", &lua_tileat),
-        def("set_tileat", &lua_set_tileat),
-        def("num_tiles_x", &lua_num_tiles_x),
-        def("num_tiles_y", &lua_num_tiles_y)
+		  def("tile", &lua_tile),
+		  def("tilemap", &lua_tilemap),
+		  def("color", &lua_color),
+		  def("tileat", &lua_tileat),
+		  def("set_tileat", &lua_set_tileat),
+		  def("num_tiles_x", &lua_num_tiles_x),
+		  def("num_tiles_y", &lua_num_tiles_y),
+		  def("set_entity", &lua_entity),
+		  def("set_attack", &lua_attack)
       ];
   }
+
   // load the script (global space gets executed)
   g_Current = tilemap;
-  script_load(script, executablePath() + "/data/scripts/" + fname);
+  script_load(tilemap->script, executablePath() + "/data/scripts/" + fname);
   g_Current = NULL;
-  // kill the script (no longer needed)
-  script_kill(script);
-  delete (script);
 
   return tilemap;
 }

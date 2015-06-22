@@ -46,6 +46,7 @@ enum			g_Menu { mainMenu, credits, levelSelect };
 g_Menu			g_MenuState    = mainMenu;
 int				selector	   = 0;
 int             g_animStart    = 0;
+int             g_Level        = 1;
 DrawImage		*selectBall    = NULL;
 DrawImage		*gameOver	   = NULL;
 DrawImage       *menuBkg       = NULL;
@@ -140,9 +141,11 @@ void menuKey(uchar key) {
 		}
 		else if (key == ' ') {
 			if (selector == 0) {
+				g_Level = 1;
 				g_LoadState = requested;
 			}
 			else if (selector == 1) {
+				g_Level = 2;
 				g_LoadState = requested;
 			}
 			else if (selector == 2) {
@@ -373,11 +376,15 @@ void init_game() {
 
 	// create background
 	g_Bkg = background_init(c_ScreenW, c_ScreenH);
-	g_BkgSprites.push_back(backgroundSprite_init(c_ScreenW, c_ScreenH, 3, "friteuse", 250));
-	g_BkgSprites.push_back(backgroundSprite_init(c_ScreenW, c_ScreenH, 3, "cuiseur", 150));
+	if (g_Level == 1) {
+		g_BkgSprites.push_back(backgroundSprite_init(c_ScreenW, c_ScreenH, 3, "friteuse", 250));
+		g_BkgSprites.push_back(backgroundSprite_init(c_ScreenW, c_ScreenH, 3, "cuiseur", 150));
+	}
+
+	string levelScript = "level" + to_string(g_Level) + ".lua";
 
 	// load a tilemap
-	g_Tilemap = tilemap_load("level.lua");
+	g_Tilemap = tilemap_load(levelScript);
 
 	// init physics
 	phy_init();
@@ -385,103 +392,10 @@ void init_game() {
 	// bind tilemap to physics
 	tilemap_bind_to_physics(g_Tilemap);
 	g_Entities.clear(); // needed when restarting
-	/*{
-		Entity *c = entity_create("enemy", "ketchup.lua");
-		entity_set_pos(c, v2f(0.5*c_ScreenW, 500));
-		g_Entities.push_back(c);
-	}*/
-	{
-		Entity *c = entity_create("enemy", "salad.lua");
-		entity_set_pos(c, v2f(c_ScreenW * 1.5, 256));
-		c->alive = true;
-		c->life = 100;
-		g_Entities.push_back(c);
-	}
-		lua_attack("life.lua", "", "", 1.58*c_ScreenW, 350);
-	{
-		Entity *c = entity_create("enemy", "tomato.lua");
-		entity_set_pos(c, v2f(c_ScreenW * 2.0, 256));
-		c->alive = true;
-		c->life = 100;
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "meatboy.lua");
-		entity_set_pos(c, v2f(2.6*c_ScreenW, 256));
-		c->alive = true;
-		c->life = 100;
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "tomato.lua");
-		entity_set_pos(c, v2f(c_ScreenW * 2.8, 256));
-		c->alive = true;
-		c->life = 100;
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "ketchup.lua");
-		entity_set_pos(c, v2f(3.0*c_ScreenW, 500));
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "mayo.lua");
-		entity_set_pos(c, v2f(3.2*c_ScreenW, 500));
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "ketchup.lua");
-		entity_set_pos(c, v2f(3.4*c_ScreenW, 500));
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "mayo.lua");
-		entity_set_pos(c, v2f(3.55*c_ScreenW, 500));
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "ketchup.lua");
-		entity_set_pos(c, v2f(3.7*c_ScreenW, 500));
-		g_Entities.push_back(c);
-	}
-		lua_attack("life.lua", "", "", 4.38*c_ScreenW, 350);
-		lua_attack("life.lua", "", "", 4.25*c_ScreenW, 350);
-	{
-		Entity *c = entity_create("enemy", "meatboy.lua");
-		entity_set_pos(c, v2f(4.5*c_ScreenW, 256));
-		c->alive = true;
-		c->life = 100;
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "tomato.lua");
-		entity_set_pos(c, v2f(c_ScreenW * 5.7, 256));
-		c->alive = true;
-		c->life = 100;
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "salad.lua");
-		entity_set_pos(c, v2f(c_ScreenW * 5.8, 256));
-		c->alive = true;
-		c->life = 100;
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "tomato.lua");
-		entity_set_pos(c, v2f(c_ScreenW * 5.9, 256));
-		c->alive = true;
-		c->life = 100;
-		g_Entities.push_back(c);
-	}
-	{
-		Entity *c = entity_create("enemy", "maxipain.lua");
-		entity_set_pos(c, v2f(8.5*c_ScreenW, 256));
-		c->alive = true;
-		c->life = 250;
-		g_Boss = c; // BOSS
-		g_Entities.push_back(c);
-	}
+
+	//add entities
+	call_function<void>(g_Tilemap->script->lua, "init_entities");
+
 	{ // Always keep sergio last so he's over
 		Entity *c = entity_create("player", "player.lua");
 		entity_set_pos(c, v2f(c_ScreenW / 4, 256)); //6*c_ScreenW

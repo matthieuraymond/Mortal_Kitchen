@@ -7,6 +7,11 @@
 
 // ------------------------------------------------------------------
 
+extern int g_Level;
+
+// ------------------------------------------------------------------
+
+
 Background *background_init(int screenw,int screenh)
 {
   Background *bkg = new Background;
@@ -104,7 +109,7 @@ void background_load(Background *bkg) {
 		// already known?
 		if (bkg->screens.find(*R) == bkg->screens.end()) {
 			//no: load
-			string name = executablePath() + "/data/screens/" + to_string((*R)[0]) + "_" + to_string((*R)[1]) + ".png";
+			string name = executablePath() + "/data/screens/" + to_string(g_Level) + "/" + to_string((*R)[0]) + "_" + to_string((*R)[1]) + ".png";
 			//cerr << "attemtping to load " << name << endl;
 			if (LibSL::System::File::exists(name.c_str())) {
 				DrawImage *image = new DrawImage(name.c_str());
@@ -128,7 +133,7 @@ void backgroundSprite_load(BackgroundSprite *bkg) {
 		// already known?
 		if (bkg->screens.find(*R) == bkg->screens.end()) {
 			//no: load
-			string name = executablePath() + "/data/screens/" + bkg->folder + "/" + to_string((*R)[0]) + "_" + to_string((*R)[1]) + ".png";
+			string name = executablePath() + "/data/screens/" + to_string(g_Level) + "/" + bkg->folder + "/" + to_string((*R)[0]) + "_" + to_string((*R)[1]) + ".png";
 			cerr << "attemtping to load " << name << endl;
 			if (LibSL::System::File::exists(name.c_str())) {
 				DrawImage *image = new DrawImage(name.c_str());

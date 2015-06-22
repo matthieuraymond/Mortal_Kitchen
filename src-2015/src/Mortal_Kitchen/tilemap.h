@@ -10,6 +10,8 @@ using namespace std;
 // ------------------------------------------------------------------
 
 #include "drawimage.h"
+#include "script.h"
+
 
 // ------------------------------------------------------------------
 
@@ -23,6 +25,8 @@ typedef struct {
 
 typedef struct
 {
+  Script                 *script;
+
   map<string, DrawImage*> images;
   map<v3b, Tile*>         tiles;
 
