@@ -51,6 +51,7 @@ DrawImage		*selectBall    = NULL;
 DrawImage		*gameOver	   = NULL;
 DrawImage       *menuBkg       = NULL;
 DrawImage       *loadingBkg    = NULL;
+DrawImage       *img_credits       = NULL;
 DrawImage       *gameWinner        = NULL;
 void init_game();
 void menuKey(uchar key);
@@ -331,7 +332,8 @@ void menuLoop() {
 			selectBall->draw(c_ScreenW / 2 - 170, c_ScreenH / 2 - 64 * selector);
 		}
 		else if (g_MenuState == credits) {
-			drawTextCentered("credits", v2i(c_ScreenW / 2, c_ScreenH / 2));
+			img_credits->draw(c_ScreenW / 2 - 400, c_ScreenH / 2 - 250);
+
 		}
 		else if (g_MenuState == levelSelect) {
 			// Select level
@@ -393,9 +395,9 @@ void init_game() {
 
 	{ // Always keep sergio last so he's over
 		Entity *c = entity_create("player", "player.lua");
-		entity_set_pos(c, v2f(c_ScreenW / 4, 256)); //6*c_ScreenW
+		entity_set_pos(c, v2f(c_ScreenW *6, 256)); //6*c_ScreenW
 		c->alive = true;
-		c->life = 250;
+		c->life = 2500;
 		g_Player = c;
 		g_Entities.push_back(c);
 	}
@@ -452,6 +454,11 @@ int main(int argc,const char **argv)
 	cerr << "attemtping to load " << name << endl;
 	if (LibSL::System::File::exists(name.c_str())) {
 		selectBall = new DrawImage(name.c_str());
+	}
+	name = executablePath() + "/data/screens/credits.png";
+	cerr << "attemtping to load " << name << endl;
+	if (LibSL::System::File::exists(name.c_str())) {
+		img_credits = new DrawImage(name.c_str());
 	}
 
 	// create background
