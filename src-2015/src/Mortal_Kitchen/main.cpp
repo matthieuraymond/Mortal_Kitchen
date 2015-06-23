@@ -307,10 +307,9 @@ void menuLoop() {
 
 	//play sound
 	play_sound("menu.wav");
-
 	if (g_LoadState == yes) {
-		background_load(g_Bkg);
 		init_game();
+		background_load(g_Bkg);
 		for (int a = 0; a < (int)g_BkgSprites.size(); a++) {
 			backgroundSprite_load(g_BkgSprites[a]);
 		}
@@ -383,6 +382,9 @@ void init_game() {
 
 	string levelScript = "level" + to_string(g_Level) + ".lua";
 
+	// init physics
+	phy_init();
+	
 	// load a tilemap
 	g_Tilemap = tilemap_load(levelScript);
 
@@ -395,9 +397,9 @@ void init_game() {
 
 	{ // Always keep sergio last so he's over
 		Entity *c = entity_create("player", "player.lua");
-		entity_set_pos(c, v2f(c_ScreenW *6, 256)); //6*c_ScreenW
+		entity_set_pos(c, v2f(c_ScreenW / 4, 256)); //6*c_ScreenW
 		c->alive = true;
-		c->life = 2500;
+		c->life = 250;
 		g_Player = c;
 		g_Entities.push_back(c);
 	}
