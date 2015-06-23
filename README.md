@@ -1,8 +1,10 @@
 ### Demo :
-The current alpha demo is available here : (please note that the game is still in early devlopment) 
-https://www.dropbox.com/s/z9k2h0pwciuxzx7/Mortal_Kitchen_Demo-installer.EXE?dl=0
+The current alpha demo is available here : (please note that the game is still in early developpment) 
+https://www.dropbox.com/s/z9k2h0pwciuxzx7/Mortal_Kitchen_Demo-installer.EXE
 
 ### UPDATES :
+
+1.1 : Levels are now fully scripted, it'll be easy as pie to add content (also credits added), level in progress
 
 1.0 : First demo working ! (Note that the boss UI is still missing =( )
 
@@ -27,7 +29,7 @@ https://www.dropbox.com/s/z9k2h0pwciuxzx7/Mortal_Kitchen_Demo-installer.EXE?dl=0
 
 # ** What's Mortal Kitchen ? ** 
 
-Mortal Kitchen is a funny WTF game, developed by twelve amazing students from Nancy.
+Mortal Kitchen is a funny WTFBBQ Beat'em all game, developed by twelve amazing students from Nancy.
 
 These twelve awesome guys are from an engineering school (Mines Nancy) and an art schol (ENSA Nancy).
 
@@ -64,7 +66,7 @@ Then, launch CMake and configure :
  
 You should now have a fully functional version of Mortal Kitchen, the gameprog.sln might be in the newly created BUILD folder.
 
-Any added file to the project should be mentioned in the corresponding CMakeLists.txt so other can generate solution including this new file. 
+Any added file to the project should be mentioned in the corresponding CMakeLists.txt so other can generate solution including this new file.
  
 Have fun on this awesome project ! =)
  
