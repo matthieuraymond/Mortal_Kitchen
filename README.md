@@ -1,3 +1,5 @@
+![Header](https://github.com/matthieuraymond/Mortal_Kitchen/blob/master/header.gif)
+
 ### Demo :
 The current alpha demo is available here : (please note that the game is still in early developpment) 
 https://www.dropbox.com/s/z9k2h0pwciuxzx7/Mortal_Kitchen_Demo-installer.EXE
